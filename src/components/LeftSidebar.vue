@@ -4,7 +4,7 @@
     <el-row class="tac">
       <el-col :span="24">
         <!--标题-->
-        <h5>分类</h5>
+        <h5 style="font-size:60px">分类</h5>
         <!--设置一些属性，比如文字颜色等-->
         <el-menu
           default-active="1"
@@ -14,14 +14,15 @@
           @close="handleClose"
         >
           <!--下面的一堆子目录-->
-          <el-menu-item-group>
-            <el-menu-item index="1-1">二手书本</el-menu-item>
-            <el-menu-item index="1-2">数码产品</el-menu-item>
-            <el-menu-item index="1-3">票务转让</el-menu-item>
-            <el-menu-item index="1-4">二手衣物</el-menu-item>
-            <el-menu-item index="1-5">生活用品</el-menu-item>
-            <el-menu-item index="1-6">运动装备</el-menu-item>
-            <el-menu-item index="1-7">其他二手</el-menu-item>
+          <!--font-size设置字体大小-->
+          <el-menu-item-group >
+              <el-menu-item index="1-1" style="font-size:40px" class="Items">二手书本</el-menu-item>
+              <el-menu-item index="1-2" style="font-size:40px" class="Items">数码产品</el-menu-item>
+              <el-menu-item index="1-3" style="font-size:40px" class="Items">票务转让</el-menu-item>
+              <el-menu-item index="1-4" style="font-size:40px" class="Items">二手衣物</el-menu-item>
+              <el-menu-item index="1-5" style="font-size:40px" class="Items">生活用品</el-menu-item>
+              <el-menu-item index="1-6" style="font-size:40px" class="Items">运动装备</el-menu-item>
+              <el-menu-item index="1-7" style="font-size:40px" class="Items">其他二手</el-menu-item>
           </el-menu-item-group>
         </el-menu>
       </el-col>
@@ -48,6 +49,7 @@ export default {
   position: relative; /*位置为相对位置*/
   left: 0; /*排布在左侧*/
   width: 300px; /*宽度*/
+  
   top: 200px;
   /*以下两条共同设置边框颜色，如果不设置border-style会显示不出效果*/
   border-style: solid;
@@ -69,5 +71,9 @@ export default {
 .LeftSidebar {
   /*设置“分类”这两个字的字体颜色*/
   color: #20b2aa;
+}
+/*设置Items之间的间距 */
+.Items{
+  margin:50px 10px;
 }
 </style>
