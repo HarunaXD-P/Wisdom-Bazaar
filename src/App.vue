@@ -9,7 +9,7 @@
         <Header> </Header>
       </el-header>
       <!--main为下半部分，放了LeftSidebar.vue和DisplaySix.vue和myInformation.vue中的三个组件-->
-      <el-main>
+      <el-main class="mainContent">
         <!--加一个el-container是为了让这三个组件能左中右排布-->
         <el-container>
           <myLeftSidebar></myLeftSidebar>
@@ -48,5 +48,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   margin-right : 0px;
+}
+.mainContent{
+  float:center;
+  margin:auto;
 }
 </style>

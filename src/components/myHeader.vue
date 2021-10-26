@@ -1,9 +1,9 @@
 <template>
-  <div style="background-color: #ebebeb; min-height: 1080px">
+  <div style="background-color: #ebebeb; min-height: 2000px; width:1920px; margin:auto">
     <div
       style="
         height: 70px;
-        width: 100%;
+        width: 1920px;
         background-color: #3896c2;
         overflow: hidden;
       "
@@ -53,7 +53,7 @@ export default {
 }
 #login {
   float: right;
-  margin: 1%;
+  margin: 15px;
 }
 #search {
   float: left;
