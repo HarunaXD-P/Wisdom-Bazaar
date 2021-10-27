@@ -64,6 +64,22 @@
           </div>
 
       </div>
+      <div class="picture">
+          <div id="picUploader">
+              <el-upload
+                class="upload-demo"
+                action="https://jsonplaceholder.typicode.com/posts/"
+                :on-preview="handlePreview"
+                :on-remove="handleRemove"
+                :file-list="fileList"
+                list-type="picture">
+              <el-button size="medium" type="primary">点击上传图片</el-button>
+              <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+              </el-upload>
+
+          </div>
+
+      </div>
       
   </div>
 </template>
@@ -170,7 +186,14 @@ export default {
     top:550px;
     left:50px;
 }
-
+.picture{
+    height:300px;
+    width:300px;
+    
+    position:absolute;
+    left:700px;
+    top:160px;
+}
 #title,#inputTitle{
     float:left;
     margin:auto;
