@@ -22,7 +22,7 @@
     </el-container>
 =======
     <router-view/>   
->>>>>>> d4df8003a9976a5641a47d195b2cff90e4c4d37c
+>>>>>>> origin/ui
   </div>
 </template>
 

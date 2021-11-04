@@ -32,7 +32,7 @@
 						注册账号
 					</el-link>
 					
-					<el-link class="findpassword" target="_blank" href="../findpassword/">
+					<el-link class="findpassword" @click="findpasswordlink">
 						找回密码
 					</el-link>
 				</el-container>
@@ -51,10 +51,13 @@
 				password: ''
 			};
 		},
-		registerlink(){
-			this.$router.push( {
-				path:'../register'
-			})
+		methods:{
+			registerlink(){
+				this.$router.replace('/register')
+			},
+			findpasswordlink(){
+				this.$router.replace('/findpassword')
+			},
 		},
 	};
 </script>
