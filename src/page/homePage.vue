@@ -47,5 +47,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   margin-right : 0px;
+  width:1920px;
+  height:1080px;
+  float:center;
+  margin:auto;
 }
 </style>
