@@ -32,10 +32,12 @@
 <script>
 export default {
   name: "Display",
-  data() {
-    return {
-      active: 0,
-    };
+  methods: {
+    data() {
+      return {
+        active: 0,
+      };
+    },
   },
 };
 </script>

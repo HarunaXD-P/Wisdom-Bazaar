@@ -19,7 +19,8 @@
         </el-input>
       </span>
       <span class="header" id="login">
-        <el-button type="primary">登陆</el-button>
+        <!--这里加了一个跳转到登陆的功能-->
+        <el-button type="primary" @click="gotoLogin">登陆</el-button>
         <el-button type="primary">注册</el-button>
       </span>
     </div>
@@ -39,6 +40,11 @@ export default {
     handleIconClick(ev) {
       console.log(ev);
     },
+    //跳转函数
+    gotoLogin()
+    {
+      this.$router.replace('/login')
+    }
   },
 };
 </script>
