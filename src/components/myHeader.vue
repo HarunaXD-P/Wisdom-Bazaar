@@ -9,15 +9,17 @@
       "
     >
       <span class="header" id="logo"> FairMart </span>
-      <span class="header" id="search">
-        <el-input
+      <div class="header" id="search">
+        <div id="searchInput"><el-input
           placeholder="请输入"
           icon="search"
           v-model="searchCriteria"
           :on-icon-click="handleIconClick"
         >
-        </el-input>
-      </span>
+        </el-input></div>
+        <div id=searchButton><el-button  @click="getSearch">搜索</el-button></div>
+        
+      </div>
       <span class="header" id="login">
         <!--这里加了一个跳转到登陆的功能-->
         <el-button type="primary" @click="gotoLogin">登陆</el-button>
@@ -37,6 +39,10 @@ export default {
   },
 
   methods: {
+    getSearch:function(){
+      console.log(this.searchCriteria)
+
+    },
     handleIconClick(ev) {
       console.log(ev);
     },
@@ -70,6 +76,17 @@ export default {
   padding: 15px;
   color: white;
   margin-left: 650px;
-  width: 15%;
+  width: 400px;
+  position: relative;
+  left:-100px;
+}
+#searchButton{
+  float:right;
+  margin:auto;
+  display: inline-block;
+}
+#searchInput{
+  width:300px;
+  display: inline-block;
 }
 </style>

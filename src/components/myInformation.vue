@@ -64,6 +64,8 @@ export default {
   height: 1100px;
   margin-top: 75px;
   /*margin-right: 2%;*/
+  position: relative;
+  left:200px;
   margin-left : 80px;
   border-radius: 25px;
   background: #545c64;
