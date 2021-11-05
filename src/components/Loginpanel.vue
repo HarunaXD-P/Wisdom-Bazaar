@@ -21,7 +21,7 @@
 						记住我
 					</el-checkbox>
 				</el-container>
-				<el-button type="primary">
+				<el-button type="primary" style="position:absolute;top:350px;left:250px">
 					登陆
 				</el-button>
 			</el-main>
@@ -64,11 +64,11 @@
 
 <style>
 .panel{
-	background-color:#40afe2;
+	background-color:#44b8c7;
 	position: relative;
-	margin-top: 300px;
+	margin:auto;
 	width: 594px;
-	height: 670px;
+	height: 520px;
 }
 .username{
 	font-size:24px;

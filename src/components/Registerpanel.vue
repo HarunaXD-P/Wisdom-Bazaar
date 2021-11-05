@@ -28,10 +28,14 @@
 			</el-main>
 			
 			<el-footer>
-				<el-button type="primary">
+				<el-button type="primary" id="registerButton">
 					注册
 				</el-button>
+				<el-button type="primary" @click="gotoHome">
+					返回
+				</el-button>
 			</el-footer>
+			
 		</el-container>
 	</div>
 </template>
@@ -48,6 +52,12 @@
 				email: '',
 				vcode: ''
 			};
+		},
+		methods:{
+			gotoHome(){
+				this.$router.replace('/')
+			}
+
 		},
 	};
 </script>
@@ -83,5 +93,8 @@
 	font-size:24px;
 	position: absolute;
 	margin-top:10px;
+}
+#registerButton{
+	margin-top:50px;
 }
 </style>

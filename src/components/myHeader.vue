@@ -69,7 +69,7 @@ export default {
   float: left;
   padding: 15px;
   color: white;
-  margin-left: 2%;
+  margin-left: 650px;
   width: 15%;
 }
 </style>
