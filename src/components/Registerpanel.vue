@@ -56,6 +56,7 @@
 		methods:{
 			gotoHome(){
 				this.$router.replace('/')
+				this.$router.go(0)
 			}
 
 		},
