@@ -2,7 +2,7 @@
   <div style="background-color: #ebebeb; min-height: 2000px; width:1920px; margin:auto">
     <div
       style="
-        height: 70px;
+        height: 61px;
         width: 1920px;
         background-color: #3896c2;
         overflow: hidden;
@@ -21,16 +21,17 @@
         
       </div>
       <span class="header" id="login">
-        <!--这里加了一个跳转到登陆的功能-->
-        <el-button type="primary" @click="gotoLogin">登陆</el-button>
-        <el-button type="primary" @click="gotoRegister">注册</el-button>
+        <my-center></my-center>
       </span>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+import loginButton from './loginBar/loginButton.vue';
+import MyCenter from './loginBar/myCenter.vue';
 export default {
+  components: { loginButton, MyCenter },
   data() {
     return {
       searchCriteria: "",
@@ -46,15 +47,6 @@ export default {
     handleIconClick(ev) {
       console.log(ev);
     },
-    //跳转函数
-    gotoLogin()
-    {
-      this.$router.replace('/login')
-    },
-	gotoRegister()
-    {
-      this.$router.replace('/register')
-    }
   },
 };
 </script>
@@ -63,13 +55,14 @@ export default {
 #logo {
   color: white;
   float: left;
-  padding-top: 18px;
+  padding-top: 13px;
   margin-left: 1%;
   font-size: 35px;
 }
 #login {
   float: right;
-  margin: 15px;
+  margin: auto;
+  display: inline-block;
 }
 #search {
   float: left;
@@ -78,10 +71,10 @@ export default {
   margin-left: 650px;
   width: 400px;
   position: relative;
-  left:-100px;
+  left:-95px;
+  top:-3px;
 }
 #searchButton{
-  float:right;
   margin:auto;
   display: inline-block;
 }
