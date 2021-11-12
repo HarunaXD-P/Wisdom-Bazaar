@@ -17,11 +17,11 @@
           :on-icon-click="handleIconClick"
         >
         </el-input></div>
-        <div id=searchButton><el-button  @click="getSearch">搜索</el-button></div>
+        <div id=searchButton><el-button  @click="switchPage()">搜索</el-button></div>
         
       </div>
       <span class="header" id="login">
-        <my-center></my-center>
+        <div :is="currentView"></div>
       </span>
     </div>
   </div>
@@ -36,17 +36,31 @@ export default {
     return {
       searchCriteria: "",
       breadcrumbItems: ["导航一"],
+      currentView:'loginButton',
+      logined:'false'
     };
   },
 
   methods: {
     getSearch:function(){
       console.log(this.searchCriteria)
-
     },
     handleIconClick(ev) {
       console.log(ev);
     },
+    switchPage()
+    {
+      if(this.logined==false)
+        {
+          this.logined=true
+          if(this.logined==true) this.currentView=MyCenter
+        }
+      else {
+        this.logined=false
+        if(this.logined==false) this.currentView=loginButton
+
+      }
+    }
   },
 };
 </script>
