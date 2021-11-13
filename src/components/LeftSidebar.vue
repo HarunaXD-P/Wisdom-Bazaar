@@ -3,27 +3,45 @@
   <div class="LeftSidebar">
     <el-row class="tac">
       <el-col :span="24">
-        <!--标题-->
-        <h5 style="font-size:60px">分类</h5>
-        <!--设置一些属性，比如文字颜色等-->
+        <h5>商品分类</h5>
         <el-menu
-          default-active="1"
+          default-active="2"
           class="el-menu-vertical-demo"
-          text-color="#20B2AA"
           @open="handleOpen"
           @close="handleClose"
-        >
-          <!--下面的一堆子目录-->
-          <!--font-size设置字体大小-->
-          <el-menu-item-group >
-              <el-menu-item index="1-1" style="font-size:40px" class="Items">二手书本</el-menu-item>
-              <el-menu-item index="1-2" style="font-size:40px" class="Items">数码产品</el-menu-item>
-              <el-menu-item index="1-3" style="font-size:40px" class="Items">票务转让</el-menu-item>
-              <el-menu-item index="1-4" style="font-size:40px" class="Items">二手衣物</el-menu-item>
-              <el-menu-item index="1-5" style="font-size:40px" class="Items">生活用品</el-menu-item>
-              <el-menu-item index="1-6" style="font-size:40px" class="Items">运动装备</el-menu-item>
-              <el-menu-item index="1-7" style="font-size:40px" class="Items">其他二手</el-menu-item>
-          </el-menu-item-group>
+          background-color="#545c64"
+          text-color="#fff"
+          active-text-color="#ffd04b">
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>导航一</span>
+            </template>
+            <el-menu-item-group>
+              <template slot="title">分组一</template>
+              <el-menu-item index="1-1">选项1</el-menu-item>
+              <el-menu-item index="1-2">选项2</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group title="分组2">
+              <el-menu-item index="1-3">选项3</el-menu-item>
+            </el-menu-item-group>
+            <el-submenu index="1-4">
+              <template slot="title">选项4</template>
+              <el-menu-item index="1-4-1">选项1</el-menu-item>
+            </el-submenu>
+          </el-submenu>
+          <el-menu-item index="2">
+            <i class="el-icon-menu"></i>
+            <span slot="title">导航二</span>
+          </el-menu-item>
+          <el-menu-item index="3" disabled>
+            <i class="el-icon-document"></i>
+            <span slot="title">导航三</span>
+          </el-menu-item>
+          <el-menu-item index="4">
+            <i class="el-icon-setting"></i>
+            <span slot="title">导航四</span>
+          </el-menu-item>
         </el-menu>
       </el-col>
     </el-row>
@@ -45,35 +63,16 @@ export default {
 
 <style>
 .tac {
-  background-color: #e1ffff; /*“分类”这个小框的背景颜色*/
+  
   position: relative; /*位置为相对位置*/
   left: 0; /*排布在左侧*/
-  width: 300px; /*宽度*/
-  
-  top: 200px;
+  top:-20px;
+  width:300px; /*宽度*/
   /*以下两条共同设置边框颜色，如果不设置border-style会显示不出效果*/
-  border-style: solid;
-  border-color: #696969;
-  /*设置上面两个为圆角 */
-  border-radius: 25px;
-  margin-top: -120px;
-  margin-left: 20%;
+  margin-left: 0;
 }
-.el-menu-vertical-demo {
-  background-color: #e1ffff; /*设置下面七个子目录的背景颜色 */
-  /*在下面七个子目录的上面添一条线，因为ppt的图里“分类”和“二手书本”之间是有一条线隔开的*/
-  border-top: 2px solid #696969;
-  /*设置右下为圆角 */
-  border-end-end-radius: 25px;
-  /*设置左下为圆角 */
-  border-end-start-radius: 25px;
+.el-ment-item {
+  width:300px;
 }
-.LeftSidebar {
-  /*设置“分类”这两个字的字体颜色*/
-  color: #20b2aa;
-}
-/*设置Items之间的间距 */
-.Items{
-  margin:50px 10px;
-}
+
 </style>
