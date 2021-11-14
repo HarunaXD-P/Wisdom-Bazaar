@@ -36,7 +36,7 @@
 
           <el-menu-item index="4" class="Item">
             <i class="el-icon-setting"></i>
-            <span slot="title" style="font-size:40px">设置</span>
+            <span slot="title" style="font-size:40px" @click="gotoCreate">设置</span>
           </el-menu-item>
         </el-menu>
       </el-col>
@@ -53,6 +53,9 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
+    gotoCreate(){
+      this.$router.replace('/createItem')
+    }
   },
 };
 </script>

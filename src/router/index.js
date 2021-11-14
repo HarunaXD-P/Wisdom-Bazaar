@@ -4,6 +4,7 @@ import Login from '@/page/login'
 import Home from '@/page/homePage'
 import Register from '@/page/register'
 import Findpassword from '@/page/findpassword'
+import CreateItem from '@/page/createItem'
 Vue.use(Router)
 
 export default new Router({
@@ -28,5 +29,10 @@ export default new Router({
 		name: 'Findpassword',
 		component: Findpassword,
 	},
+  {
+    path: '/createItem',
+    name: 'CreateItem',
+    component: CreateItem,
+  }
   ]
 })

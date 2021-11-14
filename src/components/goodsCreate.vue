@@ -59,7 +59,7 @@
       </div>
       <div class="confirmButton">
           <div id="button">
-              <el-button type="success">确认发布</el-button>
+              <el-button type="success" @click="printImg">确认发布</el-button>
 
           </div>
 
@@ -115,6 +115,13 @@ export default {
   methods: {
       handleChange(value) {
         console.log(value);
+      },
+      printImg(){
+          console.log(this.inputTitle);
+          console.log(this.inputDescription);
+          console.log(this.inputPrice);
+          console.log(this.num);
+          console.log(this.value);
       }
   }
 }
@@ -125,9 +132,9 @@ export default {
 .createInput{
     float:right;
     position: relative;
-    width:1405px;
+    width:1300px;
     height:670px;
-    background: chocolate;
+    background:#DEB887;
 
     margin-top: 15px;
     

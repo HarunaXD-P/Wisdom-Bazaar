@@ -6,7 +6,7 @@
     <el-container class="panal">
       <!--header为上半部分，放了myHeader.vue中的组件-->
       <el-header>
-        <Header> </Header>
+        <myHeader> </myHeader>
       </el-header>
       <!--main为下半部分，放了LeftSidebar.vue和DisplaySix.vue和myInformation.vue中的三个组件-->
       <el-main>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import myHeader from "@/components/myHeader";
+import Header from "@/components/myHeader";
 import LeftSidebar from "@/components/LeftSidebar";
 import DisplaySix from "@/components/DisplaySix";
 import information from "@/components/myInformation";
@@ -30,7 +30,7 @@ import "element-ui/lib/theme-chalk/index.css";
 export default {
   name: "App",
   components: {
-    Header: myHeader,
+    myHeader: Header,
     myLeftSidebar: LeftSidebar,
     myDisplay: DisplaySix,
     myInfirmation: information,
