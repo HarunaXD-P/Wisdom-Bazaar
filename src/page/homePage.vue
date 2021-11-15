@@ -14,7 +14,7 @@
         <el-container>
           <myLeftSidebar></myLeftSidebar>
           <myDisplay></myDisplay>
-          <myInfirmation></myInfirmation>
+          <myInformation></myInformation>
         </el-container>
       </el-main>
     </el-container>
@@ -33,7 +33,7 @@ export default {
     myHeader: Header,
     myLeftSidebar: LeftSidebar,
     myDisplay: DisplaySix,
-    myInfirmation: information,
+    myInformation: information,
   },
 };
 </script>

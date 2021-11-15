@@ -3,7 +3,7 @@
   <div class="Display">
     <el-container class="panal1">
       <el-header height="90px">
-        <img src="../assets/iphone.jpeg" width="150px" height="100px" />
+        <img src="../assets/iphone.jpeg" width="240px" height="160px" />
       </el-header>
       <!--<img src="../assets/logo.png">-->
       <el-main>
@@ -45,9 +45,9 @@ export default {
 <style>
 /*一个面板的设置，一共有6个面板*/
 .panal1 {
-  height: 300px; /*面板高度*/
+  height: 400px; /*面板高度*/
   background-color: #f0fff0; /*面板颜色*/
-  width: 200px; /*面板宽度 */
+  width: 300px; /*面板宽度 */
   position: relative;
   left: 100px;
   top: 100px;
@@ -67,10 +67,16 @@ export default {
 }
 .product {
   color: black;
-  font-size: 20px; /*字体大小*/
+  font-size: 35px; /*字体大小*/
+  text-align:left;
+  position:relative;
+  top:50px;
 }
 .introduction {
   color: black;
-  font-size: 12px;
+  font-size: 20px;
+  text-align:left;
+  position:relative;
+  top:50px;
 }
 </style>
