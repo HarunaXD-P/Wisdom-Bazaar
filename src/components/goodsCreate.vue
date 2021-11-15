@@ -35,7 +35,7 @@
         ></el-input-number>
       </span>
     </div>
-    <div class="price">
+    <div class="price1">
       <span id="price">选择价格</span>
       <span id="inputPrice">
         <div id="priceTextbox">
@@ -193,7 +193,7 @@ export default {
   top: 250px;
   left: 50px;
 }
-.price {
+.price1 {
   height: 100px;
   width: 670px;
   position: absolute;
