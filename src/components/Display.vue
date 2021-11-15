@@ -1,11 +1,13 @@
 <!--根据https://element.eleme.cn/#/zh-CN/component/menu改编-->
+<!--
 <template>
   <div class="Display">
     <el-container class="panal1">
       <el-header height="90px">
-        <img src="../assets/iphone.jpeg" width="150px" height="100px" />
-      </el-header>
+        <img src="../assets/iphone.jpeg" width="240px" height="160px" />
+      </el-header>-->
       <!--<img src="../assets/logo.png">-->
+      <!--
       <el-main>
         <body class="product">
           iphone13手机
@@ -15,9 +17,10 @@
           非常的新鲜，非常的美味，99新男生自用
         </body>
       </el-main>
-      <el-footer>
+      <el-footer>-->
         <!--这里要再加一个el-container，不然9999和联系这两个会纵向排列-->
         <!--el-container子元素中有 el-header 或 el-footer 时为 vertical，否则为 horizontal-->
+        <!--
         <el-container>
           <body class="price">
             ￥9999
@@ -28,16 +31,48 @@
     </el-container>
   </div>
 </template>
+-->
+
+<template>
+  <div class="Display">
+    <el-container class="panal1">
+      <el-header height="90px">
+        <img src="../assets/iphone.jpeg" width="240px" height="160px" />
+      </el-header>
+      <!--<img src="../assets/logo.png">-->
+
+      <el-main>
+        <body class="product">
+          {{ title }}
+        </body>
+
+        <body class="introduction">
+          {{ description }}
+        </body>
+        <body class="price">
+          {{ price }}
+        </body>
+      </el-main>
+      <el-footer>
+        <!--这里要再加一个el-container，不然9999和联系这两个会纵向排列-->
+        <!--el-container子元素中有 el-header 或 el-footer 时为 vertical，否则为 horizontal-->
+
+        <el-button class="button"> 联系 </el-button>
+      </el-footer>
+    </el-container>
+  </div>
+</template>
 
 <script>
+import GLOBAL from "@/global/global";
 export default {
   name: "Display",
-  methods: {
-    data() {
-      return {
-        active: 0,
-      };
-    },
+  data() {
+    return {
+      title: GLOBAL.title,
+      description: GLOBAL.description,
+      price: GLOBAL.price,
+    };
   },
 };
 </script>
@@ -45,9 +80,9 @@ export default {
 <style>
 /*一个面板的设置，一共有6个面板*/
 .panal1 {
-  height: 300px; /*面板高度*/
+  height: 400px; /*面板高度*/
   background-color: #f0fff0; /*面板颜色*/
-  width: 200px; /*面板宽度 */
+  width: 300px; /*面板宽度 */
   position: relative;
   left: 100px;
   top: 100px;
@@ -64,13 +99,21 @@ export default {
 }
 .price {
   color: red; /*字体颜色*/
+  position: relative;
+  top: 50px;
 }
 .product {
   color: black;
-  font-size: 20px; /*字体大小*/
+  font-size: 35px; /*字体大小*/
+  text-align: left;
+  position: relative;
+  top: 50px;
 }
 .introduction {
   color: black;
-  font-size: 12px;
+  font-size: 20px;
+  text-align: left;
+  position: relative;
+  top: 50px;
 }
 </style>
