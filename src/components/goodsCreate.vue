@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import GLOBAL from '@/global/global'
 export default {
   data () {
     return {
@@ -106,7 +107,6 @@ export default {
             {value: '选项6',label: '运动装备'},
             {value: '选项7',label: '其他二手'}
             ],
-        value: ''
 
     };
     
@@ -130,10 +130,17 @@ export default {
           console.log(this.inputPrice);
           console.log(this.num);
           console.log(this.value);
+          //this.$root.title=this.inputTitle;
+          GLOBAL.title=this.inputTitle;
+          GLOBAL.price=this.inputPrice;
+          GLOBAL.description=this.inputDescription;
+          GLOBAL.number=this.num;
+          GLOBAL.category=this.value;
+
       },
       gotoHome(){
         this.$router.replace('/')
-        this.$router.go(0)
+        //this.$router.go(0)
     },
   }
 }
