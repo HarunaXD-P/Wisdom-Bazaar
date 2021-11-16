@@ -30,6 +30,7 @@
 <script type="text/ecmascript-6">
 import loginButton from './loginBar/loginButton.vue';
 import MyCenter from './loginBar/myCenter.vue';
+import GLOBAL from '@/global/global'
 export default {
   components: { loginButton, MyCenter },
   data() {
@@ -37,7 +38,7 @@ export default {
       searchCriteria: "",
       breadcrumbItems: ["导航一"],
       currentView:'loginButton',
-      logined:'false'
+      logined:GLOBAL.logined,
     };
   },
 

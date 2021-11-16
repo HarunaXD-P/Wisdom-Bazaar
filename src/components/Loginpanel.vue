@@ -21,7 +21,7 @@
 						记住我
 					</el-checkbox>
 				</el-container>
-				<el-button type="primary" style="position:absolute;top:350px;left:250px">
+				<el-button type="primary" style="position:absolute;top:350px;left:250px" @click="checkLogin">
 					登陆
 				</el-button>
 			</el-main>
@@ -50,7 +50,8 @@
 			return{
 				active: 0,
 				name: '',
-				password: ''
+				password: '',
+				pw_md:''
 			};
 		},
 		methods:{
@@ -67,24 +68,28 @@
 				var md5 = crypto.createHash("md5");
 				md5.update(pw);//this.pw2这是你要加密的密码
 				this.pw_md = md5.digest('hex');//this.pw这就是你加密完的密码，这个往后台传就行了
+				console.log(this.pw_md);
 
-				/*if(this.name==userJson.username){
-					if(this.pw_Wd==userJson.password){
+
+				if(this.name==userJson.username){
+					if(this.pw_md==userJson.password){
+						alert("登陆成功");
+						this.$router.replace('/')
 
 					}else{
 						alert("密码错误")
 						this.name='';
 						this.password='';
+						return;
 					}
 				}else{
 					alert("用户名错误");
 					this.name='';
 					this.password='';
-
+					return;
 				}
-				*/
-				console.log(userJson.username);
-
+				
+				
 			}
 		},
 	};

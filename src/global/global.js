@@ -4,6 +4,7 @@ const number=1
 const price='$79.99'
 const category='book'
 const picture='/static/iphone.jpeg'
+var j_str=''
 export default{
     title,
     description,
@@ -11,4 +12,5 @@ export default{
     price,
     category,
     picture,
+    j_str,
 }
