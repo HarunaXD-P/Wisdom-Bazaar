@@ -7,17 +7,18 @@
 		<Header> </Header>
 		<div id="cai_good_detail">
 			<ul id="caimenu">
-				<li id="c">
-					<a herf="www.baidu.com" title="首页"> 首页 </a>
+				<!-- 这四个超链接暂时先这样凑活一下，以后要改 -->
+				<li id="caimenu_sy">
+					<a href="http://www.baidu.com" title="首页"> 首页 </a>
 				</li>
-				<li id="c">
-					<a herf="www.baidu.com" title="商城"> 商城 </a>
+				<li id="caimenu_sc">
+					<a href="http://www.baidu.com" title="商城"> 商城 </a>
 				</li>
-				<li id="c">
-					<a herf="www.baidu.com" title="求购"> 求购 </a>
+				<li id="caimenu_qg">
+					<a href="http://www.baidu.com" title="求购"> 求购 </a>
 				</li>
-				<li id="c">
-					<a herf="www.baidu.com" title="联系我们"> 联系我们</a>
+				<li id="caimenu_lxwm">
+					<a href="http://www.baidu.com" title="联系我们"> 联系我们</a>
 				</li>
 			</ul>
 		</div>
@@ -150,7 +151,31 @@ export default {
 	text-align: center;
 }
 
-#c {
+#caimenu_sy {
+	height: 48px;
+	width: 280px;
+	list-style: none;
+	float: left;
+	font-size: 30px;
+}
+
+#caimenu_sc {
+	height: 48px;
+	width: 280px;
+	list-style: none;
+	float: left;
+	font-size: 30px;
+}
+
+#caimenu_qg {
+	height: 48px;
+	width: 280px;
+	list-style: none;
+	float: left;
+	font-size: 30px;
+}
+
+#caimenu_lxwm {
 	height: 48px;
 	width: 280px;
 	list-style: none;
