@@ -28,7 +28,7 @@
 			</el-main>
 			
 			<el-footer>
-				<el-button type="primary" id="registerButton">
+				<el-button type="primary" id="registerButton" @click="doRegist">
 					注册
 				</el-button>
 				<el-button type="primary" @click="gotoHome">
@@ -41,6 +41,8 @@
 </template>
 
 <script>
+	import crypto from 'crypto'
+	import FileSaver from 'file-saver'
 	export default{
 		name: "Registerpanel",
 		data(){
@@ -50,13 +52,50 @@
 				password: '',
 				passwordconfirm: '',
 				email: '',
-				vcode: ''
+				vcode: '',
+				pw_md:'',
+				j_str:'',
 			};
 		},
 		methods:{
 			gotoHome(){
 				this.$router.replace('/')
 				this.$router.go(0)
+			},
+			printReg(){
+				console.log(this.name);
+				console.log(this.password);
+			},
+			doRegist(){
+				var pw=this.password;
+				var pwc=this.passwordconfirm;
+
+				if(pw!=pwc){
+					alert("输入密码不一致，请重新输入");
+					this.name="";
+					this.password="";
+					this.passwordconfirm="";
+				}//检验两次输入是否一致，明文
+
+				var md5 = crypto.createHash("md5");
+				md5.update(pw);//this.pw2这是你要加密的密码
+				this.pw_md = md5.digest('hex');//this.pw这就是你加密完的密码，这个往后台传就行了
+
+				var j={};
+				j.username=this.name;
+				j.password=this.pw_md;
+				j.email=this.email;//写入json
+
+
+				this.j_str=JSON.stringify(j);
+				console.log(j_str);
+				this.exportJSON;
+			},
+			exportJSON () {
+			// 将json转换成字符串
+			//const data = JSON.stringify(this.CfgInfo)
+			const blob = new Blob([j_str], {type: ''})
+			FileSaver.saveAs(blob, 'hahaha.json')
 			}
 
 		},

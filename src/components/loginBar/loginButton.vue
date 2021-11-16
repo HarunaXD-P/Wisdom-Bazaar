@@ -26,10 +26,12 @@ export default {
       gotoLogin()
     {
       this.$router.replace('/login')
+      this.$router.go(0)
     },
 	gotoRegister()
     {
       this.$router.replace('/register')
+      this.$router.go(0)
     }
   }
 }
