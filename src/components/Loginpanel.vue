@@ -42,6 +42,8 @@
 </template>
 
 <script>
+	import GLOBAL from '@/global/global'
+	import crypto from 'crypto'
 	export default{
 		name: "Loginpanel",
 		data(){
@@ -58,6 +60,32 @@
 			findpasswordlink(){
 				this.$router.replace('/findpassword')
 			},
+			checkLogin(){
+				var userJson=JSON.parse(GLOBAL.j_str);
+				var pw=this.password;
+
+				var md5 = crypto.createHash("md5");
+				md5.update(pw);//this.pw2这是你要加密的密码
+				this.pw_md = md5.digest('hex');//this.pw这就是你加密完的密码，这个往后台传就行了
+
+				/*if(this.name==userJson.username){
+					if(this.pw_Wd==userJson.password){
+
+					}else{
+						alert("密码错误")
+						this.name='';
+						this.password='';
+					}
+				}else{
+					alert("用户名错误");
+					this.name='';
+					this.password='';
+
+				}
+				*/
+				console.log(userJson.username);
+
+			}
 		},
 	};
 </script>

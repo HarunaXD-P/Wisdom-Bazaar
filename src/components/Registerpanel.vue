@@ -43,6 +43,7 @@
 <script>
 	import crypto from 'crypto'
 	import FileSaver from 'file-saver'
+	import GLOBAL from '@/global/global'
 	export default{
 		name: "Registerpanel",
 		data(){
@@ -60,7 +61,7 @@
 		methods:{
 			gotoHome(){
 				this.$router.replace('/')
-				this.$router.go(0)
+				//this.$router.go(0)
 			},
 			printReg(){
 				console.log(this.name);
@@ -88,15 +89,16 @@
 
 
 				this.j_str=JSON.stringify(j);
-				console.log(j_str);
-				this.exportJSON;
+				//console.log(this.j_str);
+
+				GLOBAL.j_str=this.j_str;
+				console.log(GLOBAL.j_str);
 			},
-			exportJSON () {
-			// 将json转换成字符串
-			//const data = JSON.stringify(this.CfgInfo)
-			const blob = new Blob([j_str], {type: ''})
-			FileSaver.saveAs(blob, 'hahaha.json')
-			}
+			// 导出生成json文件
+     		downloadJson(data) {
+         		var blob = new Blob([JSON.stringify(data)], { type: "" });
+         		FileSaver.saveAs(blob, "hello.json");
+     		},
 
 		},
 	};
