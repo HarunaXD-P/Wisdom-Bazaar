@@ -18,22 +18,22 @@
 		<div id="navfirst">
 			<ul id="caimenu">
 				<li id="c">
-					<a herf="www.baidu.com" title="个人信息"> 动态 </a>
+					<a href="http://www.baidu.com" title="个人信息"> 动态 </a>
 				</li>
 				<li id="c">
-					<a herf="www.baidu.com" title="个人信息"> 个人信息</a>
+					<a href="http://www.baidu.com" title="个人信息"> 个人信息</a>
 				</li>
 				<li id="c">
-					<a herf="www.baidu.com" title="个人信息"> 个人信息</a>
+					<a href="http://www.baidu.com" title="个人信息"> 个人信息</a>
 				</li>
 				<li id="c">
-					<a herf="www.baidu.com" title="个人信息"> 个人信息</a>
+					<a href="http://www.baidu.com" title="个人信息"> 个人信息</a>
 				</li>
 				<li id="c">
-					<a herf="www.baidu.com" title="个人信息"> 个人信息</a>
+					<a href="http://www.baidu.com" title="个人信息"> 个人信息</a>
 				</li>
 				<li id="c">
-					<a herf="www.baidu.com" title="个人信息"> 个人信息</a>
+					<a href="http://www.baidu.com" title="个人信息"> 个人信息</a>
 				</li>
 			</ul>
 		</div>
