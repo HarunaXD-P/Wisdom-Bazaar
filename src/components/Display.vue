@@ -37,7 +37,8 @@
   <div class="Display">
     <el-container class="panal1">
       <el-header height="90px">
-        <img src="../assets/iphone.jpeg" width="240px" height="160px" />
+        <!--<img src="../assets/iphone.jpeg" width="240px" height="160px" />-->
+        <img :src=picture width="240px" height="160px">
       </el-header>
       <!--<img src="../assets/logo.png">-->
 
@@ -72,6 +73,7 @@ export default {
       title: GLOBAL.title,
       description: GLOBAL.description,
       price: GLOBAL.price,
+      picture: require("../assets/iphone.jpeg"),
     };
   },
 };

@@ -25,16 +25,29 @@
 </template>
 -->
 <template>
-  <span class="DisplaySix">
-        <myDisplay class="Panel1"></myDisplay>
-        <myDisplay class="Panel2"></myDisplay>
-        <myDisplay class="Panel3"></myDisplay>
-
-
-      <myDisplay class="Panel4"></myDisplay>
-      <myDisplay class="Panel5"></myDisplay>
-      <myDisplay class="Panel6"></myDisplay>
-  </span>
+  <div class="DisplaySix">
+    <myDisplay class="Panel1" style="float: left"></myDisplay>
+    <myDisplay
+      class="Panel1"
+      style="float: left; margin-left: 100px"
+    ></myDisplay>
+    <myDisplay
+      class="Panel1"
+      style="float: left; margin-left: 100px"
+    ></myDisplay>
+    <myDisplay
+      class="Panel1"
+      style="float: left; margin-top: 100px"
+    ></myDisplay>
+    <myDisplay
+      class="Panel1"
+      style="float: left; margin-left: 100px; margin-top: 100px"
+    ></myDisplay>
+    <myDisplay
+      class="Panel1"
+      style="float: left; margin-left: 100px; margin-top: 100px"
+    ></myDisplay>
+  </div>
 </template>
 
 <script>
@@ -52,7 +65,7 @@ export default {
 /*设置整个面板的长和宽 */
 
 .DisplaySix {
-  width: 1000px;
+  width: 1200px;
   height: 1000px;
   margin-top: -70px;
 }
@@ -63,6 +76,7 @@ export default {
   margin: 50px;
 }
 */
+/*
 .Panel1{
   position:absolute;
   top:100px;
@@ -93,4 +107,5 @@ export default {
   top:600px;
   left:1100px;
 }
+*/
 </style>
