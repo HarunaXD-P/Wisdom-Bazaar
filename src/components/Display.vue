@@ -73,7 +73,7 @@ export default {
       title: GLOBAL.title,
       description: GLOBAL.description,
       price: GLOBAL.price,
-      picture: require("../assets/iphone.jpeg"),
+      picture: GLOBAL.picture,
     };
   },
 };

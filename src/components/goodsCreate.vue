@@ -136,6 +136,7 @@ export default {
           GLOBAL.description=this.inputDescription;
           GLOBAL.number=this.num;
           GLOBAL.category=this.value;
+					GLOBAL.picture='static/logo.jpg';
 
       },
       gotoHome(){
