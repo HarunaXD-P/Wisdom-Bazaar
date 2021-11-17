@@ -57,7 +57,7 @@
         <!--这里要再加一个el-container，不然9999和联系这两个会纵向排列-->
         <!--el-container子元素中有 el-header 或 el-footer 时为 vertical，否则为 horizontal-->
 
-        <el-button class="button"> 联系 </el-button>
+        <el-button class="button"> 查看 </el-button>
       </el-footer>
     </el-container>
   </div>

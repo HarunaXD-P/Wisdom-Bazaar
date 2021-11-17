@@ -28,7 +28,7 @@
 				<div style="width: 684px; height: 464px; float: left">
 					<!-- 这里放图片 -->
 					<img
-						src="../assets/iphone13.jpg"
+						src="../assets/iphone.jpeg"
 						width="684px"
 						height="464px"
 					/><img />
