@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
 		<el-container>
+			<fairmart></fairmart>
 			<el-header>
 				<logo></logo>
 			</el-header>
@@ -18,12 +19,14 @@
 import Logo from "@/components/Logo.vue";
 import Findpasswordpanel from "@/components/Findpasswordpanel.vue"
 import "element-ui/lib/theme-chalk/index.css";
+import fair from "@/components/fairmart.vue";
 
 export default {
   name: "App",
   components: {
 	findpasswordpanel: Findpasswordpanel,
 	logo: Logo,
+	fairmart: fair,
   },
 };
 </script>

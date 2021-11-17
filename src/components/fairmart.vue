@@ -9,7 +9,7 @@
       "
     >
       <span class="header" id="logo" @click="gotoHome"> FairMart </span>
-      
+      <!--
       <div class="header" id="search">
         <div id="searchInput"><el-input
           placeholder="请输入"
@@ -20,7 +20,7 @@
         </el-input></div>
         <div id=searchButton><el-button  @click="switchPage()">搜索</el-button></div>
         
-      </div>
+      </div>-->
       <span class="header" id="login">
         <div :is="currentView"></div>
       </span>
