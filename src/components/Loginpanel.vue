@@ -1,5 +1,5 @@
 <template>
-	<div class="panel">
+	<div class="loginpanel">
 		<el-container>
 			<el-main>
 				<body class="username">
@@ -96,10 +96,10 @@
 </script>
 
 <style>
-.panel{
-	background-color:#44b8c7;
+.loginpanel{
+	background-color:#40afe2;
 	position: relative;
-	margin:auto;
+	margin-top: 30px;
 	width: 594px;
 	height: 520px;
 }

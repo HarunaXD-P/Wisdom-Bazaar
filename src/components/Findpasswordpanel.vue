@@ -1,5 +1,5 @@
 <template>
-	<div class="panel">
+	<div class="findpasswordpanel">
 		<el-container>
 			<el-main>
 				<body class="email">邮箱</body>
@@ -41,12 +41,12 @@
 </script>
 
 <style>
-.panel{
+.findpasswordpanel{
 	background-color:#40afe2;
 	position: relative;
 	margin-top: 30px;
 	width: 594px;
-	height: 670px;
+	height: 600px;
 }
 .email{
 	font-size:24px;

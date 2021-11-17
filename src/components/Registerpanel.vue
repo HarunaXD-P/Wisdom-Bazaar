@@ -1,5 +1,5 @@
 <template>
-	<div class="panel">
+	<div class="registerpanel">
 		<el-container>
 			<el-main>
 				<body class="username">用户名</body>
@@ -105,12 +105,12 @@
 </script>
 
 <style>
-.panel{
+.registerpanel{
 	background-color:#40afe2;
 	position: relative;
 	margin-top: 30px;
 	width: 594px;
-	height: 670px;
+	height: 600px;
 }
 .username{
 	font-size:24px;

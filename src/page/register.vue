@@ -6,7 +6,7 @@
 				<logo></logo>
 			</el-header>
 			<el-main style="align-self: center;">
-				<body style="margin-top: 294px; font-size: 36px; margin-right: 0px;">
+				<body style="margin-top: 214px; font-size: 36px; margin-right: 0px;">
 					注册新用户
 				</body>
 				<registerpanel></registerpanel> 

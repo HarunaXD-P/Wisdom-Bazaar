@@ -6,7 +6,7 @@
 			<el-header>
 				<logo></logo>
 			</el-header>
-			<el-main style="align-self: center;position:absolute;top:350px">
+			<el-main style="align-self: center;margin-top:270px">
 				<loginpanel></loginpanel> 
 			</el-main>
 		</el-container>

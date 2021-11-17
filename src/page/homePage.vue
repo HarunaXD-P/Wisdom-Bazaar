@@ -1,6 +1,6 @@
 <!--这个文件可以理解成一个整体显示的效果，主要是将其余个组件放在一个网页中-->
 <template>
-  <div id="app">
+  <div id="app" style="background-color: #ffffff;">
     <!--整个显示出来的是一个面板，看效果还很不好，之后要改-->
     <router-view/>
     <el-container class="panal">
