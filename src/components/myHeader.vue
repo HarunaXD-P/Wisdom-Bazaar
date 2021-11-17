@@ -38,8 +38,8 @@ export default {
     return {
       searchCriteria: "",
       breadcrumbItems: ["导航一"],
-      currentView:'loginButton',
-      logined:GLOBAL.logined,
+      currentView:GLOBAL.view,
+      logined:false,
     };
   },
 

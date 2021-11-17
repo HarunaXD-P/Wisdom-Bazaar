@@ -5,6 +5,7 @@ const price='$79.99'
 const category='book'
 const picture='/static/iphone.jpeg'
 var j_str=''
+var view="loginButton"
 export default{
     title,
     description,
@@ -13,4 +14,5 @@ export default{
     category,
     picture,
     j_str,
+    view,
 }

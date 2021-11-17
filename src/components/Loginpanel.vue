@@ -75,6 +75,7 @@
 					if(this.pw_md==userJson.password){
 						alert("登陆成功");
 						this.$router.replace('/')
+						GLOBAL.view="myCenter";
 
 					}else{
 						alert("密码错误")
