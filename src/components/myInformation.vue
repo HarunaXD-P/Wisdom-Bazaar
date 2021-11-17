@@ -7,6 +7,7 @@
         width="200"
         height="150"
         id="image"
+        @click="gotoGerenzhuye"
       /><img />
       <el-col :span="24" id="item">
         <h3 style="font-size:60px">用户名</h3>
@@ -55,6 +56,10 @@ export default {
     },
     gotoCreate(){
       this.$router.replace('/createItem')
+    },
+    gotoGerenzhuye()
+    {
+      this.$router.replace('/gerenzhuye')
     }
   },
 };

@@ -27,36 +27,38 @@
 <template>
   <div class="DisplaySix">
     <myDisplay class="Panel1" style="float: left"></myDisplay>
-    <myDisplay
+    <oldDisplay
       class="Panel1"
-      style="float: left; margin-left: 100px"
-    ></myDisplay>
-    <myDisplay
+      style="float: left; margin-left: 50px"
+    ></oldDisplay>
+    <oldDisplay
       class="Panel1"
-      style="float: left; margin-left: 100px"
-    ></myDisplay>
-    <myDisplay
+      style="float: left; margin-left: 50px"
+    ></oldDisplay>
+    <oldDisplay
       class="Panel1"
-      style="float: left; margin-top: 100px"
-    ></myDisplay>
-    <myDisplay
+      style="float: left; margin-top: 50px"
+    ></oldDisplay>
+    <oldDisplay
       class="Panel1"
-      style="float: left; margin-left: 100px; margin-top: 100px"
-    ></myDisplay>
-    <myDisplay
+      style="float: left; margin-left: 50px; margin-top: 50px"
+    ></oldDisplay>
+    <oldDisplay
       class="Panel1"
-      style="float: left; margin-left: 100px; margin-top: 100px"
-    ></myDisplay>
+      style="float: left; margin-left: 50px; margin-top: 50px"
+    ></oldDisplay>
   </div>
 </template>
 
 <script>
 import Display from "@/components/Display";
+import DisplayOld from "@/components/displayOld";
 import "element-ui/lib/theme-chalk/index.css";
 export default {
   name: "App",
   components: {
     myDisplay: Display,
+    oldDisplay: DisplayOld
   },
 };
 </script>
@@ -65,7 +67,7 @@ export default {
 /*设置整个面板的长和宽 */
 
 .DisplaySix {
-  width: 1200px;
+  width: 1000px;
   height: 1000px;
   margin-top: -70px;
 }

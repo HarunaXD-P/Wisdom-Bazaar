@@ -105,7 +105,7 @@ import myHeader from "@/components/myHeader";
 import LeftSidebar from "@/components/LeftSidebar";
 import DisplaySix from "@/components/DisplaySix";
 import information from "@/components/myInformation";
-import "element-ui/lib/theme-chalk/index.css";
+//import "element-ui/lib/theme-chalk/index.css";
 import _first from "@/components/cai_msg"
 
 export default {

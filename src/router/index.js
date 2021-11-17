@@ -5,6 +5,7 @@ import Home from '@/page/homePage'
 import Register from '@/page/register'
 import Findpassword from '@/page/findpassword'
 import CreateItem from '@/page/createItem'
+import gerenzhuye from '@/page/gerenzhuye'
 Vue.use(Router)
 
 export default new Router({
@@ -33,6 +34,11 @@ export default new Router({
     path: '/createItem',
     name: 'CreateItem',
     component: CreateItem,
+  },
+  {
+    path: '/gerenzhuye',
+    name: 'Gerenzhuye',
+    component: gerenzhuye,
   }
   ]
 })

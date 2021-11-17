@@ -1,7 +1,7 @@
 <!--el-container, 不会用，告辞-->
 <template>
   <div id="app">
-		<Header> </Header>
+		<!--<Header> </Header>-->
 		<div id="_selfinfo">
 			<div id="_img">
 				<img
