@@ -8,16 +8,17 @@
 		<div id="cai_good_detail">
 			<ul id="caimenu">
 				<!-- 这四个超链接暂时先这样凑活一下，以后要改 -->
-				<li id="caimenu_sy">
+				<!-- 鼠标进入时会改变颜色 -->
+				<li id="caimenu_sy" @mouseover="gd_changeBcolor($event, '#a2a19f')" @mouseleave="gd_changeBcolor($event, '#E8E7E3')">
 					<a href="http://www.baidu.com" title="首页"> 首页 </a>
 				</li>
-				<li id="caimenu_sc">
+				<li id="caimenu_sc" @mouseover="gd_changeBcolor($event, '#a2a19f')" @mouseleave="gd_changeBcolor($event, '#E8E7E3')">
 					<a href="http://www.baidu.com" title="商城"> 商城 </a>
 				</li>
-				<li id="caimenu_qg">
+				<li id="caimenu_qg" @mouseover="gd_changeBcolor($event, '#a2a19f')" @mouseleave="gd_changeBcolor($event, '#E8E7E3')">
 					<a href="http://www.baidu.com" title="求购"> 求购 </a>
 				</li>
-				<li id="caimenu_lxwm">
+				<li id="caimenu_lxwm" @mouseover="gd_changeBcolor($event, '#a2a19f')" @mouseleave="gd_changeBcolor($event, '#E8E7E3')">
 					<a href="http://www.baidu.com" title="联系我们"> 联系我们</a>
 				</li>
 			</ul>
@@ -28,7 +29,7 @@
 				<div style="width: 684px; height: 464px; float: left">
 					<!-- 这里放图片 -->
 					<img
-						src="../assets/iphone.jpeg"
+						src="../assets/iphone13.jpg"
 						width="684px"
 						height="464px"
 					/><img />
@@ -105,7 +106,7 @@ import myHeader from "@/components/myHeader";
 import LeftSidebar from "@/components/LeftSidebar";
 import DisplaySix from "@/components/DisplaySix";
 import information from "@/components/myInformation";
-//import "element-ui/lib/theme-chalk/index.css";
+import "element-ui/lib/theme-chalk/index.css";
 import _first from "@/components/cai_msg"
 
 export default {
@@ -117,7 +118,13 @@ export default {
     myInfirmation: information,
 		dongtai: _first,
   },
+	methods: {
+		gd_changeBcolor(x, color) {
+			x.currentTarget.style.background = color;
+		},
+	},
 };
+
 </script>
 
 <style>
