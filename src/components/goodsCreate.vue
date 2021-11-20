@@ -90,7 +90,8 @@
 </template>
 
 <script>
-import GLOBAL from '@/global/global'
+import GLOBAL from '@/global/global';
+import axios from "axios";
 export default {
   data () {
     return {
@@ -131,13 +132,32 @@ export default {
           console.log(this.num);
           console.log(this.value);
           //this.$root.title=this.inputTitle;
-          GLOBAL.title=this.inputTitle;
-          GLOBAL.price=this.inputPrice;
-          GLOBAL.description=this.inputDescription;
-          GLOBAL.number=this.num;
-          GLOBAL.category=this.value;
+          // GLOBAL.title=this.inputTitle;
+          // GLOBAL.price=this.inputPrice;
+          // GLOBAL.description=this.inputDescription;
+          // GLOBAL.number=this.num;
+          // GLOBAL.category=this.value;
 					GLOBAL.picture='static/logo.jpg';
-
+          //在这里传给后端
+          var that=this
+          const path = "http://127.0.0.1:5000";
+          var goodsInformation = {
+            "Title":this.inputTitle,
+            "description":this.inputDescription,
+            "price":this.inputPrice,
+            "number":this.num,
+            "value":this.value
+          }
+          axios
+            .post(path,JSON.stringify(goodsInformation))
+            .then(function(response){
+                var goods = response.data
+                GLOBAL.title=goods.get("Title")
+                GLOBAL.description=goods.get("descrition")
+                GLOBAL.price=goods.get("price")
+                GLOBAL.number=goods.get("number")
+                GLOBAL.category=goods.get("value")
+            });
       },
       gotoHome(){
         this.$router.replace('/')
