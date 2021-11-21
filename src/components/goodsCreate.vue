@@ -1,4 +1,7 @@
 <!-- upload a good with title,description,num and otc -->
+<head>
+  <meta charset="utf-8" />
+</head>
 <template>
   <div class="createInput">
     <div class="title">
@@ -151,12 +154,18 @@ export default {
           axios
             .post(path,JSON.stringify(goodsInformation))
             .then(function(response){
-                var goods = response.data
-                GLOBAL.title=goods.get("Title")
-                GLOBAL.description=goods.get("descrition")
-                GLOBAL.price=goods.get("price")
-                GLOBAL.number=goods.get("number")
-                GLOBAL.category=goods.get("value")
+                // response.setContentType("text/javascript;charset=UTF-8");
+                var goods = response.data;
+                console.log("!!!!!!!!!!!!!!!!" + goods["Title"]);
+                console.log(goods["description"]);
+                console.log(goods["price"]);
+                console.log(goods["number"]);
+                console.log(goods["value"]);
+                GLOBAL.title=goods["name"]
+                GLOBAL.description=goods["description"]
+                GLOBAL.price=goods["price"]
+                GLOBAL.number=goods["id"]
+                GLOBAL.category=goods["value"]
             });
       },
       gotoHome(){
