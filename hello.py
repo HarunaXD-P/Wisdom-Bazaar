@@ -6,6 +6,8 @@ from flask import request
 import json
 from init import db
 from database import User, Product
+from sqlalchemy import and_, or_
+
 
 app = Flask(__name__)
 
@@ -32,15 +34,59 @@ db.init_app(app)
         
 #     return res
 
+# 将query出来的对象变成dict，但是不能传入空对象
 def to_dict(self):
     return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
  
+@app.route('/show_product',  methods=['GET', 'POST', 'OPTIONS'])
+def show_product() :
+    return 
 
+@app.route('/check_user',  methods=['GET', 'POST', 'OPTIONS'])
+def check_user():
+    #
+    #
+    #
+    info = json.loads(request.get_data())
+    # info 为一个dict
+    print(info["name"])
+    print("check_user_POST")
+    # 我不确定这么写对不对，大概就是找出来之后发回去是否正确（
+    ans = User.query.filter(and_(User.name == info["name"], User.password == info["password"])).first()
+    flag = True
+    if not ans:
+        flag = False    
+    # make_response只能是字符串所以这么搞比较方便
+    # make_response 只能是 json.dumps(dict)
+    res = make_response(json.dumps({'status' : flag}))
+    res.headers["Access-Control-Allow-Origin"] = '*'
+    return res
+
+# 目前不能用的框架
+# @app.route('/add_user',  methods=['GET', 'POST', 'OPTIONS'])
+# def add_user():
+#     info = json.loads(request.get_data())
+#     print("add_user_POST")
+#     # dict1 = to_dict(User.query.filter(and_(User.name == info.name, User.password == info.password)).first())
+#     user = User(name = info.name, password = info.password)
+#     db.session.add(user)
+#     db.session.commit()
+#     res = True
+#     # if not dict1:
+#         # res = False
+#     res.headers["Access-Control-Allow-Origin"] = '*'
+#     return res
+
+# 加入一个新的物品
 # @app.route('/' , methods=['GET', 'POST'])
-@app.route('/',  methods=['GET', 'POST', 'OPTIONS'])
+@app.route('/product',  methods=['GET', 'POST', 'OPTIONS'])
 def index():
-    a = request.get_data()
-    print("!Q!!!!!!!!!!!!!POST")
+    info = json.loads(request.get_data())
+    print("!product_POST")
+    print(info)
+    product = Product(name = info["Title"], price = info["price"], description = info["description"])
+    db.session.add(product)
+    db.session.commit()
     dict1 = to_dict(Product.query.first())
     print(dict1)
     # dict1 = json.lods(a)
@@ -53,9 +99,9 @@ def index():
     return res
 
 
-# @app.route('/')
-# def hello_world():
-#     return 'Hello, World!'  
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'  
 
 if __name__ == '__main__':
     app.run()
