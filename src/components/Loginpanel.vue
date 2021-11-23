@@ -44,6 +44,7 @@
 <script>
 	import GLOBAL from '@/global/global'
 	import crypto from 'crypto'
+	import axios from 'axios'
 	export default{
 		name: "Loginpanel",
 		data(){
@@ -62,15 +63,14 @@
 				this.$router.replace('/findpassword')
 			},
 			checkLogin(){
-				var userJson=JSON.parse(GLOBAL.j_str);
+				//var userJson=JSON.parse(GLOBAL.j_str);
 				var pw=this.password;
 
 				var md5 = crypto.createHash("md5");
 				md5.update(pw);//this.pw2这是你要加密的密码
 				this.pw_md = md5.digest('hex');//this.pw这就是你加密完的密码，这个往后台传就行了
 				console.log(this.pw_md);
-
-
+				/*
 				if(this.name==userJson.username){
 					if(this.pw_md==userJson.password){
 						alert("登陆成功");
@@ -88,6 +88,21 @@
 					this.name='';
 					this.password='';
 					return;
+				}
+				*/
+				var loginInfo={
+					"user_name":this.name,
+					"password":this.pw_md,
+				}
+				const  path="http://127.0.0.1:5000/login";
+				axios
+					.post(path,JSON.stringify(loginInfo))
+					.get(function(response){
+						var login_result=response.data;
+						is_login_success=login_result["result"];
+					})
+				if(result==="success"){
+					alert("登陆成功");
 				}
 				
 				

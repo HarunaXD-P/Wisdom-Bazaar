@@ -111,6 +111,7 @@ export default {
             {value: '选项6',label: '运动装备'},
             {value: '选项7',label: '其他二手'}
             ],
+        photo_url,
 
     };
     
@@ -145,11 +146,13 @@ export default {
           var that=this
           const path = "http://127.0.0.1:5000";
           var goodsInformation = {
-            "Title":this.inputTitle,
+            "product_name":this.inputTitle,
             "description":this.inputDescription,
             "price":this.inputPrice,
             "number":this.num,
-            "value":this.value
+            "category_value":this.value,
+            "photo":this.photo_url,
+            "source_id":GLOBAL.currentUser,
           }
           axios
             .post(path,JSON.stringify(goodsInformation))

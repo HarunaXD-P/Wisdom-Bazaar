@@ -6,6 +6,8 @@ const category='book'
 const picture='/static/iphone.jpeg'
 var j_str=''
 var view="loginButton"
+var currentUser_name
+var currentUser_ID
 export default{
     title,
     description,
@@ -15,4 +17,6 @@ export default{
     picture,
     j_str,
     view,
+    currentUser_name,
+    currentUser_ID,
 }
