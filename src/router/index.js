@@ -7,6 +7,7 @@ import Findpassword from '@/page/findpassword'
 import CreateItem from '@/page/createItem'
 import gerenzhuye from '@/page/gerenzhuye'
 import detail from '@/page/goodDetail'
+import showMyGoods from '@/page/showMyGoods'
 Vue.use(Router)
 
 export default new Router({
@@ -46,5 +47,10 @@ export default new Router({
     name: 'GoodDetail',
     component: detail,
   },
+  {
+    path:'/myGoods',
+    name:showMyGoods,
+    component:showMyGoods,
+  }
   ]
 })

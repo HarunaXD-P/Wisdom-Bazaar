@@ -2,7 +2,7 @@
 <template>
   <div>
     <span class="mycenter">
-      <img src="/logo.jpg" id="myphoto" /><img />
+      <img src="logo.jpg" id="myphoto" /><img />
       <span id="navi-menu">
         <el-menu
           :default-active="activeIndex"
@@ -13,7 +13,7 @@
           <el-menu-item index="1">我的消息</el-menu-item>
           <el-submenu index="2">
             <template slot="title">我的商品</template>
-            <el-menu-item index="2-1">我发布的</el-menu-item>
+            <el-menu-item index="2-1" @click="gotoMyGoods">我发布的</el-menu-item>
             <el-menu-item index="2-2">我拍下的</el-menu-item>
             <el-submenu index="2-4">
               <template slot="title">这个菜单干什么好呢</template>
@@ -46,7 +46,11 @@ export default {
 
   mounted: {},
 
-  methods: {},
+  methods: {
+    gotoMyGoods(){
+      this.$router.replace('/myGoods');
+    }
+  },
 };
 </script>
 

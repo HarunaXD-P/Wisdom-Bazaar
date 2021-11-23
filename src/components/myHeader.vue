@@ -55,11 +55,17 @@ export default {
       if(this.logined==false)
         {
           this.logined=true
-          if(this.logined==true) this.currentView=MyCenter
+          if(this.logined==true) {
+            this.currentView=MyCenter;
+            GLOBAL.view=MyCenter;
+          }
         }
       else {
         this.logined=false
-        if(this.logined==false) this.currentView=loginButton
+        if(this.logined==false) {
+          this.currentView=loginButton;
+          GLOBAL.view=loginButton;
+        }
 
       }
     },

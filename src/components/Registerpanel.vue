@@ -95,7 +95,7 @@
 				
 				var regist_info={
 					"user_name":this.name,
-					"password":pw_md,
+					"password":this.pw_md,
 				};
 				//暂时不写邮箱了
 				//j.email=this.email;//写入json
@@ -113,14 +113,17 @@
 						var login_result=response.data
 						is_register_success = login_result["result"];
 						//alart(is_register_success)
+						console.log(is_register_success);
+						if(is_register_success==="failed"){
+							alert("注册失败，请重试");
+							this.clearInput();
+						}else if(is_register_success==="success"){
+							alert("注册成功");
+						}else{
+							alert("传了个什么玩意？");
+						}
 					});
-				if(is_register_success==="failed"){
-					alert("注册失败，请重试");
-					this.clearInput();
-				}
-				if(is_register_success==="success"){
-					alert("注册成功");
-				}
+				
 
 
 			},

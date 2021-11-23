@@ -23,12 +23,12 @@ export default {
   mounted: {},
 
   methods: {
-      gotoLogin()
+    gotoLogin()
     {
       this.$router.replace('/login')
       //this.$router.go(0)
     },
-	gotoRegister()
+	  gotoRegister()
     {
       this.$router.replace('/register')
       //this.$router.go(0)
