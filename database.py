@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess'#一个字符串，密码。也可以是其他如加密过的
 
 #在此登录的是root用户，要填上密码如123456，MySQL默认端口是3306。并填上创建的数据库名如youcaihua
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:a7459529@127.0.0.1:3306/test_0'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:your password@127.0.0.1:3306/test_0'
 
 #设置下方这行code后，在每次请求结束后会自动提交数据库中的变动
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
