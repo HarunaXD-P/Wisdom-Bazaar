@@ -8,7 +8,7 @@
       <span id="title">商品标题</span>
       <span id="inputTitle">
         <div id="titleTextbox">
-          <el-input v-model="inputTitle" placeholder="请输入内容"></el-input>
+          <el-input v-model="inputTitle" placeholder="请输入内容" @input="change($event)"></el-input>
         </div>
       </span>
     </div>
@@ -98,7 +98,7 @@ import axios from "axios";
 export default {
   data () {
     return {
-        inputTitle:'',
+        inputTitle,
         inputDescription:'',
         inputPrice:'',
         num:1,

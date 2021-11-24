@@ -51,6 +51,7 @@ export default {
   },
 
   created(){
+      /*
       const  path="http://127.0.0.1:5000/userallproducts";
       var searchinfo={
         "user_name":GLOBAL.currentUser_name,
@@ -71,6 +72,7 @@ export default {
       console.log("initial the page");
       console.log(this.goodsData);
       console.log(this.goodsData.length);
+      */
     
 
     }
