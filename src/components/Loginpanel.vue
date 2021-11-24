@@ -21,8 +21,11 @@
 						记住我
 					</el-checkbox>
 				</el-container>
-				<el-button type="primary" style="position:absolute;top:350px;left:250px" @click="checkLogin">
+				<el-button type="primary" style="position:absolute;top:350px;left:150px" @click="checkLogin">
 					登陆
+				</el-button>
+				<el-button type="primary" style="position:absolute;top:350px;left:350px" @click="gotoHome">
+					返回
 				</el-button>
 			</el-main>
 			
@@ -61,6 +64,9 @@
 			},
 			findpasswordlink(){
 				this.$router.replace('/findpassword')
+			},
+			gotoHome(){
+				this.$router.replace('/')
 			},
 			checkLogin(){
 				//var userJson=JSON.parse(GLOBAL.j_str);

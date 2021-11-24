@@ -10,7 +10,7 @@
         @click="gotoGerenzhuye"
       /><img />
       <el-col :span="24" id="item">
-        <h3 style="font-size:60px">用户名</h3>
+        <h3 style="font-size:60px">{{userName}}</h3>
         <el-menu
           default-active="0"
           class="el-menu-vertical-demo"
@@ -46,7 +46,13 @@
 </template>
 
 <script>
+import GLOBAL from '@/global/global'
 export default {
+  data(){
+    return{
+      userName:GLOBAL.currentUser_name,
+    }
+  },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);

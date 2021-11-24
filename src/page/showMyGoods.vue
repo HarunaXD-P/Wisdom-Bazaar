@@ -15,8 +15,9 @@
           <myLeftSidebar></myLeftSidebar>
           <div id='main'>
             占个位置
+            <myGoods :myGoodsData="goodsData"></myGoods>
           </div>
-          <myInformation></myInformation>
+        
         </el-container>
       </el-main>
     </el-container>
@@ -29,6 +30,8 @@ import LeftSidebar from "@/components/LeftSidebar";
 import DisplaySix from "@/components/DisplaySix";
 import information from "@/components/myInformation";
 import "element-ui/lib/theme-chalk/index.css";
+import goods from "@/components/myGoods"
+//import MyGoods from '../components/myGoods.vue';
 export default {
   name: "App",
   components: {
@@ -36,7 +39,14 @@ export default {
     myLeftSidebar: LeftSidebar,
     myDisplay: DisplaySix,
     myInformation: information,
+    myGoods:goods,
   },
+  data(){
+    return{
+      goodsData:[{'name':"pp29",'descript':"haisidai"},{'name':"FC31",'descript':"wudaiji"},{'name':"F22","descript":'niangniang'}],
+
+    }
+  }
 };
 </script>
 
@@ -55,6 +65,9 @@ export default {
   margin:auto;
 }
 #main{
-  margin-right: 400px;
+  width:1500px;
+  margin-right: 40pxs;
+  height: 1080px;
+  background-color: bisque;
 }
 </style>

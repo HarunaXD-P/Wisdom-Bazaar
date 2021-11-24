@@ -6,7 +6,7 @@ const category='book'
 const picture='/static/iphone.jpeg'
 var j_str=''
 var view="loginButton"
-var currentUser_name
+var currentUser_name="未登录"
 var currentUser_ID
 var isLogined=false
 export default{
