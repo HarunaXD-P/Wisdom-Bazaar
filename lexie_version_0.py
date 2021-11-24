@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess'  # 一个字符串，密码。也可以是其他如加密过的
 
 # connect with the mysql database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:a7459529@127.0.0.1:3306/test_0'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:your password@127.0.0.1:3306/test_0'
 
 # automatically update the database
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
