@@ -1,7 +1,3 @@
-<!-- el-container, 不会用，告辞-->
-<!-- 基本写法是利用 float 设置悬浮，然后控制容器的大小来控制其位置，
-     优点是只要有了图基本都能在网页上较快地实现，缺点是不好维护
- -->
 <template>
   <div id="app">
 		<Header> </Header>
@@ -23,9 +19,13 @@
 				</li>
 			</ul>
 		</div>
+		
 		<div id="cai_detail_box">
 			<div style="height: 640px">
 				<!-- 这里放商品详情框上面的部分 -->
+				<div style="width: 0px; height: 0px;">
+					<!--{{getDetail()}}-->
+				</div>
 				<div style="width: 684px; height: 464px; float: left">
 					<!-- 这里放图片 -->
 					<img
@@ -35,14 +35,14 @@
 					/><img />
 				</div>
 				<div style="width: 386px; height: 71px; margin-left: 64px; font-size: 48px; float: left">
-					崭新iPhone13Pro
+					{{title}}
 				</div>
 				<div style="width: 299px; height: 30px; margin-left: 66px; font-size: 20px; color: red; float: left">
-					苹果手机 电子产品 三摄像头IP68
+					{{description}}
 				</div>
 				<div style="width: 412px; height: 71px; margin-left: 64px; font-size: 48px; float: left">
 					<p style="margin: 0px; padding: 0px; color: gray; float: left"> 价格 </p>
-					<p style="margin: 0px; padding: 0px; color: red; float: right"> ￥7229 </p>
+					<p style="margin: 0px; padding: 0px; color: red; float: right"> ￥{{price}} </p>
 				</div>
 				
 				<!-- 画一条横线 -->
@@ -111,6 +111,14 @@ import _first from "@/components/cai_msg"
 
 export default {
   name: "App",
+	data() {
+		return {
+			title: "",
+			description: "",
+			price: 0,
+			value: "",
+		};
+	},
   components: {
     Header: myHeader,
     myLeftSidebar: LeftSidebar,
@@ -122,7 +130,32 @@ export default {
 		gd_changeBcolor(x, color) {
 			x.currentTarget.style.background = color;
 		},
+		getDetail() {
+			console.log(this.goodId);
+			//在这里传给后端
+			var that=this;
+			const path = "http://127.0.0.1:5000/productinfo"; // 我也不知道
+			var goodsInformation = {
+				"number": this.goodId
+			};
+			axios
+			  .post(path,JSON.stringify(goodsInformation))
+			  .then(function(response) {
+			      // response.setContentType("text/javascript;charset=UTF-8");
+			      var goods = response.data;
+			      console.log("!!!!!!!!!!!!!!!!" + goods["Title"]);
+			      console.log(goods["description"]);
+			      console.log(goods["price"]);
+			      console.log(goods["number"]);
+			      console.log(goods["value"]);
+			      this.title = goods["product_name"];
+			      this.description = goods["description"];
+			      this.price = goods["price"];
+			      this.value = goods["category_value"];
+			  });
+		},
 	},
+	props: ['goodId'],
 };
 
 </script>
