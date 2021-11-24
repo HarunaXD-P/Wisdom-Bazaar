@@ -106,6 +106,8 @@
 							GLOBAL.currentUser_ID=login_result["id"];
 							GLOBAL.currentUser_name=login_result["user_name"];
 							GLOBAL.isLogined=true;
+							GLOBAL.view="myCenter";
+							GLOBAL.isLogined=true;
 						}else if(is_login_success==="failed"){
 							alert("登陆失败")
 							this.name="";
