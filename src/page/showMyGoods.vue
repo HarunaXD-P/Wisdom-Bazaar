@@ -45,8 +45,11 @@ export default {
   },
   data(){
     return{
+      goodsData:GLOBAL.myAllProducts,
+      /*
       goodsData:[{"product_id": 3, "product_name": "\u8f6f\u5de5", "category_value": 1, "price": 70.1, "photo": null, "description": "\u8f6f\u4ef6\u5de5\u7a0b\u6559\u6750", "source_id": 1}, 
                 {"product_id": 4, "product_name": "yxd", "category_value": 2, "price": 100000.0, "photo": null, "description": "\u4fe1\u79d1\u5927\u4e09\u672c\u79d1\u751f", "source_id": 1}]
+      */
     }
   },
 

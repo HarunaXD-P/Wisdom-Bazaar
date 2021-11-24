@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import GLOBAL from '@/global/global'
+import axios from 'axios'
 export default {
   data() {
     return {};
@@ -48,6 +50,26 @@ export default {
 
   methods: {
     gotoMyGoods(){
+      const  path="http://127.0.0.1:5000/userallproducts";
+      var searchinfo={
+        "user_name":GLOBAL.currentUser_name,
+        "source_id":GLOBAL.currentUser_ID,
+        "strategy_0":0,
+        "strategy_1":1,
+        
+      }
+      axios.post(path,JSON.stringify(searchinfo))
+          .then(function(response){
+            var myAllProducts=response.data;
+            //console.log(myAllProducts);
+            //console.log("this is all my products")
+            //this.goodsData=myAllProducts;
+            GLOBAL.myAllProducts=myAllProducts;
+            //console.log("howmany?")
+            //console.log(myAllProducts.length)
+            console.log("send & get");
+            console.log(GLOBAL.myAllProducts);
+          });
       this.$router.replace('/myGoods');
     }
   },
