@@ -2,9 +2,9 @@
   <div>
     <div id="longbar">
         <div id="content">
-          <div style="font-size:40px">{{product_name}}</div>
+          <div style="font-size:40px">{{local.name}}</div>
           <div>
-            {{product_description}}
+            {{local.descript}}
           </div>
         </div>
     </div>
@@ -14,10 +14,12 @@
 <script>
 
 export default {
+  props:['oneItemData'],
   data(){
     return{
-      product_name:"加载中",
-      product_description:"加载中"
+      //product_name:oneItemData.name,
+      //product_description:this.oneItemData.descript,
+      local:this.oneItemData,
     }
   },
   methods:{
@@ -26,8 +28,7 @@ export default {
   created(){
     console.log(this.product_name);
 
-  }
-
+  },
   
   
 

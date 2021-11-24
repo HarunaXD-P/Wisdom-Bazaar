@@ -9,6 +9,7 @@ var view="loginButton"
 var currentUser_name="未登录"
 var currentUser_ID
 var isLogined=false
+var myAllProducts
 export default{
     title,
     description,
@@ -21,4 +22,5 @@ export default{
     currentUser_name,
     currentUser_ID,
     isLogined,
+    myAllProducts,
 }

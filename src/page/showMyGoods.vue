@@ -31,6 +31,8 @@ import DisplaySix from "@/components/DisplaySix";
 import information from "@/components/myInformation";
 import "element-ui/lib/theme-chalk/index.css";
 import goods from "@/components/myGoods"
+import GLOBAL from '@/global/global'
+import axios from 'axios';
 //import MyGoods from '../components/myGoods.vue';
 export default {
   name: "App",
@@ -43,10 +45,28 @@ export default {
   },
   data(){
     return{
-      goodsData:[{'name':"pp29",'descript':"haisidai"},{'name':"FC31",'descript':"wudaiji"},{'name':"F22","descript":'niangniang'}],
+      goodsData:[{'name':"pppp",'descript':"haisidai"},{'name':"FC31",'descript':"wudaiji"},{'name':"F22","descript":'niangniang'}],
+    }
+  },
+
+  created(){
+      const  path="http://127.0.0.1:5000/userallproducts";
+      var searchinfo={
+        "user_name":GLOBAL.currentUser_name,
+        "user_id":GLOBAL.currentUser_ID,
+      }
+      axios.post(path,JSON.stringify(searchinfo))
+          .then(function(response){
+            var myAllProducts=response.data;
+            console.log(myAllProducts);
+            this.goodsData=myAllProducts;
+            GLOBAL.myAllProducts=myAllProducts;
+
+
+          });
+    
 
     }
-  }
 };
 </script>
 

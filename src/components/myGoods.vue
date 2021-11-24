@@ -3,14 +3,7 @@
       wos zhanweifu n
       <ul>
           <li v-for="(item,index) in myGoodsData" :key="index">
-                <div id="longbar">
-                    <div id="content">
-                        <div style="font-size:40px">{{item.name}}</div>
-                        <div>
-                            {{item.descript}}
-                        </div>
-                    </div>
-                </div>
+                <display-long :oneItemData="myGoodsData[index]"></display-long>
                 
           </li>
       </ul>
@@ -18,10 +11,13 @@
 </template>
 
 <script>
+import Display from './Display.vue'
 import displayLong from './displayLong.vue'
 export default {
     components:{displayLong},
+    props:['myGoodsData'],
     data(){
+        
         return{
             goodsnum:3,
             //displayLongData:[{'name':"FC31",'descript':"haisidai"},{'name':"FC31",'descript':"wudaiji"},{'name':"F22","descript":'niangniang'}],
@@ -37,7 +33,6 @@ export default {
     methods:{
 
     },
-    props:['myGoodsData']
 
 }
 </script>
