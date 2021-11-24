@@ -39,7 +39,7 @@ export default {
       searchCriteria: "",
       breadcrumbItems: ["导航一"],
       currentView:GLOBAL.view,
-      logined:false,
+      logined:GLOBAL.isLogined,
     };
   },
 

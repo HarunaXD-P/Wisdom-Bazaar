@@ -8,6 +8,7 @@ var j_str=''
 var view="loginButton"
 var currentUser_name
 var currentUser_ID
+var isLogined=false
 export default{
     title,
     description,
@@ -19,4 +20,5 @@ export default{
     view,
     currentUser_name,
     currentUser_ID,
+    isLogined,
 }
