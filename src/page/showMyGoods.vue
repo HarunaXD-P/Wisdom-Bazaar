@@ -14,7 +14,7 @@
         <el-container>
           <myLeftSidebar></myLeftSidebar>
           <div id='main'>
-            占个位置
+            <div>你发布的商品共{{goodsData.length}}件</div>
             <myGoods :myGoodsData="goodsData"></myGoods>
           </div>
         
@@ -45,7 +45,8 @@ export default {
   },
   data(){
     return{
-      goodsData:[{'name':"pppp",'descript':"haisidai"},{'name':"FC31",'descript':"wudaiji"},{'name':"F22","descript":'niangniang'}],
+      goodsData:[{"product_id": 3, "product_name": "\u8f6f\u5de5", "category_value": 1, "price": 70.1, "photo": null, "description": "\u8f6f\u4ef6\u5de5\u7a0b\u6559\u6750", "source_id": 1}, 
+                {"product_id": 4, "product_name": "yxd", "category_value": 2, "price": 100000.0, "photo": null, "description": "\u4fe1\u79d1\u5927\u4e09\u672c\u79d1\u751f", "source_id": 1}]
     }
   },
 
@@ -58,12 +59,18 @@ export default {
       axios.post(path,JSON.stringify(searchinfo))
           .then(function(response){
             var myAllProducts=response.data;
-            console.log(myAllProducts);
+            //console.log(myAllProducts);
+            //console.log("this is all my products")
             this.goodsData=myAllProducts;
             GLOBAL.myAllProducts=myAllProducts;
+            //console.log("howmany?")
+            //console.log(myAllProducts.length)
 
 
           });
+      console.log("initial the page");
+      console.log(this.goodsData);
+      console.log(this.goodsData.length);
     
 
     }

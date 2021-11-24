@@ -25,9 +25,6 @@ export default {
         }
     },
     created(){
-        console.log("initil");
-        console.log(this.myGoodsData);
-        console.log(this.myGoodsData[1]);
 
     },
     methods:{
