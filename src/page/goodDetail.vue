@@ -24,7 +24,7 @@
 			<div style="height: 640px">
 				<!-- 这里放商品详情框上面的部分 -->
 				<div style="width: 0px; height: 0px;">
-					<!--{{getDetail()}}-->
+					{{getDetail()}}
 				</div>
 				<div style="width: 684px; height: 464px; float: left">
 					<!-- 这里放图片 -->
@@ -108,6 +108,7 @@ import DisplaySix from "@/components/DisplaySix";
 import information from "@/components/myInformation";
 import "element-ui/lib/theme-chalk/index.css";
 import _first from "@/components/cai_msg"
+import axios from "axios";
 
 export default {
   name: "App",
@@ -131,19 +132,19 @@ export default {
 			x.currentTarget.style.background = color;
 		},
 		getDetail() {
-			console.log(this.goodId);
+			console.log("!!!!!!1");
 			//在这里传给后端
 			var that=this;
 			const path = "http://127.0.0.1:5000/productinfo"; // 我也不知道
 			var goodsInformation = {
-				"number": this.goodId
-			};
+				"product_id": 1
+			}
 			axios
 			  .post(path,JSON.stringify(goodsInformation))
 			  .then(function(response) {
 			      // response.setContentType("text/javascript;charset=UTF-8");
 			      var goods = response.data;
-			      console.log("!!!!!!!!!!!!!!!!" + goods["Title"]);
+			      console.log("!!!!!!!!!!!!!!!!" + goods["product_name"]);
 			      console.log(goods["description"]);
 			      console.log(goods["price"]);
 			      console.log(goods["number"]);
