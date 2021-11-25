@@ -1,5 +1,5 @@
 <template>
-	<img src="../assets/aperture.png" style="width: 200px; height: 200px;margin-top: 55px;">
+	<img src="../assets/Datlogo.jpg" style="width: 266px; height: 200px;margin-top: 55px;">
 </template>
 
 <script>
