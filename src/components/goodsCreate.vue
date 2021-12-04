@@ -22,6 +22,7 @@
             type="textarea"
             placeholder="请输入内容"
             :autosize="{ minRows: 2, maxRows: 5 }"
+            @input="change($event)"
           ></el-input>
         </div>
       </span>
@@ -35,6 +36,7 @@
           :min="1"
           :max="10"
           label="描述文字"
+          @input="change($event)"
         ></el-input-number>
       </span>
     </div>
@@ -46,6 +48,7 @@
             v-model="inputPrice"
             placeholder="请输入价格"
             prefix-icon=""
+            @input="change($event)"
           ></el-input>
         </div>
       </span>
@@ -60,6 +63,7 @@
               :key="item.value"
               :label="item.label"
               :value="item.value"
+              @input="change($event)"
             >
             </el-option>
           </el-select>
@@ -144,15 +148,15 @@ export default {
 					GLOBAL.picture='static/logo.jpg';
           //在这里传给后端
           var that=this
-          const path = "http://127.0.0.1:5000";
+          const path = "http://127.0.0.1:5000/userpostproduct";
           var goodsInformation = {
             "product_name":this.inputTitle,
             "description":this.inputDescription,
             "price":this.inputPrice,
             "number":this.num,
-            "category_value":this.value,
-            "photo":this.photo_url,
-            "source_id":GLOBAL.currentUser,
+            "category_value":1,
+            "photo":"1",
+            "source_id":GLOBAL.currentUser_ID,
           }
           axios
             .post(path,JSON.stringify(goodsInformation))
@@ -175,6 +179,9 @@ export default {
         this.$router.replace('/')
         //this.$router.go(0)
     },
+      change(e){
+        this.$forceUpdate();
+      }
   }
 }
 

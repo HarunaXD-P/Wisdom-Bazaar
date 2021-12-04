@@ -5,7 +5,8 @@
     <router-view/>
     <el-container class="panal">
       <!--header为上半部分，放了myHeader.vue中的组件-->
-      <el-header>
+      <el-header style = "line-height: 60px; background-color: #3896c2;
+		text-align: center;">
         <myHeader> </myHeader>
       </el-header>
       <!--main为下半部分，放了LeftSidebar.vue和DisplaySix.vue和myInformation.vue中的三个组件-->

@@ -149,10 +149,11 @@ export default {
 			      console.log(goods["price"]);
 			      console.log(goods["number"]);
 			      console.log(goods["value"]);
-			      this.title = goods["product_name"];
-			      this.description = goods["description"];
-			      this.price = goods["price"];
-			      this.value = goods["category_value"];
+				  // modified by xcc 2021.11.24 21:57
+			      that.title = goods["product_name"];
+			      that.description = goods["description"];
+			      that.price = goods["price"];
+			      that.value = goods["category_value"];
 			  });
 		},
 	},

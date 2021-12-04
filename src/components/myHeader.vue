@@ -1,11 +1,9 @@
 <template>
-  <div style="background-color: #ebebeb; min-height: 0px; width:1920px; margin:auto">
     <div
       style="
-        height: 61px;
-        width: 1920px;
-        background-color: #3896c2;
         overflow: hidden;
+		height: 60px;
+		background-color: #3896C2;
       "
     >
       <span class="header" id="logo" @click="gotoHome"> FairMart </span>
@@ -25,7 +23,6 @@
         <div :is="currentView"></div>
       </span>
     </div>
-  </div>
 </template>
 
 <script type="text/ecmascript-6">
@@ -81,31 +78,32 @@ export default {
 #logo {
   color: white;
   float: left;
-  padding-top: 13px;
   margin-left: 1%;
   font-size: 35px;
 }
 #login {
   float: right;
-  margin: auto;
-  display: inline-block;
+  margin-right: 1%;
+  display: flex;
 }
 #search {
   float: left;
-  padding: 15px;
+  padding: 5px;
   color: white;
   margin-left: 650px;
-  width: 400px;
+  width: 500px;
   position: relative;
-  left:-95px;
-  top:-3px;
+  top:-5px;
+  display: flex;
 }
 #searchButton{
-  margin:auto;
+  margin-left: 10px;
   display: inline-block;
+  align-self: center;
 }
 #searchInput{
   width:300px;
   display: inline-block;
+  align-self: center;
 }
 </style>

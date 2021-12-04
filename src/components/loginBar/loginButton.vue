@@ -41,6 +41,6 @@ export default {
 <style>
 #loginButton {
   float: right;
-  margin: 10px;
+  align-self: center;
 }
 </style>

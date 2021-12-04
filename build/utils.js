@@ -3,6 +3,7 @@ const path = require('path')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
+const px2rem = require('postcss-px2rem')
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -28,10 +29,19 @@ exports.cssLoaders = function (options) {
       sourceMap: options.sourceMap
     }
   }
+  
+  //build文件下的utils.js文件
+  const px2remLoader = {
+          loader: 'px2rem-loader',
+          options: {
+              remUnit: 192
+          }
+  }
+
 
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
-    const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
+    const loaders = options.usePostCSS ? [cssLoader, postcssLoader, px2remLoader] : [cssLoader, px2remLoader]
 
     if (loader) {
       loaders.push({

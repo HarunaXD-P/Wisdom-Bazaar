@@ -37,6 +37,7 @@
 <script>
 import GLOBAL from '@/global/global'
 import axios from 'axios'
+import Router from '../../router/index.js'
 export default {
   data() {
     return {};
@@ -69,8 +70,11 @@ export default {
             //console.log(myAllProducts.length)
             console.log("send & get");
             console.log(GLOBAL.myAllProducts);
+             //this.$router.replace('/myGoods');
+            Router.push('/myGoods')
           });
-      this.$router.replace('/myGoods');
+          console.log("reach branch");
+       
     }
   },
 };
