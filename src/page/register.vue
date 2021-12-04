@@ -23,7 +23,7 @@
       <div class="rg_center">
         <div class="rg_form">
           <div style="margin: 50px 0"></div>
-          <el-form ref="form" :model="form" :rules="rules" label-width="80px">
+          <el-form ref="form" :model="form" :rules="rules" label-width="80px" @submit.prevent="send_vcode">
             <el-form-item label="Email" prop="Email">
               <el-col :span="15">
                 <el-input
@@ -32,7 +32,7 @@
                 ></el-input>
               </el-col>
               <el-col :span="9">
-                <el-button type="success" plain @click="sendEmail"
+                <el-button type="success" plain @click="send_vcode"
                   >发送邮件验证</el-button
                 >
               </el-col>
@@ -98,7 +98,10 @@ import Logo from "@/components/Logo.vue";
 import "element-ui/lib/theme-chalk/index.css";
 //import fair from "@/components/fairmart.vue";
 import axios from "axios";
-import crypto from "crypto"
+import crypto from "crypto";
+import emailjs from 'emailjs-com'
+import apikeys from '../router/apikeys'
+import 'jquery'
 
 export default {
   name: "Register",
@@ -117,12 +120,14 @@ export default {
         //radio: '1',
         //date: '',
         vcode: "",
+		v_code:"",
       },
       rules: {
         Email: [{ required: true, message: "请输入邮箱", trigger: "blur" }],
       },
       msg: "",
 	  pw_md:"",
+	  random_vcode:"",
     };
   },
   methods: {
@@ -140,9 +145,37 @@ export default {
       this.form.username = "";
       this.form.password = "";
       this.form.password_confirm = "";
-      this.form.email = "";
+      this.form.Email = "";
       this.form.vcode = "";
     },
+	send_vcode(){
+		var random6number=Math.random().toString().slice(-6);
+		this.form.v_code=random6number;
+		this.random_vcode=random6number;
+		console.log(random6number);
+		
+		var data={
+			service_id:apikeys.SERVICE_ID,
+			template_id:apikeys.TEMPLATE_ID,
+			user_id:apikeys.USER_ID,
+			template_params:{
+				"Email":this.form.Email,
+				"v_code":random6number
+			}
+		}
+		$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+			type: 'POST',
+			data: JSON.stringify(data),
+			contentType: 'application/json'
+		}).done(function() {
+			alert('Your mail is sent!');
+		}).fail(function(error) {
+			alert('Oops... ' + JSON.stringify(error));
+		});
+
+		
+
+	},
 	doRegist(){
 				
 				var pw=this.form.password;
@@ -154,6 +187,10 @@ export default {
 					alert("输入密码不一致，请重新输入");
 					clearInput();
 				}//检验两次输入是否一致，明文
+				if(this.form.vcode!=this.random_vcode){
+					alert("验证码错误，请重新输入");
+					this.form.vcode="";
+				}
 
 				var md5 = crypto.createHash("md5");
 				md5.update(pw);//this.pw2这是你要加密的密码
@@ -162,6 +199,7 @@ export default {
 				var regist_info={
 					"user_name":this.form.username,
 					"password":this.pw_md,
+					"email":this.form.Email,
 				};
 				
 				
