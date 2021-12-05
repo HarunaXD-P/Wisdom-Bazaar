@@ -1,5 +1,8 @@
 <template>
 	<div id="Login">
+		<div id="filler">
+			
+		</div>
 		<!--
 		<el-container>
 			<fairmart></fairmart>
@@ -139,6 +142,13 @@ export default {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
+	max-width: 1100px;
+	min-height: 900px;
+	margin:auto;
+	background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimgs.aixifan.com%2Fo_1cp6p00oj12fi1i6m1k1515ef1ov97s.png&refer=http%3A%2F%2Fimgs.aixifan.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641175021&t=4251d39d1a838bdc8d06c5a3b4c7b4fc);
+	background-repeat: no-repeat;
+  	background-size: 100%;
+  	background-position: 0px -50px;	
 
 }
 
@@ -147,12 +157,7 @@ export default {
   padding: 0px;
   box-sizing: border-box;
 }
-body {
-  background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimgs.aixifan.com%2Fo_1cp6p00oj12fi1i6m1k1515ef1ov97s.png&refer=http%3A%2F%2Fimgs.aixifan.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641175021&t=4251d39d1a838bdc8d06c5a3b4c7b4fc);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: 0px -50px;
-}
+
 
 
 .rg_layout {
@@ -163,7 +168,7 @@ body {
   opacity: 0.8;
   /*让div水平居中*/
   margin: auto;
-  margin-top: 100px;
+  margin-top: 0px;
 }
 
 .rg_left {
@@ -198,6 +203,10 @@ body {
 
 .rg_right p a {
   color: pink;
+}
+
+#filler{
+	height:50px;
 }
 
  
