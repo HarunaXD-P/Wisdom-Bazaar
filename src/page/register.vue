@@ -135,7 +135,7 @@ export default {
   },
   methods: {
     gotoHome() {
-      this.$router.replace("/");
+      this.$router.push({path:'/',query:{from:"register"}});
     },
 	gotoLogin(){
 		this.$router.replace("/Login");

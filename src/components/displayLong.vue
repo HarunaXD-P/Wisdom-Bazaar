@@ -14,7 +14,7 @@
           <div style="font-size:30px">价格：{{local.price}}</div>
         </div>
         <div id="operation">
-          <div>查看商品信息</div>
+          <div @click="showDetails">查看商品信息</div>
           <div>   </div>
           <div>删除商品</div>
 
@@ -35,6 +35,10 @@ export default {
     }
   },
   methods:{
+    showDetails(){
+      var a=this.local.product_id;
+      this.$router.push({path:'/goodDetail',query:{product_id:a}});
+    }
 
   },
   created(){

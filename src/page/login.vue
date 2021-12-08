@@ -90,7 +90,7 @@ export default {
 		  this.$router.replace("/Register")
 	  },
 	  gotoHome(){
-		  this.$router.replace("/");
+		  this.$router.push({path:'/',query:{from:"login"}});
 	  },
 	  doLogin(){
 		  //var userJson=JSON.parse(GLOBAL.j_str);

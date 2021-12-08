@@ -35,6 +35,8 @@ export default {
     myDisplay: DisplaySix,
     myInformation: information,
   },
+  methods:{
+  }
 };
 </script>
 
