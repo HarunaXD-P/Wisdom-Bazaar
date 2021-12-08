@@ -1,11 +1,11 @@
 <!--这个文件可以理解成一个整体显示的效果，主要是将其余个组件放在一个网页中-->
 <template>
-  <div id="app" style="background-color: #ffffff;">
+  <div id="app">
     <!--整个显示出来的是一个面板，看效果还很不好，之后要改-->
     <router-view/>
     <el-container class="panal">
       <!--header为上半部分，放了myHeader.vue中的组件-->
-      <el-header>
+      <el-header id="header">
         <myHeader> </myHeader>
       </el-header>
       <!--main为下半部分，放了LeftSidebar.vue和DisplaySix.vue和myInformation.vue中的三个组件-->
@@ -35,8 +35,6 @@ export default {
     myDisplay: DisplaySix,
     myInformation: information,
   },
-  methods:{
-  }
 };
 </script>
 
@@ -53,5 +51,11 @@ export default {
   height:1080px;
   float:center;
   margin:auto;
+  background-color: #FFFFFF;
+}
+#header {
+	/*line-height: 60px;*/
+	/*background-color: #3896C2;*/
+	text-align: center;
 }
 </style>

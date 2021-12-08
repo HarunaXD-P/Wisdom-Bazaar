@@ -67,9 +67,10 @@ export default {
 /*设置整个面板的长和宽 */
 
 .DisplaySix {
-  width: 1000px;
+  width: 1400px;
   height: 1000px;
   margin-top: -70px;
+  background-color: #ffffff;
 }
 
 /*设置6个部分之间的间隔 */

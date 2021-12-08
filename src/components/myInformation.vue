@@ -74,12 +74,12 @@ export default {
 <style>
 #bgr {
   width: 317px;
-  float: right;
+  float: left;
   height: 1100px;
   margin-top: 75px;
   /*margin-right: 2%;*/
   position: relative;
-  right:-200px;
+  /*right:-200px;*/
   margin-left : 80px;
   border-radius: 25px;
   background: #545c64;
