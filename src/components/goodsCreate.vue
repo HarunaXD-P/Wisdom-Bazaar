@@ -61,7 +61,7 @@
       <span id="catagory">选择分类</span>
       <span id="selectCatagory">
         <div id="catagorySelector">
-          <el-select v-model="value" placeholder="请选择">
+          <el-select v-model="value" placeholder="请选择" @input="change($event)">
             <!--
             <el-option
               v-for="item in options"
@@ -70,7 +70,7 @@
               :value="item.value"
               @input="change($event)"
             </el-option>-->
-            <el-option label="二手书本" value="1" @input="change($event)"></el-option>
+            <el-option label="二手书本" value="1"></el-option>
             <el-option label="数码产品" value="2"></el-option>
             <el-option label="票务转让" value="3"></el-option>
             <el-option label="二手衣物" value="4"></el-option>
@@ -181,7 +181,7 @@ export default {
         description: this.inputDescription,
         price: this.inputPrice,
         number: this.num,
-        category_value: 1,
+        category_value: this.value,
         photo: this.photosrc,
         source_id: GLOBAL.currentUser_ID,
       };

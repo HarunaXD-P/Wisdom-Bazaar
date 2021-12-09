@@ -19,6 +19,7 @@
     "emailjs-com": "^3.2.0",
     "file-saver": "^2.0.5",
     "jquery": "^3.6.0",
+    "postcss-px2rem": "^0.3.0",
     "sql.js": "^1.6.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
@@ -55,7 +56,9 @@
     "portfinder": "^1.0.13",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
+    "postcss-plugin-px2rem": "^0.8.1",
     "postcss-url": "^7.2.1",
+    "px2rem-loader": "^0.1.9",
     "rimraf": "^2.6.0",
     "selenium-server": "^3.0.1",
     "semver": "^5.3.0",
