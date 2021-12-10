@@ -51,7 +51,7 @@ export default {
 
   methods: {
     gotoMyGoods(){
-      const  path="http://127.0.0.1:5000/userallproducts";
+      const  path="http://39.104.84.38:8080/userallproducts";
       var searchinfo={
         "user_name":GLOBAL.currentUser_name,
         "source_id":GLOBAL.currentUser_ID,

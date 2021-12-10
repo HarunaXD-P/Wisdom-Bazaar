@@ -64,6 +64,9 @@
 				this.$router.replace('/')
 				//this.$router.go(0)
 			},
+			gotoLogin(){
+				this.$router.replace('/Login')
+			},
 			printReg(){
 				console.log(this.name);
 				console.log(this.password);

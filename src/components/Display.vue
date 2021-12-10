@@ -38,7 +38,7 @@
     <el-container class="panal1">
       <el-header height="90px">
         <!--<img src="../assets/iphone.jpeg" width="240px" height="160px" />-->
-        <img :src=picture width="240px" height="160px">
+        <img :src=picture class="pic">
       </el-header>
       <!--<img src="../assets/logo.png">-->
 
@@ -122,5 +122,9 @@ export default {
   text-align: left;
   position: relative;
   top: 50px;
+}
+.pic {
+	width: 240px;
+	height: 160px;
 }
 </style>
