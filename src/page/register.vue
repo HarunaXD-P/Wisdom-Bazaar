@@ -6,7 +6,7 @@
     <!--
 		<el-container>
 			<fairmart></fairmart>
-			<el-header>
+			<el-header>git
 				<logo></logo>
 			</el-header>
 			<el-main style="align-self: center;">
@@ -324,47 +324,6 @@ body {
   background-position: 0px -50px;
 }
 
-.rg_layout {
-  width: 900px;
-  height: 450px;
-  border: 5px solid #EEEEEE;
-  background-color: white;
-  opacity: 0.8;
-  /*让div水平居中*/
-  margin: auto;
-  margin-top: 200px;
-}
-.rg_left {
-  float: left;
-  margin: 15px;
-  width: 20%;
-}
-.rg_left > p:first-child {
-  color: #FFD026;
-  font-size: 20px;
-}
 
-.rg_left > p:last-child {
-  color: #A6A6A6;
-}
-.rg_right {
-  float: right;
-  margin: 15px;
-}
-
-.rg_right > p:first-child {
-  font-size: 15px;
-}
-
-.rg_right p a {
-  color: pink;
-}
-
-.rg_center {
-  /*border: 1px solid red;*/
-  float: left;
-  width: 450px;
-  /*margin: 15px;*/
-}
 
 </style>

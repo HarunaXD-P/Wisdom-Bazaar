@@ -14,14 +14,14 @@
 			</el-main>
 		</el-container>
 		-->
-		<div class="rg_layout">
-		<div class="rg_left">
+		<div class="lg_layout">
+		<div class="lg_left">
 		<p>用户登录</p>
 		<p>USER LOGIN</p>
 		</div>
 
-		<div class="rg_center">
-		<div class="rg_form">
+		<div class="lg_center">
+		<div class="lg_form">
 			<div style="margin: 50px 0;"></div>
 			<el-form ref="form" :model="form" :rules="rules" label-width="80px">
 		
@@ -45,7 +45,7 @@
 		</div>
 		</div>
 
-		<div class="rg_right">
+		<div class="lg_right">
 		<p>未拥有账号?
 			<el-link icon="el-icon-user-solid" type="primary" @click="gotoRegister">立刻注册</el-link>
 		</p>
@@ -160,7 +160,7 @@ export default {
 
 
 
-.rg_layout {
+.lg_layout {
   width: 900px;
   height: 300px;
   border: 5px solid #EEEEEE;
@@ -171,37 +171,37 @@ export default {
   margin-top: 0px;
 }
 
-.rg_left {
+.lg_left {
   float: left;
   margin: 15px;
   width: 20%;
 }
-.rg_left > p:first-child {
+.lg_left > p:first-child {
   color: #FFD026;
   font-size: 20px;
 }
 
-.rg_left > p:last-child {
+.lg_left > p:last-child {
   color: #A6A6A6;
 }
 
-.rg_center {
+.lg_center {
   /*border: 1px solid red;*/
   float: left;
   width: 450px;
   /*margin: 15px;*/
 }
 
-.rg_right {
+.lg_right {
   float: right;
   margin: 15px;
 }
 
-.rg_right > p:first-child {
+.lg_right > p:first-child {
   font-size: 15px;
 }
 
-.rg_right p a {
+.lg_right p a {
   color: pink;
 }
 

@@ -167,6 +167,7 @@
               border-radius: 15px;
               color: white;
             "
+            @click="dialog_buying_Visible=true"
           >
             立即联系
           </button>
@@ -230,6 +231,25 @@
             广角镜头和长焦镜头都支持光学防抖。
           </p>
         </div>
+        
+
+          <el-dialog
+            :visible.sync="dialog_buying_Visible"
+            width="50%"
+            style="text-align: center"
+            :before-close="handleClose"
+          >
+            <!-- <repassword></repassword> -->
+            <span>确认购买</span>
+            <el-input v-model="checkbuy"></el-input>
+            <span slot="footer" class="dialog-footer">
+              <el-button @click="dialog_buying_Visible = false">取 消</el-button>
+              <el-button type="primary" @click="buyProduct"
+                >确 定</el-button
+              >
+            </span>
+          </el-dialog>
+        
       </div>
     </div>
     <div style="float: right">
@@ -246,6 +266,7 @@ import information from "@/components/myInformation";
 import "element-ui/lib/theme-chalk/index.css";
 import _first from "@/components/cai_msg";
 import axios from "axios";
+import GLOBAL from '@/global/global'
 
 export default {
   name: "App",
@@ -255,6 +276,9 @@ export default {
       description: "",
       price: 0,
       value: "",
+      product_id: "",
+      dialog_buying_Visible: false,
+      checkbuy:""
     };
   },
   components: {
@@ -292,6 +316,57 @@ export default {
           that.price = goods["price"];
           that.value = goods["category_value"];
         });
+    },
+    handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+          })
+          .catch(_ => {});
+      },
+    handleConfirm(){
+      console.log(this.checkbuy);
+      this.dialog_buying_Visible=false;
+    },
+    buyProduct() {
+      //获取时间
+      let yy = new Date().getFullYear();
+      let mm = new Date().getMonth() + 1;
+      let dd = new Date().getDate();
+      let hh = new Date().getHours();
+      let mf =
+        new Date().getMinutes() < 10
+          ? "0" + new Date().getMinutes()
+          : new Date().getMinutes();
+      var nowTime=hh+":"+mf;
+      var nowDate=yy+"-"+mm+"-"+dd;
+      //获取商品和买家信息
+      const  path="http://39.104.84.38:8080/buyproduct";
+      var buyEvent={
+        buyer_id:GLOBAL.currentUser_ID,
+        sold_product_id:this.product_id,
+        time:nowDate + ' ' + nowTime,
+      }
+
+      console.log(buyEvent);
+      axios
+					.post(path,JSON.stringify(buyEvent))
+					.then(function(response){
+						var buy_result=response.data
+						is_buy_success = login_result["result"];
+						//alart(is_register_success)
+						console.log(is_register_success);
+						if(is_buy_success==="failed"){
+							alert("购买失败，请重试");
+							this.clearInput();
+						}else if(is_register_success==="success"){
+              var alert_str="购买成功，卖家的微信为:"+buy_result["seller_wechat"]+" 请及时联系"
+							alert(alert_str);
+						}else{
+							alert("买了个什么玩意？");
+						}
+					});
+      this.dialog_buying_Visible=false;
     },
   },
   props: ["goodId"],
@@ -366,5 +441,10 @@ export default {
   margin-left: 256px;
   margin-top: 30px;
   float: left;
+}
+#demo {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
 }
 </style>
