@@ -329,7 +329,12 @@ export default {
       this.dialog_buying_Visible=false;
     },
     buyProduct() {
-      //获取时间
+      //如果没有登陆的话.....currentUser_id究竟是undefined还是空串呢
+      if(GLOBAL.currentUser_ID=="")
+      {
+        alert("目前尚未登陆，请登录后再进行操作!");
+      }
+      //获取当前的时间，命名可谓是非常简陋
       let yy = new Date().getFullYear();
       let mm = new Date().getMonth() + 1;
       let dd = new Date().getDate();
@@ -340,33 +345,35 @@ export default {
           : new Date().getMinutes();
       var nowTime=hh+":"+mf;
       var nowDate=yy+"-"+mm+"-"+dd;
+
       //获取商品和买家信息
       const  path="http://39.104.84.38:8080/buyproduct";
       var buyEvent={
-        buyer_id:GLOBAL.currentUser_ID,
-        sold_product_id:this.product_id,
-        time:nowDate + ' ' + nowTime,
+        "buyer_id":GLOBAL.currentUser_ID,
+        "sold_product_id":this.product_id,
+        "time":nowDate + ' ' + nowTime,
       }
 
+      //此处打印很成功，注意键值对的格式
       console.log(buyEvent);
+
       axios
 					.post(path,JSON.stringify(buyEvent))
 					.then(function(response){
 						var buy_result=response.data
 						is_buy_success = login_result["result"];
 						//alart(is_register_success)
-						console.log(is_register_success);
+						console.log(is_register_success);//注意返回格式
 						if(is_buy_success==="failed"){
 							alert("购买失败，请重试");
-							this.clearInput();
 						}else if(is_register_success==="success"){
               var alert_str="购买成功，卖家的微信为:"+buy_result["seller_wechat"]+" 请及时联系"
 							alert(alert_str);
+              this.dialog_buying_Visible=false;
 						}else{
 							alert("买了个什么玩意？");
 						}
 					});
-      this.dialog_buying_Visible=false;
     },
   },
   props: ["goodId"],
