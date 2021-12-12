@@ -83,7 +83,7 @@
     </div>
     <div class="confirmButton">
       <div id="button">
-        <el-button type="success" @click="printImg">确认发布</el-button>
+        <el-button type="success" @click="sendMsg">确认发布</el-button>
         <el-button type="success" @click="gotoHome">返回</el-button>
       </div>
     </div>
@@ -201,8 +201,58 @@ export default {
           GLOBAL.number = goods["id"];
           GLOBAL.category = goods["value"];
         });
-      }
+			}
     },
+		sendMsg() {
+			console.log(document.getElementById("myFile").value);
+			this.photo = document.getElementById("myFile").value;
+			console.log(this.photo);
+			var file = document.getElementById("myFile").files[0];
+			const that = this;
+			new Promise(function (resolve, reject) {
+				if(file) {
+					console.log(file.size);
+					var reader = new FileReader();
+					reader.readAsDataURL(file);
+					reader.onload = function() {
+						console.log("onload");
+						console.log(this.result);
+						that.photosrc = this.result;
+						resolve();
+					}
+				}
+			}).then(function () {
+				GLOBAL.picture = "static/logo.jpg";
+				//在这里传给后端
+				const path = "http://39.104.84.38:8080/userpostproduct";
+				var goodsInformation = {
+					product_name: that.inputTitle,
+					description: that.inputDescription,
+					price: that.inputPrice,
+					number: that.num,
+					category_value: that.value,
+					photo: that.photosrc,
+					source_id: GLOBAL.currentUser_ID,
+				};
+				console.log(goodsInformation);
+				axios
+					.post(path, JSON.stringify(goodsInformation))
+					.then(function (response) {
+						// response.setContentType("text/javascript;charset=UTF-8");
+						var goods = response.data;
+						console.log("!!!!!!!!!!!!!!!!" + goods["Title"]);
+						console.log(goods["description"]);
+						console.log(goods["price"]);
+						console.log(goods["number"]);
+						console.log(goods["value"]);
+						GLOBAL.title = goods["name"];
+						GLOBAL.description = goods["description"];
+						GLOBAL.price = goods["price"];
+						GLOBAL.number = goods["id"];
+						GLOBAL.category = goods["value"];
+					});
+				});
+		},
     gotoHome() {
       this.$router.replace("/");
       //this.$router.go(0)
