@@ -1,15 +1,4 @@
-安装依赖
-npm i lib-flexible -S
-
-npm i px2rem-loader -D
-
-改\node_modules\lib-flexible\flexible.js（或者在其它地方找到这个.js文件） ：
-ctrl+F: 
-if (width / dpr > 540) {
-            width = 540 * dpr;
-        }
-
-改为：
-if (width / dpr > 540) {
-            width = width * dpr;
-        }
+关于UI界面现在发现的：应该可以不用其他什么rem uw之类的东西来调（至少在我电脑上可以）
+写新页面时要注意的：不要把整个页面宽度直接设置为1920px（在我电脑上通过F12发现100%比例下是1519.2px）
+写组件（尤其是嵌套）时：如果发现不能完全覆盖掉父组件（例如会留下边框），可以设置padding: unset（如果不行就margin: 0px）
+其他待更新...

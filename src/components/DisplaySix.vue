@@ -26,26 +26,21 @@
 -->
 <template>
   <div class="DisplaySix">
-    <myDisplay class="Panel1" style="float: left"></myDisplay>
+    <myDisplay style="float: left; margin: 10px;"></myDisplay>
     <oldDisplay
-      class="Panel1"
-      style="float: left; margin-left: 50px"
+      style="float: left; margin: 10px"
     ></oldDisplay>
     <oldDisplay
-      class="Panel1"
-      style="float: left; margin-left: 50px"
+      style="float: left; margin: 10px"
     ></oldDisplay>
     <oldDisplay
-      class="Panel1"
-      style="float: left; margin-top: 50px"
+      style="float: left; margin: 10px;"
     ></oldDisplay>
     <oldDisplay
-      class="Panel1"
-      style="float: left; margin-left: 50px; margin-top: 50px"
+      style="float: left; margin: 10px"
     ></oldDisplay>
     <oldDisplay
-      class="Panel1"
-      style="float: left; margin-left: 50px; margin-top: 50px"
+      style="float: left; margin: 10px"
     ></oldDisplay>
   </div>
 </template>
@@ -67,9 +62,7 @@ export default {
 /*设置整个面板的长和宽 */
 
 .DisplaySix {
-  width: 1400px;
   height: 1000px;
-  margin-top: -70px;
   background-color: #ffffff;
 }
 

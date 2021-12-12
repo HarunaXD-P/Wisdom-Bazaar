@@ -3,15 +3,15 @@
   <div id="app">
     <!--整个显示出来的是一个面板，看效果还很不好，之后要改-->
     <router-view/>
-    <el-container class="panal">
+    <el-container class="panel">
       <!--header为上半部分，放了myHeader.vue中的组件-->
       <el-header id="header">
         <myHeader> </myHeader>
       </el-header>
       <!--main为下半部分，放了LeftSidebar.vue和DisplaySix.vue和myInformation.vue中的三个组件-->
-      <el-main>
+      <el-main style="padding: unset;">
         <!--加一个el-container是为了让这三个组件能左中右排布-->
-        <el-container>
+        <el-container class="el-main-panel">
           <myLeftSidebar></myLeftSidebar>
           <myDisplay></myDisplay>
           <myInformation></myInformation>
@@ -45,10 +45,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  margin-right : 0px;
-  width:1920px;
-  height:1080px;
+  /*margin-top: 60px;*/
+ 
   float:center;
   margin:auto;
   background-color: #FFFFFF;
@@ -57,5 +55,13 @@ export default {
 	/*line-height: 60px;*/
 	/*background-color: #3896C2;*/
 	text-align: center;
+	padding: unset;
+}
+.panel{
+	/*width: 100%;*/
+}
+.el-main-panel{
+	height: 100%;
+	overflow-y: hidden;
 }
 </style>

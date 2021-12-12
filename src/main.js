@@ -6,7 +6,7 @@ import App from './App'
 import router from './router'
 import initSqlJs from "sql.js"
 
-import './utils/flexible'
+//import './utils/flexible'
 //import 'lib-flexible'
 //import './utils/rem'
 

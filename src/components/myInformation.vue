@@ -10,7 +10,7 @@
         @click="gotoGerenzhuye"
       /><img />
       <el-col :span="24" id="item">
-        <h3 style="font-size:60px">{{userName}}</h3>
+        <span style="font-size:36px">{{userName}}</span>
         <el-menu
           default-active="0"
           class="el-menu-vertical-demo"
@@ -22,22 +22,22 @@
         >
           <el-menu-item index="1" class="Item">
             <i class="el-icon-message"></i>
-            <span style="font-size:40px">我的消息</span>
+            <span style="font-size:18px">我的消息</span>
           </el-menu-item>
 
           <el-menu-item index="2" class="Item">
             <i class="el-icon-shopping-cart-2"></i>
-            <span slot="title" style="font-size:40px"> 购物车</span>
+            <span slot="title" style="font-size:18px"> 购物车</span>
           </el-menu-item>
 
           <el-menu-item index="3" class="Item">
             <i class="el-icon-star-on"></i>
-            <span slot="title" style="font-size:40px">收藏夹</span>
+            <span slot="title" style="font-size:18px">收藏夹</span>
           </el-menu-item>
 
           <el-menu-item index="4" class="Item">
             <i class="el-icon-setting"></i>
-            <span slot="title" style="font-size:40px" @click="gotoCreate">设置</span>
+            <span slot="title" style="font-size:18px" @click="gotoCreate">设置</span>
           </el-menu-item>
         </el-menu>
       </el-col>
@@ -73,16 +73,17 @@ export default {
 
 <style>
 #bgr {
-  width: 317px;
+  width: 260px;
   float: left;
-  height: 1100px;
-  margin-top: 75px;
+  margin-top: 30px;
   /*margin-right: 2%;*/
   position: relative;
   /*right:-200px;*/
-  margin-left : 80px;
+  margin-right : 20px;
   border-radius: 25px;
   background: #545c64;
+  display: flex;
+  height: 600px;
 }
 #id {
   widows: 317px;
@@ -91,6 +92,6 @@ export default {
   margin: 30px;
 }
 .Item{
-  margin:93px 10px;
+  margin:10px;
 }
 </style>

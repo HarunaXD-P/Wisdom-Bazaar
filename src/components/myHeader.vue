@@ -74,27 +74,27 @@ export default {
 	height: 60px;
 	line-height: 60px;
 	text-align: center;
+	display: flex;
 }
 #logo {
   color: white;
   float: left;
-  margin-left: 1%;
+  margin-left: 10px;
   font-size: 35px;
 }
 #login {
-  float: right;
-  margin-right: 1%;
+  float: left;
+  margin-left: 200px;
   display: flex;
 }
 #search {
   float: left;
-  padding: 5px;
   color: white;
-  margin-left: 650px;
+	margin-left: 500px;
+	/*margin-left: 300px;*/
   width: 500px;
   position: relative;
   display: flex;
-  top: -5px;
 }
 #searchButton{
   margin-left: 10px;

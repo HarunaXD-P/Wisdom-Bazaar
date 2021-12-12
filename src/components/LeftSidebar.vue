@@ -3,7 +3,7 @@
   <div class="LeftSidebar">
     <el-row class="tac">
       <el-col :span="24">
-        <h5>商品分类</h5>
+        <span style="font-size: 24px;font-weight: 500;">商品分类</span>
         <el-menu
           default-active="1"
           class="el-menu-vertical-demo"
@@ -11,7 +11,8 @@
           @close="handleClose"
           background-color="#696969"
           text-color="#fff"
-          active-text-color="#ffd04b">
+          active-text-color="#ffd04b"
+		  >
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-cpu"></i>
@@ -120,11 +121,11 @@ export default {
 .tac {
   
   position: relative; /*位置为相对位置*/
-  left: 0; /*排布在左侧*/
-  top:-20px;
-  width:300px; /*宽度*/
+  margin-left: 20px; /*排布在左侧*/
+  top:-0px;
+  width:200px; /*宽度*/
+  
   /*以下两条共同设置边框颜色，如果不设置border-style会显示不出效果*/
-  margin-left: 0;
 }
 .el-ment-item {
   width:300px;

@@ -79,8 +79,7 @@ export default {
   background-color: #f0fff0; /*面板颜色*/
   width: 300px; /*面板宽度 */
   position: relative;
-  left: 100px;
-  top: 100px;
+
   /*margin: 10px, 10px, 10px, 10px;*/
   border-top: 25px solid #f0fff0;
   border-radius: 25px;
