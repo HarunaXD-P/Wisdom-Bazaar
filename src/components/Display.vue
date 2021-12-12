@@ -109,7 +109,7 @@ export default {
 }
 .product {
   color: black;
-  font-size: 35px; /*字体大小*/
+  font-size: 30px; /*字体大小*/
   text-align: left;
   position: relative;
   top: 50px;
@@ -119,6 +119,13 @@ export default {
   font-size: 20px;
   text-align: left;
   position: relative;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
   top: 50px;
 }
 .pic {

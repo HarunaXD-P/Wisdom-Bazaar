@@ -1,6 +1,6 @@
 <!--el-container, 不会用，告辞-->
 <template>
-  <div id="app">
+  <div id="gerenzhuye">
 		<Header> </Header>
 		<div id="_selfinfo">
 			<div id="_img">
@@ -52,7 +52,7 @@ import "element-ui/lib/theme-chalk/index.css";
 import _first from "@/components/cai_msg"
 
 export default {
-  name: "App",
+  name: "gerenzhuye",
   components: {
     Header: myHeader,
     myLeftSidebar: LeftSidebar,
@@ -108,7 +108,7 @@ export default {
 	top: 50px;
 }
 	
-#app {
+#gerenzhuye {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

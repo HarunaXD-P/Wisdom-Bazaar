@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="goodDetail">
     <Header> </Header>
     <div id="cai_good_detail">
       <ul id="caimenu">
@@ -269,7 +269,7 @@ import axios from "axios";
 import GLOBAL from '@/global/global'
 
 export default {
-  name: "App",
+  name: "goodDetail",
   data() {
     return {
       title: "",
@@ -381,7 +381,7 @@ export default {
 </script>
 
 <style>
-#app {
+#goodDetail {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
