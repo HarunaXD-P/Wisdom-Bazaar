@@ -9,8 +9,9 @@
           id="caimenu_sy"
           @mouseover="gd_changeBcolor($event, '#a2a19f')"
           @mouseleave="gd_changeBcolor($event, '#E8E7E3')"
+		  @click="gotoHome"
         >
-          <a href="http://www.baidu.com" title="首页"> 首页 </a>
+          <a  title="首页"> 首页 </a>
         </li>
         <li
           id="caimenu_sc"
@@ -252,9 +253,9 @@
         
       </div>
     </div>
-    <div style="float: right">
+    <!--<div style="float: right">
       <myInfirmation> </myInfirmation>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -292,6 +293,10 @@ export default {
     dongtai: _first,
   },
   methods: {
+	  gotoHome()
+	  {
+	    this.$router.replace('/')
+	  },
     gd_changeBcolor(x, color) {
       x.currentTarget.style.background = color;
     },
@@ -393,8 +398,6 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   margin-right: 0px;
-  width: 1920px;
-  height: 1080px;
   float: center;
   margin: auto;
 }
@@ -403,7 +406,8 @@ export default {
   height: 48px;
   width: 1120px;
   padding-top: 0px;
-  margin-left: 400px;
+  margin-left: 200px;
+  
   border: 0px;
   background: #e8e7e3;
 }
@@ -448,8 +452,8 @@ export default {
 
 #cai_detail_box {
   width: 1261px;
-  mim-height: 880px;
-  margin-left: 256px;
+  /*min-height: 880px;*/
+  margin-left: 120px;
   margin-top: 30px;
   float: left;
 }

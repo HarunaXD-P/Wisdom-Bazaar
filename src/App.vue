@@ -63,7 +63,7 @@ export default {
   margin-right : 0px;*/
   margin: auto;
   min-height:1080px;
-  
+  min-width: 1280px;
 }
 .mainContent{
   float:center;
