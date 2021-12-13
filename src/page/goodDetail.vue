@@ -276,10 +276,13 @@ export default {
       description: "",
       price: 0,
       value: "",
-      product_id: "",
+      product_id: this.$route.query.product_id,
       dialog_buying_Visible: false,
       checkbuy:""
     };
+  },
+  created(){
+    console.log(this.product_id);
   },
   components: {
     Header: myHeader,
@@ -296,7 +299,7 @@ export default {
       console.log("!!!!!!1");
       //在这里传给后端
       var that = this;
-      const path = "http://127.0.0.1:5000/productinfo"; // 我也不知道
+      const path = "http://39.104.84.38:8080/productinfo"; // 我也不知道
       var goodsInformation = {
         product_id: 1,
       };
@@ -376,6 +379,7 @@ export default {
 					});
     },
   },
+  
   props: ["goodId"],
 };
 </script>

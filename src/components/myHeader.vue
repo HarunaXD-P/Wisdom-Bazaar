@@ -83,14 +83,19 @@ export default {
   font-size: 35px;
 }
 #login {
-  float: left;
+  float: right;
+  /*
   margin-left: 200px;
   display: flex;
+  */
+  
+  margin:auto;
+  margin-right:25px;
 }
 #search {
   float: left;
   color: white;
-	margin-left: 500px;
+	margin: auto;
 	/*margin-left: 300px;*/
   width: 500px;
   position: relative;

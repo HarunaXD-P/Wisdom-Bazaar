@@ -74,11 +74,12 @@ export default {
       description: GLOBAL.description,
       price: GLOBAL.price,
       picture: GLOBAL.picture,
+      product_id:"2",
     };
   },
   methods:{
     gotoDetail(){
-      this.$router.replace('/goodDetail')
+      this.$router.push({path:'/goodDetail',query:{product_id:this.product_id,}});
     },
   },
 };
