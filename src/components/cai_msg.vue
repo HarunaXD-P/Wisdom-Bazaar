@@ -53,7 +53,7 @@ export default {
 
 #cai_msg_idoth {
 	height: 112px;
-	width: 1600px;
+	width: 1000px;
 	margin: 0px, 20px;
 	float: left;
 }

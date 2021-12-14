@@ -3,13 +3,13 @@
   <div name="createItem">
       <el-container class="panal">
       <!--header为上半部分，放了myHeader.vue中的组件-->
-      <el-header>
+      <el-header style="padding: unset;">
         <myHeader> </myHeader>
       </el-header>
       <!--main为下半部分，放了LeftSidebar.vue和DisplaySix.vue和myInformation.vue中的三个组件-->
-      <el-main>
+      <el-main style="padding: unset;">
         <!--加一个el-container是为了让这三个组件能左中右排布-->
-        <el-container>
+        <el-container style="margin-left: 20px;">
           <myCreate></myCreate>
           <myInformation></myInformation>
         </el-container>

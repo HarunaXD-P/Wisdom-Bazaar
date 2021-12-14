@@ -72,7 +72,6 @@ export default {
 	
 #_selfinfo {
 	height: 150px;
-	width: 1800px;
 }
 	
 #_img {
@@ -87,7 +86,6 @@ export default {
 
 #_idoth {
 	height: 150px;
-	width: 1600px;
 	margin: 0px, 20px;
 	float: left;
 }
@@ -116,19 +114,17 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   margin-right : 0px;
-  width:1920px;
-  height:1080px;
   float:center;
   margin:auto;
 }
 
 #navfirst {
 	height: 48px;
-	width: 1800px;
 	padding-top: 0px;
 	margin-left: 20px;
 	border: 0px;
 	background: #E8E7E3;
+	width: 1200px;
 }
 
 #caimenu {
@@ -139,18 +135,16 @@ export default {
 
 #c {
 	height: 48px;
-	width: 300px;
+	width: 200px;
 	list-style: none;
 	float: left;
 	font-size: 30px;
 }
 
 #dongtaiqu {
-	width: 1800px;
 	margin-top: 20px;
 	margin-left: 20px;
 	min-height: 800px;
 }
-
 
 </style>

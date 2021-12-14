@@ -62,7 +62,6 @@ export default {
 /*设置整个面板的长和宽 */
 
 .DisplaySix {
-  height: 1000px;
   background-color: #ffffff;
 }
 
