@@ -102,6 +102,7 @@ export default {
     doLogin() {
 		if(this.form.username=="" || this.form.password==""){
 			alert("请输入账号密码");
+      return;
 		}
       var pw = this.form.password;
       var is_login_success;

@@ -8,6 +8,7 @@
         height="150"
         id="image"
         @click="gotoGerenzhuye"
+        border-radius="10xp"
       /><img />
       <el-col :span="24" id="item">
         <span style="font-size:36px">{{userName}}</span>
@@ -16,7 +17,7 @@
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
-          background-color="#545c64"
+          background-color="#696969"
           text-color="#fff"
           active-text-color="#ffd04b"
         >
@@ -81,7 +82,7 @@ export default {
   /*right:-200px;*/
   margin-right : 20px;
   border-radius: 25px;
-  background: #545c64;
+  background: #696969;
   display: flex;
   height: 600px;
 }

@@ -339,6 +339,7 @@ export default {
       if(GLOBAL.currentUser_ID=="")
       {
         alert("目前尚未登陆，请登录后再进行操作!");
+        return;
       }
       //获取当前的时间，命名可谓是非常简陋
       let yy = new Date().getFullYear();
@@ -382,6 +383,33 @@ export default {
 						}
 					});
     },
+    addtoFavorite(){
+      if(GLOBAL.currentUser_ID==""){
+        alert("请登录后重试");
+        return;
+      }
+      const path="http://39.104.84.38:8080/addfavorite"
+      var favorite_info={
+        "buyer_id":GLOBAL.currentUser_ID,
+        "product_id":this.product_id
+      }
+      axios
+					.post(path,JSON.stringify(favorite_info))
+					.then(function(response){
+						var favorite_result=response.data
+						var  is_favorite_success = favorite_result["result"];
+						//alart(is_register_success)
+						console.log(favorite_result);//注意返回格式
+						if(is_favorite_success==="failed"){
+							alert("收藏失败，请重试");
+						}else if(is_buy_success==="success"){
+              var alert_str="收藏成功"
+							alert(alert_str);
+						}else{
+							alert("收藏失败");
+						}
+					});
+    }
   },
   
   props: ["goodId"],

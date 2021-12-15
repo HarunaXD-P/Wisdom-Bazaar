@@ -111,21 +111,25 @@ export default {
   color: white; /*按钮的文字颜色*/
 }
 .price {
+  margin-top:10px;
   color: red; /*字体颜色*/
   position: relative;
   top: 50px;
+  font-size: 25px;
 }
 .product {
   color: black;
-  font-size: 30px; /*字体大小*/
-  text-align: left;
+  font-size: 35px; /*字体大小*/
+  
   position: relative;
   top: 50px;
+  margin-left: 5px;
 }
 .introduction {
   color: black;
   font-size: 20px;
-  text-align: left;
+  color:#708090;
+  margin-top:20px;
   position: relative;
   overflow: hidden;
   word-wrap: break-word;

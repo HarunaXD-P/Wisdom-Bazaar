@@ -192,9 +192,11 @@ export default {
         this.form.password_confirm == ""
       ) {
         alert("请完整填写信息");
+        return;
       }
       if (this.form.Email == "") {
         alert("请填写邮箱");
+        return;
       }
       
       var pw = this.form.password;
@@ -205,10 +207,12 @@ export default {
       if (pw != "" && pw != pwc) {
         alert("输入密码不一致，请重新输入");
         clearInput();
+        return;
       } //检验两次输入是否一致，明文
       if (this.form.vcode != this.random_vcode) {
         alert("验证码错误，请重新输入");
         this.form.vcode = "";
+        return;
       }
 
       var md5 = crypto.createHash("md5");
