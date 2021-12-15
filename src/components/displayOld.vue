@@ -47,7 +47,7 @@
         </body>
 
         <body class="introduction">
-          bookdfadfasdfadfasdfasjdofj;asdhjfas'dlfja;sjfd;asjdf;a'dafadsfasdfasdfassdfasdfas
+          bookdfa
         </body>
         <body class="price">
           $79.99

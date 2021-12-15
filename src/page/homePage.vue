@@ -26,6 +26,7 @@ import Header from "@/components/myHeader";
 import LeftSidebar from "@/components/LeftSidebar";
 import DisplaySix from "@/components/DisplaySix";
 import information from "@/components/myInformation";
+import axios from "axios";
 import "element-ui/lib/theme-chalk/index.css";
 export default {
   name: "App",

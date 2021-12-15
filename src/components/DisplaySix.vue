@@ -26,10 +26,11 @@
 -->
 <template>
   <div class="DisplaySix">
+    <!--
     <myDisplay style="float: left; margin: 10px;"></myDisplay>
     <oldDisplay
       style="float: left; margin: 10px"
-    ></oldDisplay>
+    >"abc"</oldDisplay>
     <oldDisplay
       style="float: left; margin: 10px"
     ></oldDisplay>
@@ -42,18 +43,52 @@
     <oldDisplay
       style="float: left; margin: 10px"
     ></oldDisplay>
+    -->
+    <oldDisplay v-for="(item,index) in goods" :key="index"
+     style="float: left; margin: 10px"
+     ></oldDisplay>
   </div>
 </template>
 
 <script>
 import Display from "@/components/Display";
 import DisplayOld from "@/components/displayOld";
+import axios from "axios";
 import "element-ui/lib/theme-chalk/index.css";
 export default {
-  name: "App",
+  name: "DisplaySix",
+  data(){
+    return{
+      goods:[{"abc":"def"}]
+    }
+  },
   components: {
     myDisplay: Display,
-    oldDisplay: DisplayOld
+    oldDisplay: DisplayOld,
+  },
+  created: function () {
+    this.initialize();
+    this.title = "myTry";
+  },
+  methods: {
+    initialize() {
+      this.description = "not a book";
+      const that = this;
+      const path = "http://39.104.84.38:8080/userallproducts";
+      var getGoods = {
+        strategy_0: 0,
+        strategy_1: 0,
+        source_id: 0,
+        category_value: 0,
+      };
+      axios.post(path, JSON.stringify(getGoods)).then(function (response) {
+        that.goods = response.data;
+        console.log(this.goods);
+      });
+    },
+    debug() {
+      console("I'm here");
+    },
   },
 };
 </script>

@@ -66,6 +66,7 @@
 
 <script>
 import GLOBAL from "@/global/global";
+import axios from "axios";
 export default {
   name: "Display",
   data() {
@@ -77,9 +78,37 @@ export default {
       product_id:"2",
     };
   },
+  created:function(){
+    this.initialize();
+    this.title="myTry";
+  },
   methods:{
     gotoDetail(){
       this.$router.push({path:'/goodDetail',query:{product_id:this.product_id,}});
+    },
+    initialize(){
+      this.description="not a book";
+      const path = "http://39.104.84.38:8080/userallproducts";
+      var getGoods={
+        strategy_0:0,
+        strategy_1:0,
+        source_id:0,
+        category_value:0,
+      };
+      axios
+        .post(path,JSON.stringify(getGoods))
+        .then(function(response){
+            var goods=response.data;
+            console.log(goods);
+            console.log(goods[Product])
+            console.log("!!!!!!!!!!!!!!!!" + goods["Title"]);
+						console.log(goods["description"]);
+						console.log(goods["price"]);
+						console.log(goods["number"]);
+						console.log(goods["value"]);
+            
+        });
+
     },
   },
 };
