@@ -1,6 +1,5 @@
 <template>
   <div>
-      wos zhanweifu n
       <ul>
           <li v-for="(item,index) in myGoodsData" :key="index">
                 <display-long :oneItemData="myGoodsData[index]"></display-long>

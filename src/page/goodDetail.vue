@@ -359,7 +359,7 @@ export default {
         "sold_product_id":this.product_id,
         "time":nowDate + ' ' + nowTime,
       }
-
+      var that=this;
       //此处打印很成功，注意键值对的格式
       console.log(buyEvent);
 
@@ -367,15 +367,16 @@ export default {
 					.post(path,JSON.stringify(buyEvent))
 					.then(function(response){
 						var buy_result=response.data
-						is_buy_success = login_result["result"];
+						var  is_buy_success = buy_result["result"];
 						//alart(is_register_success)
-						console.log(is_register_success);//注意返回格式
+						console.log(buy_result);//注意返回格式
 						if(is_buy_success==="failed"){
 							alert("购买失败，请重试");
-						}else if(is_register_success==="success"){
+              that.dialog_buying_Visible=false;
+						}else if(is_buy_success==="success"){
               var alert_str="购买成功，卖家的微信为:"+buy_result["seller_wechat"]+" 请及时联系"
 							alert(alert_str);
-              this.dialog_buying_Visible=false;
+              that.dialog_buying_Visible=false;
 						}else{
 							alert("买了个什么玩意？");
 						}
