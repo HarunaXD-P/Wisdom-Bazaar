@@ -44,9 +44,10 @@
       style="float: left; margin: 10px"
     ></oldDisplay>
     -->
-    <oldDisplay v-for="(item,index) in goods" :key="index"
+    <myDisplay v-for="(item,index) in goods" :key="index"
      style="float: left; margin: 10px"
-     ></oldDisplay>
+     :goodsContent="goods[index]"
+     ></myDisplay>
   </div>
 </template>
 
@@ -59,7 +60,7 @@ export default {
   name: "DisplaySix",
   data(){
     return{
-      goods:[{"abc":"def"}]
+      goods:[]
     }
   },
   components: {
@@ -83,7 +84,7 @@ export default {
       };
       axios.post(path, JSON.stringify(getGoods)).then(function (response) {
         that.goods = response.data;
-        console.log(this.goods);
+        console.log(that.goods);
       });
     },
     debug() {

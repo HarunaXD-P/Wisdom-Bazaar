@@ -44,14 +44,14 @@
 
       <el-main>
         <body class="product">
-          {{ title }}
+          {{ goodsDisplay.product_name }}
         </body>
 
         <body class="introduction">
-          {{ description }}
+          {{ goodsDisplay.description }}
         </body>
         <body class="price">
-          {{ price }}
+          {{ goodsDisplay.price }}
         </body>
       </el-main>
       <el-footer>
@@ -69,6 +69,7 @@ import GLOBAL from "@/global/global";
 import axios from "axios";
 export default {
   name: "Display",
+  props:['goodsContent'],
   data() {
     return {
       title: GLOBAL.title,
@@ -76,39 +77,16 @@ export default {
       price: GLOBAL.price,
       picture: GLOBAL.picture,
       product_id:"2",
+      goodsDisplay:this.goodsContent,
     };
   },
   created:function(){
-    this.initialize();
     this.title="myTry";
   },
   methods:{
     gotoDetail(){
+      console.log(this.goodsDisplay);
       this.$router.push({path:'/goodDetail',query:{product_id:this.product_id,}});
-    },
-    initialize(){
-      this.description="not a book";
-      const path = "http://39.104.84.38:8080/userallproducts";
-      var getGoods={
-        strategy_0:0,
-        strategy_1:0,
-        source_id:0,
-        category_value:0,
-      };
-      axios
-        .post(path,JSON.stringify(getGoods))
-        .then(function(response){
-            var goods=response.data;
-            console.log(goods);
-            console.log(goods[Product])
-            console.log("!!!!!!!!!!!!!!!!" + goods["Title"]);
-						console.log(goods["description"]);
-						console.log(goods["price"]);
-						console.log(goods["number"]);
-						console.log(goods["value"]);
-            
-        });
-
     },
   },
 };
