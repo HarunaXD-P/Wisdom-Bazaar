@@ -306,7 +306,7 @@ export default {
       var that = this;
       const path = "http://39.104.84.38:8080/productinfo"; // 我也不知道
       var goodsInformation = {
-        product_id: 1,
+        product_id: 9,
       };
       axios
         .post(path, JSON.stringify(goodsInformation))

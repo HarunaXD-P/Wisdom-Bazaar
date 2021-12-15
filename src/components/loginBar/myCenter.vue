@@ -24,7 +24,7 @@
               <el-menu-item index="2-4-3">选项3</el-menu-item>
             </el-submenu>
           </el-submenu>
-          <el-menu-item index="3" @click="changeMyWX">更改联系方式</el-menu-item>
+          <el-menu-item index="3" @click="dialog_changevx_Visible=true">更改联系方式</el-menu-item>
           <el-menu-item index="4" style="margin=0px;"
             ><a href="https://www.ele.me" target="_blank"
               >订单管理</a
@@ -34,7 +34,7 @@
       </span>
     </span>
     <el-dialog
-      :visible.sync="dialog_buying_Visible"
+      :visible.sync="dialog_changevx_Visible"
       width="50%"
       style="text-align: center"
       :before-close="handleClose"
@@ -56,7 +56,8 @@ import Router from "../../router/index.js";
 export default {
   data() {
     return {
-      myWeChat: "",
+      myWeChat:"",
+      dialog_changevx_Visible: false,
     };
   },
 
@@ -101,26 +102,27 @@ export default {
       if (this.myWeChat == "") {
         alert("请输入内容");
       }
-
+      var vx=this.myWeChat;
       const  path="http://39.104.84.38:8080/changeWeChat";
       var WeChat_info={
         "user_id":GLOBAL.currentUser_ID,
-        "WeChat_id":this.myWeChat,
+        "WeChat_id":vx,
       }
+      console.log(WeChat_info);
 
       axios
-					.post(path,JSON.stringify(myWeChat))
+					.post(path,JSON.stringify(WeChat_info))
 					.then(function(response){
-						var buy_result=response.data
-						is_buy_success = login_result["result"];
+						var vx_result=response.data
+						var vx_success = vx_result["result"];
 						//alart(is_register_success)
-						console.log(is_register_success);//注意返回格式
-						if(is_buy_success==="failed"){
+						console.log(vx_success);//注意返回格式
+						if(vx_success==="failed"){
 							alert("登记失败，请重试");
-						}else if(is_register_success==="success"){
-              var alert_str="登记成功，您的微信为:"+this.myWeChat;
+						}else if(vx_success==="success"){
+              var alert_str="登记成功，您的微信为:"+vx;
 							alert(alert_str);
-              this.dialog_buying_Visible=false;
+              this.dialog_changevx_Visible=false;
 						}else{
 							alert("写个什么玩意？");
 						}
