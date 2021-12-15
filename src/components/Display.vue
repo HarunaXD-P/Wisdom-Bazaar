@@ -51,7 +51,7 @@
           {{ goodsDisplay.description }}
         </body>
         <body class="price">
-          {{ goodsDisplay.price }}
+          ￥{{ goodsDisplay.price }}
         </body>
       </el-main>
       <el-footer>

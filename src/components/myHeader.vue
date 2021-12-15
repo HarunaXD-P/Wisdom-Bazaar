@@ -90,7 +90,7 @@ export default {
   */
   
   margin:auto;
-  margin-right:25px;
+  margin-right:0px;
 }
 #search {
   float: left;
