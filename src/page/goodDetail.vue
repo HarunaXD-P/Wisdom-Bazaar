@@ -60,9 +60,9 @@
             float: left;
           "
         >
-          {{ title }}
+          {{ this.title }}
         </div>
-        <div
+        <!--<div
           style="
             width: 299px;
             height: 30px;
@@ -73,7 +73,7 @@
           "
         >
           {{ description }}
-        </div>
+        </div>-->
         <div
           style="
             width: 412px;
@@ -225,7 +225,7 @@
               color: rgba(120, 66, 66, 1);
             "
           >
-            {{description}}
+            {{this.description}}
           </p>
         </div>
         
@@ -269,7 +269,9 @@ export default {
   name: "goodDetail",
   data() {
     return {
-      title: "",
+		//product_id:this.goodsContent.product_id,
+      //title: this.goodsContent.product_name,
+	  title: this.title,
       description: "",
       price: 0,
       value: "",
@@ -302,7 +304,7 @@ export default {
       var that = this;
       const path = "http://39.104.84.38:8080/productinfo"; // 我也不知道
       var goodsInformation = {
-        product_id: 9,
+        product_id: this.$route.query.product_id,
       };
       axios
         .post(path, JSON.stringify(goodsInformation))

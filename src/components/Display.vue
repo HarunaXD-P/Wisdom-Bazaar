@@ -76,8 +76,8 @@ export default {
       description: GLOBAL.description,
       price: GLOBAL.price,
       picture: GLOBAL.picture,
-      product_id:"2",
       goodsDisplay:this.goodsContent,
+	  product_id:this.goodsContent.product_id,
     };
   },
   created:function(){
