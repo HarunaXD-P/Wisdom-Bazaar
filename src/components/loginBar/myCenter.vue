@@ -37,7 +37,7 @@
       :visible.sync="dialog_changevx_Visible"
       width="50%"
       style="text-align: center"
-      :before-close="handleClose"
+      
     >
       <span>请输入您的微信号</span>
       <el-input v-model="myWeChat"></el-input>
@@ -78,15 +78,9 @@ export default {
       };
       axios.post(path, JSON.stringify(searchinfo)).then(function (response) {
         var myAllProducts = response.data;
-        //console.log(myAllProducts);
-        //console.log("this is all my products")
-        //this.goodsData=myAllProducts;
         GLOBAL.myAllProducts = myAllProducts;
-        //console.log("howmany?")
-        //console.log(myAllProducts.length)
         console.log("send & get");
         console.log(GLOBAL.myAllProducts);
-        //this.$router.replace('/myGoods');
         Router.push("/myGoods");
       });
       console.log("reach branch");
@@ -109,7 +103,7 @@ export default {
         "WeChat_id":vx,
       }
       console.log(WeChat_info);
-
+      var that=this;
       axios
 					.post(path,JSON.stringify(WeChat_info))
 					.then(function(response){
@@ -120,9 +114,10 @@ export default {
 						if(vx_success==="failed"){
 							alert("登记失败，请重试");
 						}else if(vx_success==="success"){
+              //that.dialog_changevx_Visible=false;
               var alert_str="登记成功，您的微信为:"+vx;
 							alert(alert_str);
-              this.dialog_changevx_Visible=false;
+              that.dialog_changevx_Visible=false;
 						}else{
 							alert("写个什么玩意？");
 						}

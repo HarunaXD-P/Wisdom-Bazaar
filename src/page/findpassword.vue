@@ -132,6 +132,9 @@ export default {
     gotoLogin() {
       this.$router.replace("/Login");
     },
+	gotoHome(){
+		this.$router.replace("/")
+	},
     clearInput() {
       this.form.username = "";
       this.form.password = "";
