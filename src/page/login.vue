@@ -58,6 +58,13 @@
             >立刻注册</el-link
           >
         </p>
+        <p>
+          忘记密码？
+          <el-link
+            icon="el-icon-s-release"
+            @click="gotoFindpw"
+          >重置密码</el-link>
+        </p>
       </div>
     </div>
   </div>
@@ -95,6 +102,9 @@ export default {
   methods: {
     gotoRegister() {
       this.$router.replace("/Register");
+    },
+    gotoFindpw(){
+      this.$router.replace("/Findpassword")
     },
     gotoHome() {
       this.$router.push({ path: "/", query: { from: "login" } });
