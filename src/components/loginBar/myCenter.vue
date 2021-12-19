@@ -69,21 +69,7 @@ export default {
 
   methods: {
     gotoMyGoods() {
-      const path = "http://39.104.84.38:8080/userallproducts";
-      var searchinfo = {
-        user_name: GLOBAL.currentUser_name,
-        source_id: GLOBAL.currentUser_ID,
-        strategy_0: 0,
-        strategy_1: 1,
-      };
-      axios.post(path, JSON.stringify(searchinfo)).then(function (response) {
-        var myAllProducts = response.data;
-        GLOBAL.myAllProducts = myAllProducts;
-        console.log("send & get");
-        console.log(GLOBAL.myAllProducts);
-        Router.push("/myGoods");
-      });
-      console.log("reach branch");
+        Router.push({ path: '/myGoods', query: { type: "userallproducts" }});
     },
     handleClose(done) {
       this.$confirm("确认关闭？")
