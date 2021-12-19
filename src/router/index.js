@@ -8,6 +8,7 @@ import CreateItem from '@/page/createItem'
 import gerenzhuye from '@/page/gerenzhuye'
 import detail from '@/page/goodDetail'
 import showMyGoods from '@/page/showMyGoods'
+import seekforGoods from '@/page/seekGoods'
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +52,11 @@ export default new Router({
     path:'/myGoods',
     name:showMyGoods,
     component:showMyGoods,
+  },
+  {
+    path:'/seekGoods',
+    name:seekforGoods,
+    component:seekforGoods,
   }
   ]
 })

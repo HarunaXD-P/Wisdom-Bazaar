@@ -37,8 +37,13 @@
           </el-menu-item>
 
           <el-menu-item index="4" class="Item">
-            <i class="el-icon-setting"></i>
-            <span slot="title" style="font-size:18px" @click="gotoCreate">设置</span>
+            <i class="el-icon-upload"></i>
+            <span slot="title" style="font-size:18px" @click="gotoCreate">发布商品</span>
+          </el-menu-item>
+
+          <el-menu-item index="5" class="Item">
+            <i class="el-icon-view"></i>
+            <span slot="title" style="font-size:18px" @click="gotoSeek">求购</span>
           </el-menu-item>
         </el-menu>
       </el-col>
@@ -67,6 +72,9 @@ export default {
     gotoGerenzhuye()
     {
       this.$router.replace('/gerenzhuye')
+    },
+    gotoSeek(){
+      this.$router.replace('/seekGoods')
     }
   },
 };
@@ -84,7 +92,7 @@ export default {
   border-radius: 25px;
   background: #696969;
   display: flex;
-  height: 600px;
+  height: 640px;
 }
 #id {
   widows: 317px;
