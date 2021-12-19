@@ -51,7 +51,7 @@ export default new Router({
   },
   {
     path:'/myGoods',
-    name:showMyGoods,
+    name:'showMyGoods',
     component:showMyGoods,
   },
   {
