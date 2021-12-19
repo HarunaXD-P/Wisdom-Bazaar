@@ -45,14 +45,14 @@
 
       <el-main>
         <body class="product">
-          {{ goodsDisplay.product_name }}
+          {{ goodsDisplay.wanted_name }}
         </body>
 
         <body class="introduction">
           {{ goodsDisplay.description }}
         </body>
-        <!--
-        <body class="price">
+        
+        <!--<body class="price">
           ￥{{ goodsDisplay.price }}
         </body>-->
       </el-main>

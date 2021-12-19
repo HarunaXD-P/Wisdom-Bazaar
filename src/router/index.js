@@ -9,6 +9,7 @@ import gerenzhuye from '@/page/gerenzhuye'
 import detail from '@/page/goodDetail'
 import showMyGoods from '@/page/showMyGoods'
 import seekforGoods from '@/page/seekGoods'
+import publish from '@/page/publishPage'
 Vue.use(Router)
 
 export default new Router({
@@ -57,6 +58,11 @@ export default new Router({
     path:'/seekGoods',
     name:seekforGoods,
     component:seekforGoods,
-  }
+  },
+  {
+    path:'/putGoods',
+    name:publish,
+    component:publish,
+  },
   ]
 })

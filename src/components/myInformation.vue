@@ -43,8 +43,14 @@
 
           <el-menu-item index="5" class="Item">
             <i class="el-icon-view"></i>
-            <span slot="title" style="font-size:18px" @click="gotoSeek">求购</span>
+            <span slot="title" style="font-size:18px" @click="gotoPut">发布求购</span>
           </el-menu-item>
+
+          <el-menu-item index="5" class="Item">
+            <i class="el-icon-view"></i>
+            <span slot="title" style="font-size:18px" @click="gotoSeek">浏览求购</span>
+          </el-menu-item>
+
         </el-menu>
       </el-col>
     </div>
@@ -75,6 +81,9 @@ export default {
     },
     gotoSeek(){
       this.$router.replace('/seekGoods')
+    },
+    gotoPut(){
+      this.$router.replace('/putGoods')
     }
   },
 };
@@ -92,7 +101,7 @@ export default {
   border-radius: 25px;
   background: #696969;
   display: flex;
-  height: 640px;
+  height: 700px;
 }
 #id {
   widows: 317px;
