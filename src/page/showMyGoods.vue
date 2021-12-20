@@ -15,7 +15,7 @@
           <myLeftSidebar></myLeftSidebar>
           <div id="main">
             <div>你发布的商品共{{ goodsData.length }}件</div>
-            <myGoods :myGoodsData="goodsData"></myGoods>
+            <myGoods :myGoodsData="goodsData" :type="this.type"></myGoods>
           </div>
         </el-container>
       </el-main>
@@ -70,9 +70,11 @@ export default {
       axios
       .post(path, JSON.stringify(searchinfo))
       .then(function (response) {
-        var myAllProducts = response.data;
+        //var myAllProducts = response.data;
         that.goodsData=response.data;
         console.log("send & get");
+        console.log(JSON.stringify(response.data))
+        console.log(that.type)
         //console.log(GLOBAL.myAllProducts);
       });
     },

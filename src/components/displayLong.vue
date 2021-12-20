@@ -9,6 +9,9 @@
           <div>
            商品描述： {{local.description}}
           </div>
+          <div>
+            浏览方法：{{this.getType}}
+          </div>
         </div>
         <div id="price_num">
           <div style="font-size:30px">价格：{{local.price}}</div>
@@ -41,13 +44,14 @@
 <script>
 
 export default {
-  props:['oneItemData'],
+  props:['oneItemData','oneItemType'],
   data(){
     return{
       //product_name:oneItemData.name,
       //product_description:this.oneItemData.descript,
       local:this.oneItemData,
       dialog_delete_Visible: false,
+      getType:this.oneItemType,
     }
   },
   methods:{

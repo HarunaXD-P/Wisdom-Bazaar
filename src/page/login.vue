@@ -125,13 +125,18 @@ export default {
         user_name: this.form.username,
         password: this.pw_md,
       };
+      var that=this;
       const path = "http://39.104.84.38:8080/login";
       axios.post(path, JSON.stringify(loginInfo)).then(function (response) {
         console.log("i accept");
         var login_result = response.data;
         is_login_success = login_result["result"];
-        if (is_login_success === "success") {
-          alert("登陆成功");
+        if (is_login_success == "success") {
+          //alert("登陆成功");
+          var mymes=confirm("登陆成功");
+          if(mymes==true){
+            that.$router.push({ path: "/", query: { from: "login" } });
+          }
           GLOBAL.currentUser_ID = login_result["id"];
           GLOBAL.currentUser_name = login_result["user_name"];
           GLOBAL.isLogined = true;

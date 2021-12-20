@@ -1,8 +1,9 @@
 <template>
   <div>
       <ul>
+          <div>{{type}}</div>
           <li v-for="(item,index) in myGoodsData" :key="index">
-                <display-long :oneItemData="myGoodsData[index]"></display-long>
+                <display-long :oneItemData="myGoodsData[index]" :oneItemType="type"></display-long>
                 
           </li>
       </ul>
@@ -14,17 +15,23 @@ import Display from './Display.vue'
 import displayLong from './displayLong.vue'
 export default {
     components:{displayLong},
-    props:['myGoodsData'],
+    props:['myGoodsData','type'],
     data(){
         
         return{
             goodsnum:3,
+            
             //displayLongData:[{'name':"FC31",'descript':"haisidai"},{'name':"FC31",'descript':"wudaiji"},{'name':"F22","descript":'niangniang'}],
-
+            
         }
     },
     created(){
+    
 
+    },
+    updated(){
+        console.log(this.myGoodsData);
+        
     },
     methods:{
 

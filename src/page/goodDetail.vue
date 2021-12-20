@@ -238,7 +238,6 @@
           >
             <!-- <repassword></repassword> -->
             <span>确认购买</span>
-            <el-input v-model="checkbuy"></el-input>
             <span slot="footer" class="dialog-footer">
               <el-button @click="dialog_buying_Visible = false">取 消</el-button>
               <el-button type="primary" @click="buyProduct"
