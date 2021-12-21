@@ -73,7 +73,7 @@
             </el-form-item>
             <el-form-item>
               <el-col :span="20">
-                <el-button type="primary" @click="doRegist">立即注册</el-button>
+                <el-button type="primary" @click="doResetpw">立即重置</el-button>
                 <el-button type="primary" @click="gotoHome">返回主页</el-button>
               </el-col>
             </el-form-item>
@@ -122,7 +122,7 @@ export default {
         Email: [{ required: true, message: "请输入邮箱", trigger: "blur" }],
       },
       loadingbut: false,
-	  loadingtext:"发送验证码",
+	    loadingtext:"发送验证码",
       msg: "",
       pw_md: "",
       random_vcode: "",
@@ -146,7 +146,7 @@ export default {
     send_vcode() {
 	
       this.loadingbut = true;
-	  this.loadingtext="验证中"
+	    this.loadingtext="验证中"
 	  //input is vcode,standard is random_vcode.
       var random6number = Math.random().toString().slice(-6);
       this.form.v_code = random6number;
@@ -158,8 +158,8 @@ export default {
         template_id: apikeys.TEMPLATE_ID,
         user_id: apikeys.USER_ID,
         template_params: {
-          Email: this.form.Email,
-          v_code: random6number,
+        Email: this.form.Email,
+        v_code: random6number,
         },
       };
 	  var that=this;
@@ -169,9 +169,9 @@ export default {
         contentType: "application/json",
       })
         .done(function () {
-          alert("Your mail is sent!");
+          alert("邮件发送成功");
           that.loadingbut = false;
-		  that.loadingtext = "发送成功";
+		      that.loadingtext = "发送成功";
         })
         .fail(function (error) {
           alert("Oops... " + JSON.stringify(error));
@@ -185,7 +185,7 @@ export default {
       var that = this;
       const path = "http://39.104.84.38:8080/Email_exist";
       var email_info = {
-        email: this.form.Email,
+        "email": this.form.Email,
       };
 
       axios

@@ -66,9 +66,9 @@ export default {
       console.log("from displaylong");
     },
     deleteProduct(){
-      const path="http://39.104.84.38:8080/deletemyproduct";
+      const path="http://39.104.84.38:8080/deleteproduct";
       var deleteinfo={
-        "delete_id":this.local.product_id,
+        "deleteproduct_id":this.local.product_id,
       };
       axios
 					.post(path,JSON.stringify(deleteinfo))

@@ -39,8 +39,10 @@
                 ></el-input>
               </el-col>
               <el-col :span="9">
-                <el-button type="success" plain @click="send_vcode"
-                  >发送邮件验证</el-button
+                <el-button type="primary" 
+                @click="send_vcode"
+                :loading="rg_loadingbut"
+                  >{{rg_loadingtext}}</el-button
                 >
               </el-col>
             </el-form-item>
@@ -137,6 +139,8 @@ export default {
       msg: "",
       pw_md: "",
       random_vcode: "",
+      rg_loadingbut: false,
+	    rg_loadingtext:"发送验证码",
     };
   },
   methods: {
@@ -161,6 +165,8 @@ export default {
       var random6number = Math.random().toString().slice(-6);
       this.form.v_code = random6number;
       this.random_vcode = random6number;
+      this.rg_loadingbut = true;
+	    this.rg_loadingtext="验证中"
       console.log(random6number);
 
       var data = {
@@ -178,7 +184,9 @@ export default {
         contentType: "application/json",
       })
         .done(function () {
-          alert("Your mail is sent!");
+          alert("邮件发送成功");
+          that.rg_loadingbut = false;
+		      that.rg_loadingtext = "发送成功";
         })
         .fail(function (error) {
           alert("Oops... " + JSON.stringify(error));
