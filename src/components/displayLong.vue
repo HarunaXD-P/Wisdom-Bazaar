@@ -14,12 +14,13 @@
           </div>
         </div>
         <div id="price_num">
-          <div style="font-size:30px">价格：{{local.price}}</div>
+          <div style="font-size:30px; width:300px">价格：{{local.price}}</div>
+          <div v-if="display_time">购买时间：{{local.time}}</div>
         </div>
         <div id="operation">
-          <div @click="showDetails">查看商品信息</div>
+          <div @click="showDetails" v-show="display_detail">查看商品信息</div>
           <div id="blank">   </div>
-          <div @click="dialog_delete_Visible=true">删除商品</div>
+          <div @click="dialog_delete_Visible=true" v-if="display_delete">删除商品</div>
 
         </div>
     </div>
@@ -53,6 +54,9 @@ export default {
       local:this.oneItemData,
       dialog_delete_Visible: false,
       getType:this.oneItemType,
+      display_delete:true,
+      display_detail:true,
+      display_time:true,
     }
   },
   methods:{
@@ -65,7 +69,22 @@ export default {
       console.log(this.getType);
       console.log("from displaylong");
     },
+    selecttoHide(){
+      if(this.getType=="mypurchase"){
+        this.display_delete=false;
+
+      }else if(this.getType=="userallproducts"){
+
+      }
+      else if(this.getType=="myfavorites"){
+        this.display_time=false;
+
+
+      }
+
+    },
     deleteProduct(){
+      console.log("enter deleteProduct");
       const path="http://39.104.84.38:8080/deleteproduct";
       var deleteinfo={
         "deleteproduct_id":this.local.product_id,
@@ -73,14 +92,15 @@ export default {
       axios
 					.post(path,JSON.stringify(deleteinfo))
 					.then(function(response){
-						var delete_result=response.data
-						var  is_delete_success = delete_result["result"];
+						var delete_result=response.data;
+						var is_delete_success = delete_result["result"];
 						//alart(is_register_success)
 						console.log(delete_result);//注意返回格式
-						if(is_delete_success==="failed"){
+            console.log(is_delete_success);
+						if(is_delete_success=="failed"){
 							alert("删除失败，请重试");
               that.dialog_buying_Visible=false;
-						}else if(is_buy_success==="success"){
+						}else if(is_delete_success=="success"){
               var alert_str="删除成功"
 							alert(alert_str);
               that.dialog_buying_Visible=false;
@@ -91,6 +111,7 @@ export default {
 
     },
     deleteFromFavorite(){
+      console.log("enter delete favorite")
       const path="http://39.104.84.38:8080/deletefavorites";
       var deleteinfo={
         "delete_id":this.local.product_id,
@@ -106,7 +127,7 @@ export default {
 						if(is_delete_success==="failed"){
 							alert("删除失败，请重试");
               that.dialog_buying_Visible=false;
-						}else if(is_buy_success==="success"){
+						}else if(is_delete_success==="success"){
               var alert_str="删除成功"
 							alert(alert_str);
               that.dialog_buying_Visible=false;
@@ -118,9 +139,12 @@ export default {
     },
     doDelete(){
       if(this.getType=="userallproducts"){
+        console.log("选择了删除商品");
         this.deleteProduct();
+
       }
       else if(this.getType=="myfavorites"){
+        console.log("选择了删除收藏");
         this.deleteFromFavorite();
       }
     },
@@ -135,6 +159,7 @@ export default {
   },
   created(){
     //console.log(this.product_name);
+    this.selecttoHide();
 
   },
   
@@ -153,7 +178,7 @@ export default {
     
 }
 #content{
-  width:500px;
+  width:400px;
   height:100px;
   display: inline-block;
   float: left;
@@ -168,7 +193,7 @@ export default {
   float: left;
 }
 #price_num{
-  width:200px;
+  width:300px;
   height:100px;
   float:left;
   text-align: left;
@@ -185,5 +210,6 @@ export default {
 #blank{
   height:10px;
 }
+
 
 </style>

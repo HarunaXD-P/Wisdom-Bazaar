@@ -184,6 +184,7 @@
               border-radius: 15px;
               color: white;
             "
+            @click="addtoFavorite"
           >
             加购物车
           </button>
@@ -376,8 +377,9 @@ export default {
               that.dialog_buying_Visible=false;
 						}else if(is_buy_success==="success"){
               var alert_str="购买成功，卖家的微信为:"+buy_result["seller_wechat"]+" 请及时联系"
-							alert(alert_str);
               that.dialog_buying_Visible=false;
+							alert(alert_str);
+              
 						}else{
 							alert("买了个什么玩意？");
 						}
@@ -392,6 +394,7 @@ export default {
         alert("请登录后重试");
         return;
       }
+      console.log("进入收藏函数")
       const path="http://39.104.84.38:8080/addfavorite"
       var favorite_info={
         "buyer_id":GLOBAL.currentUser_ID,
@@ -406,9 +409,10 @@ export default {
 						console.log(favorite_result);//注意返回格式
 						if(is_favorite_success==="failed"){
 							alert("收藏失败，请重试");
-						}else if(is_buy_success==="success"){
+						}else if(is_favorite_success==="success"){
               var alert_str="收藏成功"
 							alert(alert_str);
+
 						}else{
 							alert("收藏失败");
 						}

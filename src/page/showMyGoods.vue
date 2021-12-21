@@ -14,7 +14,7 @@
         <el-container>
           <myLeftSidebar></myLeftSidebar>
           <div id="main">
-            <div>你发布的商品共{{ goodsData.length }}件</div>
+            <div>你{{action}}的商品共{{ goodsData.length }}件</div>
             <myGoods :myGoodsData="goodsData" :type="this.type"></myGoods>
           </div>
         </el-container>
@@ -46,6 +46,7 @@ export default {
     return {
       goodsData: [],
       type: this.$route.query.type,
+      action:"",//定义这个页面现在的行为，是发布，收藏还是买到的
       /*
       goodsData:[{"product_id": 3, "product_name": "\u8f6f\u5de5", "category_value": 1, "price": 70.1, "photo": null, "description": "\u8f6f\u4ef6\u5de5\u7a0b\u6559\u6750", "source_id": 1}, 
                 {"product_id": 4, "product_name": "yxd", "category_value": 2, "price": 100000.0, "photo": null, "description": "\u4fe1\u79d1\u5927\u4e09\u672c\u79d1\u751f", "source_id": 1}]
@@ -55,6 +56,13 @@ export default {
 
   created: function () {
     this.get_my_products();
+    if(this.type=="userallproducts"){
+      this.action="发布";
+    }else if(this.type=="mypurchase"){
+      this.action="买到";
+    }else if(this.type=="myfavorites"){
+      this.action="收藏";
+    }
   },
   methods: {
     get_my_products() {
@@ -62,10 +70,10 @@ export default {
       var path = "http://39.104.84.38:8080/";
       path+=this.type;
       var searchinfo = {
-        user_name: GLOBAL.currentUser_name,
-        source_id: GLOBAL.currentUser_ID,
-        strategy_0: 0,
-        strategy_1: 1,
+        "user_name": GLOBAL.currentUser_name,
+        "source_id": GLOBAL.currentUser_ID,
+        "strategy_0": 0,
+        "strategy_1": 1,
       };
       axios
       .post(path, JSON.stringify(searchinfo))
