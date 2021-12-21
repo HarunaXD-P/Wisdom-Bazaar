@@ -251,6 +251,8 @@ export default {
 						GLOBAL.category = goods["value"];
 					});
 				});
+        alert("发布成功");
+        this.$router.replace("/");
 		},
     gotoHome() {
       this.$router.replace("/");

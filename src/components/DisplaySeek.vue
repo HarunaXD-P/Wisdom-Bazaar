@@ -60,7 +60,7 @@
         <!--这里要再加一个el-container，不然9999和联系这两个会纵向排列-->
         <!--el-container子元素中有 el-header 或 el-footer 时为 vertical，否则为 horizontal-->
 
-        <el-button class="button" @click="gotoDetail"> 联系 </el-button>
+        <el-button class="button" @click="gotoContact"> 联系 </el-button>
       </el-footer>
     </el-container>
   </div>
@@ -79,17 +79,23 @@ export default {
       price: GLOBAL.price,
       picture: GLOBAL.picture,
       goodsDisplay:this.goodsContent,
-	  product_id:this.goodsContent.product_id,
+	    product_id:this.goodsContent.wanted_id,
     };
   },
   created:function(){
     this.title="myTry";
   },
   methods:{
+    /*
     gotoDetail(){
       console.log(this.goodsDisplay);
       this.$router.push({path:'/goodDetail',query:{product_id:this.product_id,}});
     },
+    */
+   gotoContact(){
+     console.log(this.product_id)
+     this.$router.push({path:'/contact',query:{product_id:this.product_id,}});
+   }
   },
 };
 </script>

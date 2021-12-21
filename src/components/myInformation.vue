@@ -42,7 +42,7 @@
           </el-menu-item>
 
           <el-menu-item index="5" class="Item">
-            <i class="el-icon-view"></i>
+            <i class="el-icon-upload2"></i>
             <span slot="title" style="font-size:18px" @click="gotoPut">发布求购</span>
           </el-menu-item>
 
