@@ -275,6 +275,7 @@ export default {
       price: 0,
       value: "",
       product_id: this.$route.query.product_id,
+      type:this.$route.query.type,
       dialog_buying_Visible: false,
       checkbuy:""
     };
@@ -381,6 +382,10 @@ export default {
 							alert("买了个什么玩意？");
 						}
 					});
+    },
+    //根据type确定每个组件是否进行显示
+    handleDisplay(){
+
     },
     addtoFavorite(){
       if(GLOBAL.currentUser_ID==""){

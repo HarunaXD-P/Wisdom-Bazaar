@@ -33,7 +33,7 @@
             <span>确认删除{{this.local.product_name}}吗</span>
             <span slot="footer" class="dialog-footer">
               <el-button @click="dialog_delete_Visible = false">取 消</el-button>
-              <el-button type="primary" @click="deleteProduct"
+              <el-button type="primary" @click="doDelete"
                 >确 定</el-button
               >
             </span>
@@ -42,7 +42,8 @@
 </template>
 
 <script>
-
+import GLOBAL from "@/global/global";
+import axios from "axios";
 export default {
   props:['oneItemData','oneItemType'],
   data(){
@@ -57,12 +58,17 @@ export default {
   methods:{
     showDetails(){
       var a=this.local.product_id;
-      this.$router.push({path:'/goodDetail',query:{product_id:a}});
+      var b=this.getType;
+      this.$router.push({path:'/goodDetail',query:{product_id:a,type:b}});
+    },
+    debug(){
+      console.log(this.getType);
+      console.log("from displaylong");
     },
     deleteProduct(){
-      const path="http://39.104.84.38:8080/deleteproduct";
+      const path="http://39.104.84.38:8080/deletemyproduct";
       var deleteinfo={
-        "deleteproduct_id":this.local.product_id,
+        "delete_id":this.local.product_id,
       };
       axios
 					.post(path,JSON.stringify(deleteinfo))
@@ -83,6 +89,40 @@ export default {
 						}
 					});
 
+    },
+    deleteFromFavorite(){
+      const path="http://39.104.84.38:8080/deletefavorites";
+      var deleteinfo={
+        "delete_id":this.local.product_id,
+        "source_id":GLOBAL.currentUser_ID,
+      };
+      axios
+					.post(path,JSON.stringify(deleteinfo))
+					.then(function(response){
+						var delete_result=response.data
+						var  is_delete_success = delete_result["result"];
+						//alart(is_register_success)
+						console.log(delete_result);//注意返回格式
+						if(is_delete_success==="failed"){
+							alert("删除失败，请重试");
+              that.dialog_buying_Visible=false;
+						}else if(is_buy_success==="success"){
+              var alert_str="删除成功"
+							alert(alert_str);
+              that.dialog_buying_Visible=false;
+						}else{
+							alert("删除了个什么玩意？");
+						}
+					});
+
+    },
+    doDelete(){
+      if(this.getType=="userallproducts"){
+        this.deleteProduct();
+      }
+      else if(this.getType=="myfavorites"){
+        this.deleteFromFavorite();
+      }
     },
     handleClose(done) {
         this.$confirm('确认取消？')
