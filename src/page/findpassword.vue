@@ -28,7 +28,7 @@
               <el-col :span="9">
                 <el-button
                   type="primary"
-                  @click="send_vcode"
+                  @click="check_email"
                   :loading="loadingbut"
                   >{{loadingtext}}</el-button
                 >

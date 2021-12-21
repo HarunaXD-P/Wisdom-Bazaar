@@ -44,6 +44,10 @@
       style="float: left; margin: 10px"
     ></oldDisplay>
     -->
+	<!--
+	<div>
+		{{searchkey}}
+	</div>-->
     <myDisplay v-for="(item,index) in goods" :key="index"
      style="float: left; margin: 10px"
      :goodsContent="goods[index]"
@@ -58,9 +62,11 @@ import axios from "axios";
 import "element-ui/lib/theme-chalk/index.css";
 export default {
   name: "DisplaySix",
+  props: ['searchkey'],
   data(){
     return{
-      goods:[]
+      goods:[],
+	  search_key: this.searchkey,
     }
   },
   components: {
@@ -75,16 +81,18 @@ export default {
     initialize() {
       this.description = "not a book";
       const that = this;
-      const path = "http://39.104.84.38:8080/userallproducts";
+      const path = "http://39.104.84.38:8080/usersearchproducts";
       var getGoods = {
         strategy_0: 0,
         strategy_1: 0,
         source_id: 0,
         category_value: 0,
+		key: this.searchkey,
       };
       axios.post(path, JSON.stringify(getGoods)).then(function (response) {
         that.goods = response.data;
         console.log(that.goods);
+		//console.log(search_key);
       });
     },
     debug() {

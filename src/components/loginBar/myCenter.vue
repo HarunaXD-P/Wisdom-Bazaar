@@ -16,7 +16,8 @@
             <el-menu-item index="2-1" @click="gotoMyGoods"
               >我发布的</el-menu-item
             >
-            <el-menu-item index="2-2">我拍下的</el-menu-item>
+            <el-menu-item index="2-2" @click="gotoMyPurchase">我拍下的</el-menu-item>
+            <el-menu-item index="2-3" @click="gotoMyFavorite">我的收藏</el-menu-item>
             <el-submenu index="2-4">
               <template slot="title">这个菜单干什么好呢</template>
               <el-menu-item index="2-4-1">选项1</el-menu-item>
@@ -109,6 +110,14 @@ export default {
 						}
 					});
     },
+    gotoMyPurchase(){
+      console.log("goto my churse")
+      Router.push({path:"myGoods",query:{type:"mypurchase"}});
+    },
+    gotoMyFavorite(){
+      console.log("goto my favorite");
+      Router.push({path:"myGoods",query:{type:"myfavorites"}});
+    }
   },
 };
 </script>
