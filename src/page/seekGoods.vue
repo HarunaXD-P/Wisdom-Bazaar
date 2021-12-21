@@ -30,15 +30,17 @@
       <el-header style="padding: unset">
         <myHeader> </myHeader>
       </el-header>
-      <el-main>
+      <el-main style="padding: unset;">
         <el-container class="el-main-panel">
           <myLeftSidebar></myLeftSidebar>
+          <div>
           <seekDisplay
             v-for="(item, index) in goods"
             :key="index"
             style="float: left; margin: 10px"
             :goodsContent="goods[index]"
           ></seekDisplay>
+          </div>
           <myInformation></myInformation>
         </el-container>
       </el-main>
@@ -111,22 +113,22 @@ export default {
   text-align: center;
   color: #2c3e50;
   /*margin-top: 60px;*/
- 
-  float:center;
-  margin:auto;
-  background-color: #FFFFFF;
+
+  float: center;
+  margin: auto;
+  background-color: #ffffff;
 }
 #header {
-	/*line-height: 60px;*/
-	/*background-color: #3896C2;*/
-	text-align: center;
-	padding: unset;
+  /*line-height: 60px;*/
+  /*background-color: #3896C2;*/
+  text-align: center;
+  padding: unset;
 }
-.panel{
-	/*width: 100%;*/
+.panel {
+  /*width: 100%;*/
 }
-.el-main-panel{
-	height: 100%;
-	overflow-y: hidden;
+.el-main-panel {
+  height: 100%;
+  overflow-y: hidden;
 }
 </style>
