@@ -11,24 +11,22 @@ app.config['SECRET_KEY'] = 'hard to guess'#一个字符串，密码。也可以�
 #在此登录的是root用户，要填上密码如123456，MySQL默认端口是3306。并填上创建的数据库名如youcaihua
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@127.0.0.1:3306/test_0'
 
-#SQLALCHEMY_BINDS = {
- #   'product_0': 'mysql+pymysql://root:123456@127.0.0.1:3306/test_product_0',
-  #  'user_0': 'mysql+pymysql://root:123456@127.0.0.1:3306/test_user_0',
-   # 'history_0': 'mysql+pymysql://root:123456@127.0.0.1:3306/test_history_0',
-
-#}
-#app.config['SQLALCHEMY_BINDS'] = SQLALCHEMY_BINDS
+SQLALCHEMY_BINDS = {
+    'product_0': 'mysql+pymysql://root:123456@127.0.0.1:3306/test_product_1',
+    'user_0': 'mysql+pymysql://root:123456@127.0.0.1:3306/test_user_1',
+    'history_0': 'mysql+pymysql://root:123456@127.0.0.1:3306/test_history_1',
+    'correlation_0': 'mysql+pymysql://root:123456@127.0.0.1:3306/test_correlation_1',
+}
+app.config['SQLALCHEMY_BINDS'] = SQLALCHEMY_BINDS
 
 #设置下方这行code后，在每次请求结束后会自动提交数据库中的变动
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-
-
 db = SQLAlchemy(app)#实例化数据库对象，它提供访问Flask-SQLAlchemy的所有功能
 
 '''定义模型，建立关系'''
 class Product(db.Model):
-   # __bind_key__='product_0'
+    __bind_key__='product_0'
     __tablename__ = 'product'
 
     product_id = db.Column(db.Integer, primary_key = True)
@@ -68,7 +66,7 @@ class Wanted(db.Model):
     }
 
 class User(db.Model):
-    #__bind_key__ = 'user_0'
+    __bind_key__ = 'user_0'
     __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key = True)
@@ -83,15 +81,29 @@ class User(db.Model):
     }
 
 class Correlation(db.Model):
+    __bind_key__='correlation_0'
     __tablename__ = 'correlation'
 
     id = db.Column(db.Integer, primary_key = True)
     user_id = db.Column(db.Integer)
     product_id = db.Column(db.Integer)
+    product_name = db.Column(db.String(64))
+    category_value = db.Column(db.Integer)
     state = db.Column(db.Integer)
+    # 0 represents nothing
+    # 10 represents favorite
+    price = db.Column(db.Float)
+    description = db.Column(db.String(500))
+    # add source id
+    source_id = db.Column(db.Integer)
+    availability_state = db.Column(db.Integer)
+
+    __table_args__ = {
+        "mysql_charset": "utf8"
+    }
 
 class History(db.Model):
-    #__bind_key__ = 'history_0'
+    __bind_key__ = 'history_0'
     __tablename__ = 'history'
 
     id = db.Column(db.Integer, primary_key = True)
@@ -100,8 +112,17 @@ class History(db.Model):
     product_id = db.Column(db.Integer)
     user_perspective = db.Column(db.Integer)
     day = db.Column(db.Date)
-    #time = db.Column(db.Time)
+    category_value = db.Column(db.Integer)
     time = db.Column(db.String(100))
+    product_name = db.Column(db.String(64))
+    price = db.Column(db.Float)
+    description = db.Column(db.String(500))
+    source_id = db.Column(db.Integer)
+    availability_state = db.Column(db.Integer)
+
+    __table_args__ = {
+        "mysql_charset": "utf8"
+    }
 
 class Category_info(db.Model):
     __tablename__ = 'category_info'
