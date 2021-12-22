@@ -126,6 +126,7 @@
 		components: {},
 		computed: {},
 		mounted: {},
+		inject:['reload'],
 		methods: {
 			handleChange(value) {
 				console.log(value);
@@ -233,7 +234,7 @@
 				}).then(function() {
 					if(file.size>50*1024){
 						alert("图片过大，请上传小于50k的图");
-						reload();
+						this.reload();
 					}
 					GLOBAL.picture = "static/logo.jpg";
 					//在这里传给后端
@@ -267,12 +268,11 @@
 							GLOBAL.price = goods["price"];
 							GLOBAL.number = goods["id"];
 							GLOBAL.category = goods["value"];
-						
-								alert("发布成功")
-								that.$router.push({path: '/'});
-							
 						});
+						
 				});
+				alert("发布成功");
+				this.$router.replace("/");
 			},
 			gotoHome() {
 				this.$router.replace("/");

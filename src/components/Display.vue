@@ -4,7 +4,7 @@
     <el-container class="panal1">
       <el-header height="160px">
         <!--<img src="../assets/iphone.jpeg" width="240px" height="160px" />-->
-        <img :src=picture class="pic">
+        <img :src=goodsDisplay.photo class="pic">
       </el-header>
       <!--<img src="../assets/logo.png">-->
 
@@ -43,7 +43,7 @@ export default {
       price: GLOBAL.price,
       picture: GLOBAL.picture,
       goodsDisplay:this.goodsContent,
-	  product_id:this.goodsContent.product_id,
+	    product_id:this.goodsContent.product_id,
     };
   },
   created:function(){
