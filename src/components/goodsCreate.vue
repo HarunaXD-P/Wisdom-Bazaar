@@ -6,10 +6,10 @@
   <div class="createInput">
     <div class="title">
       <span id="title">商品标题</span>
-      <span id="inputTitle">
+      <span id="inputTitle1">
         <div id="titleTextbox">
           <el-input
-            v-model="inputTitle"
+            v-model="inputTitle1"
             placeholder="请输入内容"
             @input="change($event)"
           ></el-input>
@@ -61,7 +61,11 @@
       <span id="catagory">选择分类</span>
       <span id="selectCatagory">
         <div id="catagorySelector">
-          <el-select v-model="value" placeholder="请选择" @input="change($event)">
+          <el-select
+            v-model="value"
+            placeholder="请选择"
+            @input="change($event)"
+          >
             <!--
             <el-option
               v-for="item in options"
@@ -98,11 +102,11 @@
           type="file"
           name="myFile"
           id="myFile"
-        >
-          <!--<el-button size="medium" type="primary">点击上传图片</el-button>-->
-          <div slot="tip" class="el-upload__tip">
-            只能上传jpg/png文件，且不超过500kb
-          </div> 
+        />
+        <!--<el-button size="medium" type="primary">点击上传图片</el-button>-->
+        <div slot="tip" class="el-upload__tip">
+          只能上传jpg/png文件，且不超过500kb
+        </div>
       </div>
     </div>
   </div>
@@ -114,7 +118,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      inputTitle:"",
+      inputTitle1:"",
       inputDescription: "",
       inputPrice: "",
       num: 1,
@@ -142,7 +146,7 @@ export default {
       console.log(value);
     },
     printImg() {
-      console.log(this.inputTitle);
+      console.log(this.inputTitle1);
       console.log(this.inputDescription);
       console.log(this.inputPrice);
       console.log(this.num);
@@ -176,7 +180,7 @@ export default {
       //var that = this;
       const path = "http://39.104.84.38:8080/userpostproduct";
       var goodsInformation = {
-        product_name: this.inputTitle,
+        product_name: this.inputTitle1,
         description: this.inputDescription,
         price: this.inputPrice,
         number: this.num,
@@ -203,9 +207,10 @@ export default {
 			}
     },
 		sendMsg() {
-			console.log(document.getElementById("myFile").value);
+      console.log(this.inputDescription);
+			//console.log(document.getElementById("myFile").value);
 			this.photo = document.getElementById("myFile").value;
-			console.log(this.photo);
+			//console.log(this.photo);
 			var file = document.getElementById("myFile").files[0];
       //获取当前的时间，命名可谓是非常简陋
       let yy = new Date().getFullYear();
@@ -221,6 +226,16 @@ export default {
       var sys_clock=nowDate+nowTime;
 			const that = this;
 			new Promise(function (resolve, reject) {
+			var that = this;
+      var iT=this.inputTitle1;
+      console.log(this.inputTitle1);
+      console.log(iT);
+      var iD=this.inputDescription;
+			var iP=this.inputPrice;
+      var iN=this.num;
+      var iV=this.value;
+      var iPH=this.photosrc;
+      new Promise(function (resolve, reject) {
 				if(file) {
 					console.log(file.size);
 					var reader = new FileReader();
@@ -228,7 +243,7 @@ export default {
 					reader.onload = function() {
 						console.log("onload");
 						console.log(this.result);
-						that.photosrc = this.result;
+						iPH = this.result;
 						resolve();
 					}
 				}
@@ -236,52 +251,55 @@ export default {
 				GLOBAL.picture = "static/logo.jpg";
 				//在这里传给后端
 				const path = "http://39.104.84.38:8080/userpostproduct";
+        var that = this;
+        console.log(iT);
 				var goodsInformation = {
-					product_name: that.inputTitle,
-					description: that.inputDescription,
-					price: that.inputPrice,
-					number: that.num,
-					category_value: that.value,
-					photo: that.photosrc,
-					source_id: GLOBAL.currentUser_ID,
-          clock:sys_clock,
+					"product_name":iT,
+					"description": iD,
+					"price": iP,
+					"number": iN,
+					"category_value": iV,
+					"photo": iPH,
+					"source_id": GLOBAL.currentUser_ID,
+          "clock":sys_clock,
 				};
 				console.log(goodsInformation);
         var that=this;
+
 				axios
 					.post(path, JSON.stringify(goodsInformation))
 					.then(function (response) {
 						// response.setContentType("text/javascript;charset=UTF-8");
 						var goods = response.data;
-						console.log("!!!!!!!!!!!!!!!!" + goods["Title"]);
-						console.log(goods["description"]);
-						console.log(goods["price"]);
-						console.log(goods["number"]);
-						console.log(goods["value"]);
+						// console.log("!!!!!!!!!!!!!!!!" + goods["Title"]);
+						// console.log(goods["description"]);
+						// console.log(goods["price"]);
+						// console.log(goods["number"]);
+						// console.log(goods["value"]);
 						GLOBAL.title = goods["name"];
 						GLOBAL.description = goods["description"];
 						GLOBAL.price = goods["price"];
 						GLOBAL.number = goods["id"];
 						GLOBAL.category = goods["value"];
             if(goods["result"]=="success"){
-              alert("发布成功")
-              that.$router.push({path:'/'})
-              
+              alert("发布成功");
+              that.$router.push({path:'/'});
             }
+
 					});
-				});
-        alert("发布成功");
-        this.$router.replace("/");
-		},
-    gotoHome() {
+			});
+		  })
+    },
+    
+    
+    gotoHome(){
       this.$router.replace("/");
-      //this.$router.go(0)
     },
     change(e) {
       this.$forceUpdate();
     },
   },
-};
+}
 </script>
 
 <style>
@@ -360,7 +378,7 @@ export default {
   top: 160px;
 }
 #title,
-#inputTitle {
+#inputTitle1 {
   float: left;
   margin: auto;
 }

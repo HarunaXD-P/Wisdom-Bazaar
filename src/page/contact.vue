@@ -187,7 +187,7 @@
               width: 100%;
               height: 48px;
               margin-left: 41px;
-              margin-top: 0px;
+              margin-top: 50px;
               float: left;
               font-size: 36px;
               color: rgba(181, 161, 161, 1);
@@ -208,22 +208,7 @@
               float: left;
             "
           >
-            <button
-              type="button"
-              style="
-                height: 130px;
-                width: 480px;
-                float: left;
-                font-size: 48px;
-                background-color: rgba(255, 77, 79, 1);
-                border-radius: 15px;
-                color: white;
-                margin-top:20px;
-              "
-              @click="dialog_buying_Visible = true"
-            >
-              立即联系
-            </button>
+            
           </div>
         </div>
       </div>
@@ -239,7 +224,7 @@
           :before-close="handleClose"
         >
           <!-- <repassword></repassword> -->
-          <span>确认购买</span>
+          <span>确认联系</span>
           <span slot="footer" class="dialog-footer">
             <el-button @click="dialog_buying_Visible = false">取 消</el-button>
             <el-button type="primary" @click="buyProduct">确 定</el-button>
@@ -322,6 +307,7 @@ export default {
           that.email=goods["email"];
           that.title=goods["wanted_name"];
           that.description=goods["description"];
+          that.price=goods["price"];
         });
     },
     handleClose(done) {

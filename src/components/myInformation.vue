@@ -97,11 +97,13 @@ export default {
   /*margin-right: 2%;*/
   position: relative;
   /*right:-200px;*/
+	margin-left: auto;
   margin-right : 20px;
   border-radius: 25px;
   background: #696969;
   display: flex;
   height: 700px;
+	
 }
 #id {
   widows: 317px;
