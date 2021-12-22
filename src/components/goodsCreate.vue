@@ -207,6 +207,18 @@ export default {
 			this.photo = document.getElementById("myFile").value;
 			console.log(this.photo);
 			var file = document.getElementById("myFile").files[0];
+      //获取当前的时间，命名可谓是非常简陋
+      let yy = new Date().getFullYear();
+      let mm = new Date().getMonth() + 1;
+      let dd = new Date().getDate();
+      let hh = new Date().getHours();
+      let mf =
+        new Date().getMinutes() < 10
+          ? "0" + new Date().getMinutes()
+          : new Date().getMinutes();
+      var nowTime=hh+":"+mf;
+      var nowDate=yy+"-"+mm+"-"+dd;
+      var sys_clock=nowDate+nowTime;
 			const that = this;
 			new Promise(function (resolve, reject) {
 				if(file) {
@@ -232,8 +244,9 @@ export default {
 					category_value: that.value,
 					photo: that.photosrc,
 					source_id: GLOBAL.currentUser_ID,
+          clock:sys_clock,
 				};
-				//console.log(goodsInformation);
+				console.log(goodsInformation);
         var that=this;
 				axios
 					.post(path, JSON.stringify(goodsInformation))

@@ -46,9 +46,10 @@
         <div style="width: 684px; height: 464px; float: left">
           <!-- 这里放图片 -->
           <img
-            src="../assets/iphone.jpeg"
+            :src="photo"
             width="684px"
             height="464px"
+            id="image"
           /><img />
         </div>
         <div
@@ -277,6 +278,7 @@ export default {
       description: "",
       price: 0,
       value: "",
+      photo:"",
       product_id: this.$route.query.product_id,
       type:this.$route.query.type,
       dialog_buying_Visible: false,
@@ -315,6 +317,17 @@ export default {
     gd_changeBcolor(x, color) {
       x.currentTarget.style.background = color;
     },
+    decodePhoto(data_str){
+      var str=data_str;
+      var data_start=str.indexOf("/9j")
+      var data=str.slice(data_start,)
+      var item_start=str.indexOf("/");
+      var item_end=str.indexOf("base64")
+      var item=str.slice(item_start+1,item_end);  
+      data="data:image/"+item+";base64,"+data;
+      
+      console.log(data);
+    },
     getDetail() {
       console.log("!!!!!!1");
       //在这里传给后端
@@ -338,6 +351,11 @@ export default {
           that.description = goods["description"];
           that.price = goods["price"];
           that.value = goods["category_value"];
+          console.log(goods["photo"]);
+          that.photo = goods["photo"]
+          //that.decodePhoto(goods["photo"]);
+          console.log(that.photo);
+          
         });
     },
     handleClose(done) {
