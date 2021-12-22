@@ -114,7 +114,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      inputTitle,
+      inputTitle:"",
       inputDescription: "",
       inputPrice: "",
       num: 1,
@@ -233,7 +233,8 @@ export default {
 					photo: that.photosrc,
 					source_id: GLOBAL.currentUser_ID,
 				};
-				console.log(goodsInformation);
+				//console.log(goodsInformation);
+        var that=this;
 				axios
 					.post(path, JSON.stringify(goodsInformation))
 					.then(function (response) {
@@ -249,6 +250,11 @@ export default {
 						GLOBAL.price = goods["price"];
 						GLOBAL.number = goods["id"];
 						GLOBAL.category = goods["value"];
+            if(goods["result"]=="success"){
+              alert("发布成功")
+              that.$router.push({path:'/'})
+              
+            }
 					});
 				});
 		},

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="display_total">
     <div id="longbar">
         <div id=img>
         </div>
@@ -16,6 +16,7 @@
         <div id="price_num">
           <div style="font-size:30px; width:300px">价格：{{local.price}}</div>
           <div v-if="display_time">购买时间：{{local.time}}</div>
+          <div v-if="display_wechat">卖家微信:{{local.seller_wechat}}</div>
         </div>
         <div id="operation">
           <div @click="showDetails" v-show="display_detail">查看商品信息</div>
@@ -57,7 +58,12 @@ export default {
       display_delete:true,
       display_detail:true,
       display_time:true,
+      display_wechat:false,
+      display_total:true,
     }
+  },
+  watch:{
+
   },
   methods:{
     showDetails(){
@@ -72,6 +78,7 @@ export default {
     selecttoHide(){
       if(this.getType=="mypurchase"){
         this.display_delete=false;
+        this.display_wechat=true;
 
       }else if(this.getType=="userallproducts"){
 
@@ -103,6 +110,7 @@ export default {
 						}else if(is_delete_success=="success"){
               var alert_str="删除成功"
 							alert(alert_str);
+              that.display_total=false;
               that.dialog_buying_Visible=false;
 						}else{
 							alert("删除了个什么玩意？");
@@ -117,6 +125,7 @@ export default {
         "delete_id":this.local.product_id,
         "source_id":GLOBAL.currentUser_ID,
       };
+      var that=this;
       axios
 					.post(path,JSON.stringify(deleteinfo))
 					.then(function(response){
@@ -129,8 +138,10 @@ export default {
               that.dialog_buying_Visible=false;
 						}else if(is_delete_success==="success"){
               var alert_str="删除成功"
-							alert(alert_str);
+              that.display_total=false;
               that.dialog_buying_Visible=false;
+							alert(alert_str);
+              
 						}else{
 							alert("删除了个什么玩意？");
 						}

@@ -169,6 +169,7 @@
               color: white;
             "
             @click="dialog_buying_Visible=true"
+            v-if="display_buy_button"
           >
             立即联系
           </button>
@@ -185,8 +186,9 @@
               color: white;
             "
             @click="addtoFavorite"
+            v-if="display_fav_button"
           >
-            加购物车
+            加入收藏
           </button>
         </div>
       </div>
@@ -278,11 +280,16 @@ export default {
       product_id: this.$route.query.product_id,
       type:this.$route.query.type,
       dialog_buying_Visible: false,
-      checkbuy:""
+      checkbuy:"",
+      display_buy_button:true,
+      display_fav_button:true,
     };
   },
   created(){
     console.log(this.product_id);
+    console.log("进入详情页面");
+    console.log(this.type);
+    this.selectToHide();
   },
   components: {
     Header: myHeader,
@@ -296,6 +303,15 @@ export default {
 	  {
 	    this.$router.replace('/')
 	  },
+    selectToHide(){
+      if(this.type==""){
+
+      }else if(this.type==""){
+        
+      }else if(this.type==""){
+
+      }
+    },
     gd_changeBcolor(x, color) {
       x.currentTarget.style.background = color;
     },
