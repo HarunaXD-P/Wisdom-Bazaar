@@ -11,14 +11,11 @@
       <!--main为下半部分，放了LeftSidebar.vue和DisplaySix.vue和myInformation.vue中的三个组件-->
       <el-main style="padding: unset;">
         <!--加一个el-container是为了让这三个组件能左中右排布-->
-        <el-container class="el-main-panel">
+        <el-container id="el-main-panel">
           <myLeftSidebar></myLeftSidebar>
           <myDisplay v-bind:searchkey = "empty_string"></myDisplay>
           <myInformation></myInformation>
         </el-container>
-			<!--	<myLeftSidebar style="width: 220px;"></myLeftSidebar>
-				<myDisplay style="min-width: 0;" v-bind:searchkey = "empty_string"></myDisplay>
-				<myInformation></myInformation>-->
       </el-main>
     </el-container>
   </div>
@@ -69,8 +66,10 @@ export default {
 .panel{
 	/*width: 100%;*/
 }
-.el-main-panel{
+#el-main-panel{
 	height: 100%;
 	overflow-y: hidden;
+	/*min-width: 1280px;*/
+	justify-content: flex-start;
 }
 </style>

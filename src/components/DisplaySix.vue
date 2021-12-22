@@ -70,7 +70,7 @@ import "element-ui/lib/theme-chalk/index.css";
 import GLOBAL from '@/global/global.js'
 export default {
   name: "DisplaySix",
-  props: ["searchkey"],
+  props: ['searchkey', 'searchtag'],
   data() {
     return {
       goods: [],
