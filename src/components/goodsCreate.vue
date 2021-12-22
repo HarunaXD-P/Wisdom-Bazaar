@@ -61,7 +61,11 @@
       <span id="catagory">选择分类</span>
       <span id="selectCatagory">
         <div id="catagorySelector">
-          <el-select v-model="value" placeholder="请选择" @input="change($event)">
+          <el-select
+            v-model="value"
+            placeholder="请选择"
+            @input="change($event)"
+          >
             <!--
             <el-option
               v-for="item in options"
@@ -98,11 +102,11 @@
           type="file"
           name="myFile"
           id="myFile"
-        >
-          <!--<el-button size="medium" type="primary">点击上传图片</el-button>-->
-          <div slot="tip" class="el-upload__tip">
-            只能上传jpg/png文件，且不超过500kb
-          </div> 
+        />
+        <!--<el-button size="medium" type="primary">点击上传图片</el-button>-->
+        <div slot="tip" class="el-upload__tip">
+          只能上传jpg/png文件，且不超过500kb
+        </div>
       </div>
     </div>
   </div>
@@ -208,6 +212,20 @@ export default {
 			this.photo = document.getElementById("myFile").value;
 			//console.log(this.photo);
 			var file = document.getElementById("myFile").files[0];
+      //获取当前的时间，命名可谓是非常简陋
+      let yy = new Date().getFullYear();
+      let mm = new Date().getMonth() + 1;
+      let dd = new Date().getDate();
+      let hh = new Date().getHours();
+      let mf =
+        new Date().getMinutes() < 10
+          ? "0" + new Date().getMinutes()
+          : new Date().getMinutes();
+      var nowTime=hh+":"+mf;
+      var nowDate=yy+"-"+mm+"-"+dd;
+      var sys_clock=nowDate+nowTime;
+			const that = this;
+			new Promise(function (resolve, reject) {
 			var that = this;
       var iT=this.inputTitle1;
       console.log(this.inputTitle1);
@@ -243,6 +261,7 @@ export default {
 					"category_value": iV,
 					"photo": iPH,
 					"source_id": GLOBAL.currentUser_ID,
+          "clock":sys_clock,
 				};
 				console.log(goodsInformation);
         var that=this;
@@ -263,22 +282,24 @@ export default {
 						GLOBAL.number = goods["id"];
 						GLOBAL.category = goods["value"];
             if(goods["result"]=="success"){
-              alert("发布成功")
-              that.$router.push({path:'/'})
+              alert("发布成功");
+              that.$router.push({path:'/'});
             }
 
 					});
-				});
-		},
-    gotoHome() {
+			});
+		  })
+    },
+    
+    
+    gotoHome(){
       this.$router.replace("/");
-      //this.$router.go(0)
     },
     change(e) {
       this.$forceUpdate();
     },
   },
-};
+}
 </script>
 
 <style>
