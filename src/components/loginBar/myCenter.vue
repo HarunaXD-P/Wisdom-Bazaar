@@ -2,7 +2,6 @@
 <template>
   <div>
     <span class="mycenter">
-      <img src="logo.jpg" id="myphoto" /><img />
       <span id="navi-menu">
         <el-menu
           :default-active="activeIndex"
@@ -27,8 +26,8 @@
           </el-submenu>
           <el-menu-item index="3" @click="dialog_changevx_Visible=true">更改联系方式</el-menu-item>
           <el-menu-item index="4" style="margin=0px;"
-            ><a href="https://www.ele.me" target="_blank"
-              >订单管理</a
+            ><a target="_blank" @click="quit"
+              >退出登录</a
             ></el-menu-item
           >
         </el-menu>
@@ -117,6 +116,10 @@ export default {
     gotoMyFavorite(){
       console.log("goto my favorite");
       Router.push({path:"myGoods",query:{type:"myfavorites"}});
+    },
+    quit(){
+      this.$router.go(0);
+
     }
   },
 };

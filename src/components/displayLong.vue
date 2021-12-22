@@ -10,9 +10,6 @@
           <div>
            商品描述： {{local.description}}
           </div>
-          <div>
-            浏览方法：{{this.getType}}
-          </div>
         </div>
         <div id="price_num">
           <div style="font-size:30px; width:300px">价格：{{local.price}}</div>

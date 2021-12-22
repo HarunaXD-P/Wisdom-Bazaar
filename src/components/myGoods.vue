@@ -1,7 +1,6 @@
 <template>
   <div>
       <ul>
-          <div>{{type}}</div>
           <li v-for="(item,index) in myGoodsData" :key="index">
                 <display-long :oneItemData="myGoodsData[index]" :oneItemType="type"></display-long>
                 

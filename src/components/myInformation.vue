@@ -33,7 +33,7 @@
 
           <el-menu-item index="3" class="Item">
             <i class="el-icon-star-on"></i>
-            <span slot="title" style="font-size:18px">收藏夹</span>
+            <span slot="title" style="font-size:18px" @click="gotoMyFavorite">收藏夹</span>
           </el-menu-item>
 
           <el-menu-item index="4" class="Item">
@@ -84,6 +84,10 @@ export default {
     },
     gotoPut(){
       this.$router.replace('/putGoods')
+    },
+    gotoMyFavorite(){
+      console.log("goto my favorite");
+      this.$router.push({path:"myGoods",query:{type:"myfavorites"}});
     }
   },
 };

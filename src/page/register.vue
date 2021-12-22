@@ -42,8 +42,7 @@
                 <el-button type="primary" 
                 @click="send_vcode"
                 :loading="rg_loadingbut"
-                  >{{rg_loadingtext}}</el-button
-                >
+                  >发送邮件</el-button>
               </el-col>
             </el-form-item>
             <el-form-item label="用户名">
@@ -168,7 +167,7 @@ export default {
       this.rg_loadingbut = true;
 	    this.rg_loadingtext="验证中"
       console.log(random6number);
-
+      var that=this;
       var data = {
         service_id: apikeys.SERVICE_ID,
         template_id: apikeys.TEMPLATE_ID,
