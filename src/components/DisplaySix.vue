@@ -44,14 +44,21 @@
       style="float: left; margin: 10px"
     ></oldDisplay>
     -->
-	<!--
+    <!--
 	<div>
 		{{searchkey}}
 	</div>-->
-    <myDisplay v-for="(item,index) in goods" :key="index"
-     style="float: left; margin: 10px"
-     :goodsContent="goods[index]"
-     ></myDisplay>
+    <div class="buttons" style="float:right">
+      <el-button class="sortbutton" @click="sortId"> 按id排序 </el-button>
+      <el-button class="sortbutton" @click="sortTime"> 按时间排序 </el-button>
+      <el-button class="sortbutton" @click="sortUser"> 按用户排序 </el-button>
+    </div>
+    <myDisplay
+      v-for="(item, index) in goods"
+      :key="index"
+      style="float: left; margin: 10px"
+      :goodsContent="goods[index]"
+    ></myDisplay>
   </div>
 </template>
 
@@ -62,12 +69,12 @@ import axios from "axios";
 import "element-ui/lib/theme-chalk/index.css";
 export default {
   name: "DisplaySix",
-  props: ['searchkey'],
-  data(){
-    return{
-      goods:[],
-	  search_key: this.searchkey,
-    }
+  props: ["searchkey"],
+  data() {
+    return {
+      goods: [],
+      search_key: this.searchkey,
+    };
   },
   components: {
     myDisplay: Display,
@@ -87,17 +94,35 @@ export default {
         strategy_1: 0,
         source_id: 0,
         category_value: 0,
-		key: this.searchkey,
+        key: this.searchkey,
       };
       axios.post(path, JSON.stringify(getGoods)).then(function (response) {
         that.goods = response.data;
         console.log(that.goods);
-		//console.log(search_key);
+        //console.log(search_key);
       });
     },
     debug() {
       console("I'm here");
     },
+    sortId() {
+      const that = this;
+      const path = "http://39.104.84.38:8080/usersearchproducts";
+      var getGoods = {
+        strategy_0:0,
+        strategy_1:2,
+        source_id:0,
+        category_value:0,
+        key:this.searchkey,
+      };
+      axios.post(path, JSON.stringify(getGoods)).then(function (response) {
+        that.goods = response.data;
+        console.log(that.goods);
+        //console.log(search_key);
+      });
+    },
+    sortTime() {},
+    sortUser() {},
   },
 };
 </script>
@@ -107,6 +132,17 @@ export default {
 
 .DisplaySix {
   background-color: #ffffff;
+}
+.sortbutton {
+  background-color: blue;
+  color: white;
+  float:right;
+  margin:10px;
+}
+.buttons{
+  width:100%;
+  height:50px;
+  
 }
 
 /*设置6个部分之间的间隔 */

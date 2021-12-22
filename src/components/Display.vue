@@ -85,7 +85,7 @@ export default {
   },
   methods:{
     gotoDetail(){
-      console.log(this.goodsDisplay);
+      console.log(this.goodsDisplay); 
       this.$router.push({path:'/goodDetail',query:{product_id:this.product_id,}});
     },
   },
