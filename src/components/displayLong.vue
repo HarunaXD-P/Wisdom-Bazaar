@@ -96,6 +96,7 @@ export default {
       var deleteinfo={
         "deleteproduct_id":this.local.product_id,
       };
+      var that=this;
       axios
 					.post(path,JSON.stringify(deleteinfo))
 					.then(function(response){
@@ -109,9 +110,9 @@ export default {
               that.dialog_buying_Visible=false;
 						}else if(is_delete_success=="success"){
               var alert_str="删除成功"
-							alert(alert_str);
               that.display_total=false;
-              that.dialog_buying_Visible=false;
+              that.dialog_delete_Visible=false;
+							alert(alert_str);
 						}else{
 							alert("删除了个什么玩意？");
 						}
@@ -135,11 +136,11 @@ export default {
 						console.log(delete_result);//注意返回格式
 						if(is_delete_success==="failed"){
 							alert("删除失败，请重试");
-              that.dialog_buying_Visible=false;
+              that.dialog_delete_Visible=false;
 						}else if(is_delete_success==="success"){
               var alert_str="删除成功"
               that.display_total=false;
-              that.dialog_buying_Visible=false;
+              that.dialog_delete_Visible=false;
 							alert(alert_str);
               
 						}else{
