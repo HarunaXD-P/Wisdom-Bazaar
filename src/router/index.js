@@ -12,6 +12,7 @@ import seekforGoods from '@/page/seekGoods'
 import publish from '@/page/publishPage'
 import Search from '@/page/search'
 import contact from '@/page/contact'
+import Searchbytag from '@/page/searchbytag'
 Vue.use(Router)
 
 export default new Router({
@@ -75,6 +76,11 @@ export default new Router({
     path:'/contact',
     name:contact,
     component:contact,
+  },
+  {
+	path:'/tag',
+	name:'Searchbytag',
+	component:Searchbytag,
   },
   ]
 })

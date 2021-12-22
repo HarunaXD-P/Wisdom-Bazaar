@@ -16,6 +16,9 @@
           <myDisplay v-bind:searchkey = "empty_string"></myDisplay>
           <myInformation></myInformation>
         </el-container>
+			<!--	<myLeftSidebar style="width: 220px;"></myLeftSidebar>
+				<myDisplay style="min-width: 0;" v-bind:searchkey = "empty_string"></myDisplay>
+				<myInformation></myInformation>-->
       </el-main>
     </el-container>
   </div>

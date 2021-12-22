@@ -13,7 +13,7 @@
           text-color="#fff"
           active-text-color="#ffd04b"
 		  >
-          <el-submenu index="1">
+          <!--<el-submenu index="1">
             <template slot="title">
               <i class="el-icon-cpu"></i>
               <span>数码产品</span>
@@ -25,10 +25,14 @@
             </el-menu-item-group>
             <el-menu-item index="1-3" @click="getclick13()">数码配件</el-menu-item>
             <el-menu-item index="1-4" @click="getclick14()">影音设备</el-menu-item>
-          </el-submenu>
+          </el-submenu>-->
+		  <el-menu-item index="1" @click="getclick1()">
+		    <i class="el-icon-cpu"></i>
+		    <span slot="title">二手书本</span>
+		  </el-menu-item>
           <el-menu-item index="2" @click="getclick2()">
             <i class="el-icon-shopping-bag-1"></i>
-            <span slot="title">二手衣物</span>
+            <span slot="title">数码产品</span>
           </el-menu-item>
           <el-menu-item index="3" @click="getclick3()">
             <i class="el-icon-document"></i>
@@ -36,15 +40,15 @@
           </el-menu-item>
           <el-menu-item index="4" @click="getclick4()">
             <i class="el-icon-water-cup"></i>
-            <span slot="title">生活用品</span>
+            <span slot="title">二手衣物</span>
           </el-menu-item>
           <el-menu-item index="5" @click="getclick5()"> 
             <i class="el-icon-basketball"></i>
-            <span slot="title">运动装备</span>
+            <span slot="title">生活用品</span>
           </el-menu-item>
           <el-menu-item index="6" @click="getclick6()">
             <i class="el-icon-reading"></i>
-            <span slot="title">二手书本</span>
+            <span slot="title">运动装备</span>
           </el-menu-item>
           <el-menu-item index="7" @click="getclick7()"> 
             <i class="el-icon-discount"></i>
@@ -58,12 +62,12 @@
 
 <script>
 export default {
+	inject: ['reload'],
   data(){
     return{
       index_selected:'default-active',
+	  searchtag: -1,
     }
-
-
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -72,52 +76,60 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
-    getclick11(){
-      this.index_selected=11;
-      console.log(this.index_selected);
-    },
-    getclick12(){
-      this.index_selected=12;
-      console.log(this.index_selected);
-    },
-    getclick13(){
-      this.index_selected=13;
-      console.log(this.index_selected);
-    },
-    getclick14(){
-      this.index_selected=14;
-      console.log(this.index_selected);
-    },
+	gotosearchbytag(){
+		//this.$router.replace({path:'/tag',query:{searchtag:this.index_selected,}});
+		if (this.$route.path != '/tag') {
+			this.$router.replace({path:'/tag',query:{searchtag:this.index_selected,}})
+		}
+		else {
+			//this.$router.reload({query:{searchkey:this.searchkey,}})
+			this.$router.push({query:{searchtag:this.index_selected,}})
+			this.reload();
+		}
+	},
+	getclick1(){
+	  this.index_selected=1;
+	  console.log(this.index_selected);
+	  this.gotosearchbytag();
+	},
     getclick2(){
       this.index_selected=2;
       console.log(this.index_selected);
+	  this.gotosearchbytag();
     },
     getclick3(){
       this.index_selected=3;
       console.log(this.index_selected);
+	  this.gotosearchbytag();
     },
     getclick4(){
       this.index_selected=4;
       console.log(this.index_selected);
+	  this.gotosearchbytag();
     },
     getclick5(){
       this.index_selected=5;
       console.log(this.index_selected);
+	  this.gotosearchbytag();
     },
     getclick6(){
       this.index_selected=6;
       console.log(this.index_selected);
+	  this.gotosearchbytag();
     },
     getclick7(){
       this.index_selected=7;
       console.log(this.index_selected);
+	  this.gotosearchbytag();
     },
-
   },
 };
 </script>
 
 <style>
+#LeftSidebar {
+	width: 220px;
+}
 .tac {
   
   position: relative; /*位置为相对位置*/
