@@ -1,53 +1,32 @@
 <!--这个文件可以理解成一个整体显示的效果，主要是将其余个组件放在一个网页中-->
 <template>
   <div id="app">
-    <router-view/>   
+    <router-view v-if="isReload"/>   
   </div>
 </template>
 
 <script>
-/*
-import DevicePixelRatio from './utils/devicePixelRatio';
-*/
+
 export default {
-	/*data() {
-	        return {
-	            fullWidth: document.documentElement.clientWidth
-	        };
-	    },*/
   name: "App",
-  /*
-  created() {
-      new DevicePixelRatio().init();
-  	}
-	
-   computed: {
-           ...mapGetters(['stageWidth'])
-       },
-       methods: {
-           handleResize() {
-               let that = this;
-               that.fullWidth = document.documentElement.clientWidth;
-               if (that.fullWidth < 768 && that.stageWidth == 'large') {
-                   that.$store.dispatch('app/changeWidth', 'small');
-               }
-               if (that.fullWidth > 768 && that.stageWidth == 'small') {
-                   that.$store.dispatch('app/changeWidth', 'large');
-               }
-           }
-       },
-       created() {
-           if (this.fullWidth < 768 && this.stageWidth == 'large') {
-               this.$store.dispatch('app/changeWidth', 'small');
-           }
-           if (this.fullWidth > 768 && this.stageWidth == 'small') {
-               this.$store.dispatch('app/changeWidth', 'large');
-           }
-           window.addEventListener('resize', this.handleResize);
-       },
-       beforeDestroy: function() {
-           window.removeEventListener('resize', this.handleResize);
-       }*/
+  provide() {
+	  return {
+		  reload: this.reload
+	  }
+  },
+  data(){
+	return {
+		isReload: true
+	}
+  },
+  methods: {
+	  reload() {
+		  this.isReload = false
+		  this.$nextTick(() => {
+			  this.isReload = true
+		  })
+	  }
+  }
 };
 
 </script>

@@ -1,6 +1,6 @@
 <!--这个文件可以理解成一个整体显示的效果，主要是将其余个组件放在一个网页中-->
 <template>
-  <div id="searchpage">
+  <div id="tagpage">
     <!--整个显示出来的是一个面板，看效果还很不好，之后要改-->
     <router-view/>
     <el-container class="panel">
@@ -15,9 +15,9 @@
           <myLeftSidebar></myLeftSidebar>
           <div>
 				<body>
-					搜索结果：{{search_key}}
+					分类：{{search_tag}}
 				</body>
-			    <myDisplay v-bind:searchkey = "search_key"></myDisplay>
+			    <myDisplay v-bind:searchtag = "search_tag"></myDisplay>
 		  </div>
           <myInformation></myInformation>
         </el-container>
@@ -35,7 +35,7 @@ import GLOBAL from '@/global/global';
 import axios from "axios";
 import "element-ui/lib/theme-chalk/index.css";
 export default {
-  name: "Searchpage",
+  name: "Tagpage",
   components: {
     myHeader: Header,
     myLeftSidebar: LeftSidebar,
@@ -44,28 +44,23 @@ export default {
   },
   data(){
 	  return{
-		  search_key: this.$route.query.searchkey,
+		  search_tag: this.$route.query.searchtag,
 	  }
   }
 };
 </script>
 
 <style>
-#searchpage {
+#tagpage {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /*margin-top: 60px;*/
- 
   float:center;
   margin:auto;
-  /*background-color: #FFFFFF;*/
 }
 #header {
-	/*line-height: 60px;*/
-	/*background-color: #3896C2;*/
 	text-align: center;
 	padding: unset;
 }

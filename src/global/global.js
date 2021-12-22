@@ -10,6 +10,7 @@ var currentUser_name="未登录"
 var currentUser_ID
 var isLogined=false
 var myAllProducts
+var strategy_1= 0
 export default{
     title,
     description,
@@ -23,4 +24,5 @@ export default{
     currentUser_ID,
     isLogined,
     myAllProducts,
+    strategy_1,
 }

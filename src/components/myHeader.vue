@@ -25,6 +25,7 @@ import MyCenter from './loginBar/myCenter.vue';
 import GLOBAL from '@/global/global'
 export default {
   components: { loginButton, MyCenter },
+  inject: ['reload'],
   data() {
     return {
       searchkey: "",
@@ -46,7 +47,14 @@ export default {
 		/*this.$router.replace("/search");*/
 		/*GLOBAL.searchkey = searchkey;
 		console.log(searchkey);*/
-		this.$router.replace({path:'/search',query:{searchkey:this.searchkey,}})
+		if (this.$route.path != '/search') {
+			this.$router.replace({path:'/search',query:{searchkey:this.searchkey,}})
+		}
+		else {
+			//this.$router.reload({query:{searchkey:this.searchkey,}})
+			this.$router.push({query:{searchkey:this.searchkey,}})
+			this.reload();
+		}
     },
     gotoHome()
     {

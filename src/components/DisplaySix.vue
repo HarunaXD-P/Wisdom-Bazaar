@@ -49,9 +49,9 @@
 		{{searchkey}}
 	</div>-->
     <div class="buttons" style="float:right">
+      <el-button class="sortbutton" @click="sortPrice"> 按价格排序 </el-button>
+      <el-button class="sortbutton" @click="sortCategory"> 按分类排序 </el-button>
       <el-button class="sortbutton" @click="sortId"> 按id排序 </el-button>
-      <el-button class="sortbutton" @click="sortTime"> 按时间排序 </el-button>
-      <el-button class="sortbutton" @click="sortUser"> 按用户排序 </el-button>
     </div>
     <myDisplay
       v-for="(item, index) in goods"
@@ -67,6 +67,7 @@ import Display from "@/components/Display";
 import DisplayOld from "@/components/displayOld";
 import axios from "axios";
 import "element-ui/lib/theme-chalk/index.css";
+import GLOBAL from '@/global/global.js'
 export default {
   name: "DisplaySix",
   props: ["searchkey"],
@@ -80,6 +81,7 @@ export default {
     myDisplay: Display,
     oldDisplay: DisplayOld,
   },
+  inject:['reload'],
   created: function () {
     this.initialize();
     this.title = "myTry";
@@ -91,11 +93,20 @@ export default {
       const path = "http://39.104.84.38:8080/usersearchproducts";
       var getGoods = {
         strategy_0: 0,
-        strategy_1: 0,
+        strategy_1: GLOBAL.strategy_1,
         source_id: 0,
         category_value: 0,
         key: this.searchkey,
       };
+	  if (this.searchtag > 0) {
+		  getGoods = {
+		    strategy_0: 1,
+		    strategy_1: 0,
+		    source_id: 0,
+		    category_value: this.searchtag,
+		  		key: "",
+		  };
+	  }
       axios.post(path, JSON.stringify(getGoods)).then(function (response) {
         that.goods = response.data;
         console.log(that.goods);
@@ -105,24 +116,18 @@ export default {
     debug() {
       console("I'm here");
     },
-    sortId() {
-      const that = this;
-      const path = "http://39.104.84.38:8080/usersearchproducts";
-      var getGoods = {
-        strategy_0:0,
-        strategy_1:2,
-        source_id:0,
-        category_value:0,
-        key:this.searchkey,
-      };
-      axios.post(path, JSON.stringify(getGoods)).then(function (response) {
-        that.goods = response.data;
-        console.log(that.goods);
-        //console.log(search_key);
-      });
+    sortPrice() {
+      GLOBAL.strategy_1=1;
+      this.reload();
     },
-    sortTime() {},
-    sortUser() {},
+    sortCategory() {
+      GLOBAL.strategy_1=2;
+      this.reload();
+    },
+    sortId() {
+      GLOBAL.strategy_1=3;
+      this.reload();
+    },
   },
 };
 </script>

@@ -56,6 +56,8 @@ export default {
 
   created: function () {
     this.get_my_products();
+    console.log("初始化页面")
+    
     if(this.type=="userallproducts"){
       this.action="发布";
     }else if(this.type=="mypurchase"){
