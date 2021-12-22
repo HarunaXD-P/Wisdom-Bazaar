@@ -104,7 +104,7 @@ export default {
 		    strategy_1: 0,
 		    source_id: 0,
 		    category_value: this.searchtag,
-		  		key: "",
+		  	key: "",
 		  };
 	  }
       axios.post(path, JSON.stringify(getGoods)).then(function (response) {

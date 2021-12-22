@@ -239,7 +239,7 @@
           :before-close="handleClose"
         >
           <!-- <repassword></repassword> -->
-          <span>确认购买</span>
+          <span>确认联系</span>
           <span slot="footer" class="dialog-footer">
             <el-button @click="dialog_buying_Visible = false">取 消</el-button>
             <el-button type="primary" @click="buyProduct">确 定</el-button>
@@ -322,6 +322,7 @@ export default {
           that.email=goods["email"];
           that.title=goods["wanted_name"];
           that.description=goods["description"];
+          that.price=goods["price"];
         });
     },
     handleClose(done) {
