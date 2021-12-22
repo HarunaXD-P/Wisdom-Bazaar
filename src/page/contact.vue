@@ -187,7 +187,7 @@
               width: 100%;
               height: 48px;
               margin-left: 41px;
-              margin-top: 0px;
+              margin-top: 50px;
               float: left;
               font-size: 36px;
               color: rgba(181, 161, 161, 1);
@@ -208,22 +208,7 @@
               float: left;
             "
           >
-            <button
-              type="button"
-              style="
-                height: 130px;
-                width: 480px;
-                float: left;
-                font-size: 48px;
-                background-color: rgba(255, 77, 79, 1);
-                border-radius: 15px;
-                color: white;
-                margin-top:20px;
-              "
-              @click="dialog_buying_Visible = true"
-            >
-              立即联系
-            </button>
+            
           </div>
         </div>
       </div>

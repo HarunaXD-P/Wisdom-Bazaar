@@ -25,7 +25,7 @@
           <body class="price">
             ￥9999
           </body>
-          <el-button class="button"> 联系 </el-button>
+          <el-seek_button class="seek_button"> 联系 </el-seek_button>
         </el-container>
       </el-footer>
     </el-container>
@@ -44,11 +44,11 @@
       <!--<img src="../assets/logo.png">-->
 
       <el-main>
-        <body class="product">
+        <body class="seek_product">
           {{ goodsDisplay.wanted_name }}
         </body>
 
-        <body class="introduction">
+        <body class="seek_introduction">
           {{ goodsDisplay.description }}
         </body>
         
@@ -60,7 +60,7 @@
         <!--这里要再加一个el-container，不然9999和联系这两个会纵向排列-->
         <!--el-container子元素中有 el-header 或 el-footer 时为 vertical，否则为 horizontal-->
 
-        <el-button class="button" @click="gotoContact"> 联系 </el-button>
+        <el-button class="seek_button" @click="gotoContact"> 联系 </el-button>
       </el-footer>
     </el-container>
   </div>
@@ -104,34 +104,35 @@ export default {
 /*一个面板的设置，一共有6个面板*/
 .panal1 {
   height: 400px; /*面板高度*/
-  background-color: #f0fff0; /*面板颜色*/
+  background-color: white; /*面板颜色*/
   width: 300px; /*面板宽度 */
   position: relative;
   /*margin: 10px, 10px, 10px, 10px;*/
-  border-top: 25px solid #f0fff0;
+  border-top: 25px solid white;
   border-radius: 25px;
+  box-shadow:2px 2px 15px rgb(184, 180, 180);
 }
 /*写着“联系”两个字的按钮*/
-.button {
+.seek_button {
   height: 40px; /*按钮高度*/
   width: 100px; /*按钮宽度*/
   background-color: red; /*按钮的背景颜色*/
   color: white; /*按钮的文字颜色*/
 }
-.price {
-  margin-top:10px;
-  color: red; /*字体颜色*/
-  position: relative;
-  top: 50px;
-  font-size: 25px;
-}
-.product {
+.seek_product {
   color: black;
-  font-size: 35px; /*字体大小*/
+  font-size: 30px; /*字体大小*/
   
   position: relative;
-  top: 50px;
   margin-left: 5px;
+  
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 .seek{
   color: red;
@@ -141,11 +142,11 @@ export default {
   top: 50px;
   margin-left: 5px;
 }
-.introduction {
+.seek_introduction {
   color: black;
-  font-size: 20px;
+  font-size: 18px;
   color:#708090;
-  margin-top:20px;
+  margin-top:auto;
   position: relative;
   overflow: hidden;
   word-wrap: break-word;
@@ -154,7 +155,6 @@ export default {
   -webkit-line-clamp: 3;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  top: 50px;
 }
 .pic {
 	width: 240px;

@@ -52,6 +52,7 @@
       <el-button class="sortbutton" @click="sortPrice"> 按价格排序 </el-button>
       <el-button class="sortbutton" @click="sortCategory"> 按分类排序 </el-button>
       <el-button class="sortbutton" @click="sortId"> 按id排序 </el-button>
+      <el-button class="sortbutton" @click="sortTime"> 按时间排序(默认) </el-button>
     </div>
     <myDisplay
       v-for="(item, index) in goods"
@@ -128,6 +129,10 @@ export default {
       GLOBAL.strategy_1=3;
       this.reload();
     },
+    sortTime(){
+      GLOBAL.strategy_1=0;
+      this.reload();
+    },
   },
 };
 </script>
@@ -139,8 +144,8 @@ export default {
   background-color: #ffffff;
 }
 .sortbutton {
-  background-color: blue;
-  color: white;
+ 
+ 
   float:right;
   margin:10px;
 }

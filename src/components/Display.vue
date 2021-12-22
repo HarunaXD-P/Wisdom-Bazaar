@@ -62,12 +62,13 @@ export default {
 /*一个面板的设置，一共有6个面板*/
 .panal1 {
   height: 400px; /*面板高度*/
-  background-color: #f0fff0; /*面板颜色*/
+  background-color: white; /*面板颜色*/
   width: 300px; /*面板宽度 */
   position: relative;
   /*margin: 10px, 10px, 10px, 10px;*/
-  border-top: 25px solid #f0fff0;
+  border-top: 25px solid white;
   border-radius: 25px;
+  box-shadow:2px 2px 15px rgb(184, 180, 180);
 }
 /*写着“联系”两个字的按钮*/
 .button {
@@ -107,7 +108,7 @@ export default {
   word-wrap: break-word;
   word-break: break-all;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
