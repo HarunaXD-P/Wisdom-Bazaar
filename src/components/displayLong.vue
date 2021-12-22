@@ -2,6 +2,7 @@
   <div v-if="display_total">
     <div id="longbar">
         <div id=img>
+          <img :src=local.photo id="photo">
         </div>
         <div id="content">
           <div style="font-size:40px">{{local.product_name}}</div>
@@ -81,7 +82,7 @@ export default {
         this.display_wechat=true;
 
       }else if(this.getType=="userallproducts"){
-
+        this.display_time=false;
       }
       else if(this.getType=="myfavorites"){
         this.display_time=false;
@@ -203,6 +204,10 @@ export default {
   background-color: brown;
   display: inline-block;
   float: left;
+}
+#photo{
+  width:150px;
+  height: 150px;
 }
 #price_num{
   width:300px;
