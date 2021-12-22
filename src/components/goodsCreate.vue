@@ -231,6 +231,10 @@
 						}
 					}
 				}).then(function() {
+					if(file.size>50*1024){
+						alert("图片过大，请上传小于50k的图");
+						reload();
+					}
 					GLOBAL.picture = "static/logo.jpg";
 					//在这里传给后端
 					const path = "http://39.104.84.38:8080/userpostproduct";
@@ -373,6 +377,7 @@
 	#selectCatagory {
 		float: left;
 	}
+
 	#button {
 		float: center;
 	}

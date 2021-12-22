@@ -9,30 +9,32 @@
           id="caimenu_sy"
           @mouseover="gd_changeBcolor($event, '#a2a19f')"
           @mouseleave="gd_changeBcolor($event, '#E8E7E3')"
-		  @click="gotoHome"
+          @click="gotoHome"
         >
-          <a  title="首页"> 首页 </a>
+          <a title="首页"> 首页 </a>
         </li>
         <li
           id="caimenu_sc"
           @mouseover="gd_changeBcolor($event, '#a2a19f')"
           @mouseleave="gd_changeBcolor($event, '#E8E7E3')"
+          @click="gotoHome"
         >
-          <a href="http://www.baidu.com" title="商城"> 商城 </a>
+          <a title="商城"> 商城 </a>
         </li>
         <li
           id="caimenu_qg"
           @mouseover="gd_changeBcolor($event, '#a2a19f')"
           @mouseleave="gd_changeBcolor($event, '#E8E7E3')"
+          @click="gotoSeek"
         >
-          <a href="http://www.baidu.com" title="求购"> 求购 </a>
+          <a title="求购"> 求购 </a>
         </li>
         <li
           id="caimenu_lxwm"
           @mouseover="gd_changeBcolor($event, '#a2a19f')"
           @mouseleave="gd_changeBcolor($event, '#E8E7E3')"
         >
-          <a href="http://www.baidu.com" title="联系我们"> 联系我们</a>
+          <a href="https://github.com/scarlyw/Wisdom-Bazaar" title="联系我们"> 联系我们</a>
         </li>
       </ul>
     </div>
@@ -305,6 +307,9 @@ export default {
 	  {
 	    this.$router.replace('/')
 	  },
+    gotoSeek(){
+      this.$router.replace("/seekGoods")
+    },
     selectToHide(){
       if(this.type==""){
 
