@@ -3,7 +3,7 @@
   <div class="LeftSidebar">
     <el-row class="tac">
       <el-col :span="24">
-        <span style="font-size: 24px;font-weight: 500;">商品分类</span>
+        <span style="font-size: 24px;font-weight: 500;margin-top:150px">商品分类</span>
         <el-menu
           default-active="1"
           class="el-menu-vertical-demo"
