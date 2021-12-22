@@ -17,22 +17,24 @@
           id="caimenu_sc"
           @mouseover="gd_changeBcolor($event, '#a2a19f')"
           @mouseleave="gd_changeBcolor($event, '#E8E7E3')"
+          @click="gotoHome"
         >
-          <a href="http://www.baidu.com" title="商城"> 商城 </a>
+          <a title="商城"> 商城 </a>
         </li>
         <li
           id="caimenu_qg"
           @mouseover="gd_changeBcolor($event, '#a2a19f')"
           @mouseleave="gd_changeBcolor($event, '#E8E7E3')"
+          @click="gotoSeek"
         >
-          <a href="http://www.baidu.com" title="求购"> 求购 </a>
+          <a title="求购"> 求购 </a>
         </li>
         <li
           id="caimenu_lxwm"
           @mouseover="gd_changeBcolor($event, '#a2a19f')"
           @mouseleave="gd_changeBcolor($event, '#E8E7E3')"
         >
-          <a href="http://www.baidu.com" title="联系我们"> 联系我们</a>
+          <a href="https://github.com/scarlyw/Wisdom-Bazaar" title="联系我们"> 联系我们</a>
         </li>
       </ul>
     </div>
@@ -46,8 +48,8 @@
             margin-left: 41px;
             margin-top: 0px;
             float: left;
-            font-size: 80px;
-            color: rgba(181, 161, 161, 1);
+            font-size: 60px;
+            color: black;
           "
         >
           {{this.title}}
@@ -199,17 +201,7 @@
           </div>
 
           <!-- 下面还有两个按钮 -->
-          <div
-            style="
-              height: 130px;
-              width: 535px;
-              margin-left: 42px;
-              margin-top: 42px;
-              float: left;
-            "
-          >
-            
-          </div>
+          
         </div>
       </div>
 
@@ -281,6 +273,9 @@ export default {
   methods: {
     gotoHome() {
       this.$router.replace("/");
+    },
+    gotoSeek(){
+      this.$router.replace("/seekGoods")
     },
     gd_changeBcolor(x, color) {
       x.currentTarget.style.background = color;

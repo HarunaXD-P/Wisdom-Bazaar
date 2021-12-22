@@ -15,7 +15,7 @@
           <myLeftSidebar></myLeftSidebar>
           <div>
 				<body>
-					分类：{{search_tag}}
+					分类：{{tag_name()}}
 				</body>
 			    <myDisplay v-bind:searchtag = "search_tag"></myDisplay>
 		  </div>
@@ -45,6 +45,32 @@ export default {
   data(){
 	  return{
 		  search_tag: this.$route.query.searchtag,
+	  }
+  },
+  methods:{
+	  tag_name(){
+		  switch (this.search_tag) {
+			  case "1":
+				return "二手书本";
+				break;
+			  case "2":
+				return "数码产品";
+				break;
+			  case "3":
+				return "票务转让";
+				break;
+			  case "4":
+				return "二手衣物";
+				break;
+			  case "5":
+				return "生活用品";
+				break;
+			  case "6":
+				return "运动装备";
+				break;
+			  default:
+				return "其他二手";
+		  }
 	  }
   }
 };
