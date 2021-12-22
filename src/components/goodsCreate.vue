@@ -257,6 +257,8 @@ export default {
             }
 					});
 				});
+        alert("发布成功");
+        this.$router.replace("/");
 		},
     gotoHome() {
       this.$router.replace("/");

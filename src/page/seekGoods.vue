@@ -30,16 +30,16 @@
       <el-header style="padding: unset">
         <myHeader> </myHeader>
       </el-header>
-      <el-main style="padding: unset;">
+      <el-main style="padding: unset">
         <el-container class="el-main-panel">
           <myLeftSidebar></myLeftSidebar>
           <div>
-          <seekDisplay
-            v-for="(item, index) in goods"
-            :key="index"
-            style="float: left; margin: 10px"
-            :goodsContent="goods[index]"
-          ></seekDisplay>
+            <seekDisplay
+              v-for="(item, index) in goods"
+              :key="index"
+              style="float: left; margin: 10px"
+              :goodsContent="goods[index]"
+            ></seekDisplay>
           </div>
           <myInformation></myInformation>
         </el-container>

@@ -6,11 +6,11 @@
         <div id="searchInput"><el-input
           placeholder="请输入"
           icon="search"
-          v-model="searchCriteria"
+          v-model="searchkey"
           :on-icon-click="handleIconClick"
         >
         </el-input></div>
-        <div id=searchButton><el-button  @click="switchPage()">搜索</el-button></div>
+        <div id=searchButton><el-button  @click="gotosearch()">搜索</el-button></div>
         
       </div>
       <span class="header" id="login">
@@ -25,9 +25,10 @@ import MyCenter from './loginBar/myCenter.vue';
 import GLOBAL from '@/global/global'
 export default {
   components: { loginButton, MyCenter },
+  inject: ['reload'],
   data() {
     return {
-      searchCriteria: "",
+      searchkey: "",
       breadcrumbItems: ["导航一"],
       currentView:GLOBAL.view,
       logined:GLOBAL.isLogined,
@@ -41,24 +42,19 @@ export default {
     handleIconClick(ev) {
       console.log(ev);
     },
-    switchPage()
+    gotosearch()
     {
-      if(this.logined==false)
-        {
-          this.logined=true
-          if(this.logined==true) {
-            this.currentView=MyCenter;
-            GLOBAL.view=MyCenter;
-          }
-        }
-      else {
-        this.logined=false
-        if(this.logined==false) {
-          this.currentView=loginButton;
-          GLOBAL.view=loginButton;
-        }
-
-      }
+		/*this.$router.replace("/search");*/
+		/*GLOBAL.searchkey = searchkey;
+		console.log(searchkey);*/
+		if (this.$route.path != '/search') {
+			this.$router.replace({path:'/search',query:{searchkey:this.searchkey,}})
+		}
+		else {
+			//this.$router.reload({query:{searchkey:this.searchkey,}})
+			this.$router.push({query:{searchkey:this.searchkey,}})
+			this.reload();
+		}
     },
     gotoHome()
     {
@@ -84,11 +80,6 @@ export default {
 }
 #login {
   float: right;
-  /*
-  margin-left: 200px;
-  display: flex;
-  */
-  
   margin:auto;
   margin-right:0px;
 }
@@ -96,7 +87,6 @@ export default {
   float: left;
   color: white;
 	margin: auto;
-	/*margin-left: 300px;*/
   width: 500px;
   position: relative;
   display: flex;

@@ -147,6 +147,8 @@ export default {
           // response.setContentType("text/javascript;charset=UTF-8");
           var goods = response.data;    
         });
+        alert("发布成功");
+        this.$router.replace("/");
     },
     gotoHome() {
       this.$router.replace("/");
